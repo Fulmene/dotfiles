@@ -1,10 +1,17 @@
 #!/bin/bash
 
-for config in ./*; do
-    if [[ -d $config ]] && [[ -f $config/install.sh ]] && [[ -x $config/install.sh ]]; then
-        cp common/current_dir.sh $config
-        $config/install.sh
-        rm $config/current_dir.sh
+if [[ -n "$@" ]]; then
+    target=$@
+else
+    target=*
+fi
+
+for config_dir in $target; do
+    if [[ -d $config_dir ]] && [[ -f $config_dir/install.sh ]] && [[ -x $config_dir/install.sh ]]; then
+        echo "Installing ${config_dir}..."
+        cp common/current_dir.sh $config_dir
+        ./$config_dir/install.sh
+        rm $config_dir/current_dir.sh
     fi
 done
 
