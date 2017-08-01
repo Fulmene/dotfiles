@@ -1,11 +1,11 @@
 #!/bin/bash
 
 pushd . > /dev/null
-script_dir="${BASH_SOURCE[0]}";
-if ([ -h "${script_dir}" ]) then
-  while([ -h "${script_dir}" ]) do cd `dirname "$script_dir"`; script_dir=`readlink "${script_dir}"`; done
+current_dir="${BASH_SOURCE[0]}";
+if ([ -h "${current_dir}" ]) then
+  while([ -h "${current_dir}" ]) do cd `dirname "$current_dir"`; current_dir=`readlink "${current_dir}"`; done
 fi
-cd `dirname ${script_dir}` > /dev/null
-script_dir=`pwd`;
+cd `dirname ${current_dir}` > /dev/null
+current_dir=`pwd`;
 popd  > /dev/null
 

@@ -1,11 +1,9 @@
 #!/bin/bash
 
-# Add $script_dir variable as the script directory
-cp ../common/current_dir.sh .
-source ./current_dir.sh
+source neovim/current_dir.sh
 
 # File paths
-source_config_dir=$script_dir
+source_config_dir=$current_dir/config
 source_init_vim_file=$source_config_dir/init.vim
 source_settings_dir=$source_config_dir/settings
 source_plugin_dir=$source_config_dir/plugin
@@ -26,7 +24,5 @@ ln -s $source_init_vim_file $dest_init_vim_file
 ln -s $source_settings_dir/* $dest_settings_dir
 ln -s $source_plugin_dir/* $dest_plugin_dir
 
-source dein.sh
-
-rm ./current_dir.sh
+source $current_dir/dein.sh
 
