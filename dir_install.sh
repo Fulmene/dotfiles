@@ -15,5 +15,6 @@ else
 fi
 
 shopt -s dotglob
+mkdir -p $install_dir
 ln -sf $current_dir/config/* $install_dir
 
