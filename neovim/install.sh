@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source neovim/current_dir.sh
+source current_dir.sh
 
 # File paths
 source_config_dir=$current_dir/config
