@@ -13,7 +13,6 @@ if dein#load_state(expand(pluginpath))
   call dein#add('twerth/ir_black')
 
   call dein#add('scrooloose/nerdtree', {'on_cmd': 'NERDTreeToggle'})
-  call dein#add('scrooloose/nerdcommenter')
 
   call dein#add('neomake/neomake')
 
