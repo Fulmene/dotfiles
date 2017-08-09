@@ -35,9 +35,9 @@ fi
 # -- End System xinitrc -- #
 
 # -- Use NVIDIA driver -- #
-xrandr --setprovideroutputsource modesetting NVIDIA-0
-xrandr --auto
-xrandr --dpi 96
+# xrandr --setprovideroutputsource modesetting NVIDIA-0
+# xrandr --auto
+# xrandr --dpi 96
 
 # -- Use IBus -- #
 export GTK_IM_MODULE=ibus
