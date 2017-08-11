@@ -1,0 +1,34 @@
+#
+# ~/.inputrc
+#
+
+$include /etc/inputrc
+
+set editing-mode vi
+
+set colored-stats on
+set horizontal-scroll-mode on
+set show-all-if-ambiguous on
+
+$if mode=vi
+
+set show-mode-in-prompt on
+set vi-cmd-mode-string "CMD "
+set vi-ins-mode-string "INS "
+
+set keymap vi-command
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+k: history-search-backward
+j: history-search-forward
+
+set keymap vi-insert
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+$else
+
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+$endif
