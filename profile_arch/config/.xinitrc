@@ -35,7 +35,7 @@ fi
 # -- End System xinitrc -- #
 
 # -- QT5 config tool -- #
-QT_QPA_PLATFORMTHEME="qt5ct"
+export QT_QPA_PLATFORMTHEME="qt5ct"
 
 # -- VDPAU for intel card -- #
 export VDPAU_DRIVER=va_gl
