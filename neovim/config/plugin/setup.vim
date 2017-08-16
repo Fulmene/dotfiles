@@ -1,4 +1,5 @@
 colorscheme wal
+highlight CursorLine ctermbg=238
 
 " NERDTree Key
 nnoremap <leader>n :NERDTreeToggle<CR>
