@@ -1,4 +1,4 @@
-colorscheme ir_black
+colorscheme wal
 
 " NERDTree Key
 nnoremap <leader>n :NERDTreeToggle<CR>

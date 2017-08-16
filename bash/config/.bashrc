@@ -49,3 +49,11 @@ PROMPT_COMMAND=prompt
 # -- Extended completion -- #
 source /usr/share/bash-completion/bash_completion
 
+# -- Wine font -- #
+alias wine='env FREETYPE_PROPERTIES="truetype:interpreter-version=35" wine'
+alias winecfg='env FREETYPE_PROPERTIES="truetype:interpreter-version=35" winecfg'
+alias winetricks='env FREETYPE_PROPERTIES="truetype:interpreter-version=35" winetricks'
+
+# -- PyWal colourscheme -- #
+(wal -rt &)
+
