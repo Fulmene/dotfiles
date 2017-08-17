@@ -16,6 +16,7 @@ exec "source " . pluginpath . "/dein.vim"
 
 exec "source " . settingspath . "/general.vim"
 exec "source " . settingspath . "/keys.vim"
+exec "source " . settingspath . "/terminal.vim"
 exec "source " . settingspath . "/local.vim"
 
 exec "source " . pluginpath . "/setup.vim"
