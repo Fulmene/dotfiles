@@ -4,11 +4,8 @@
 
 # -- Environment variables -- #
 export EDITOR=nvim
+export SUDO_EDITOR=nvim
 export PATH=~/bin:~/.local/bin:$PATH
-
-# -- Wine -- #
-export WINEARCH=win32
-export WINEDEBUG=-all
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 

@@ -3,3 +3,5 @@
 [user]
 	name = Ada Joule
 	email = ada.fulmina@gmail.com
+[color]
+	ui = true
