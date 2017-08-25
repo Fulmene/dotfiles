@@ -1,3 +1,0 @@
-# -- PyWal colourscheme -- #
-(wal -rt &)
-

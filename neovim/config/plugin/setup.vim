@@ -1,4 +1,4 @@
-colorscheme wal
+colorscheme ir_black
 highlight CursorLine ctermbg=238
 
 " NERDTree Key
