@@ -33,3 +33,5 @@ set magic             " Regular expressions
 
 set autoread
 
+let $VISUAL = 'nvr -cc split --remote-wait'         " Split instead of nested editor inside neovim terminal
+
