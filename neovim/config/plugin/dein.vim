@@ -15,6 +15,8 @@ if dein#load_state(expand(pluginpath))
   call dein#add('scrooloose/nerdtree', {'on_cmd': 'NERDTreeToggle'})
 
   call dein#add('neomake/neomake')
+  call dein#add('tpope/vim-dispatch')
+  call dein#add('radenling/vim-dispatch-neovim')
 
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')

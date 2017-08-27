@@ -13,5 +13,5 @@ augroup neomake_lint
   autocmd BufWritePost * Neomake
 augroup END
 " Neomake + Fugitive Gpush and Gfetch
-command! -bang -nargs=* -complete=file Make Neomake! <args>
+" command! -bang -nargs=* -complete=file Make Neomake! <args>
 
