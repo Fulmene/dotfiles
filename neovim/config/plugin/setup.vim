@@ -9,7 +9,7 @@ nnoremap <leader>n :NERDTreeToggle<CR>
 
 " Neomake
 augroup neomake_lint
-  autocmd!
-  autocmd BufWritePost * Neomake
+	autocmd!
+	autocmd BufWritePost * Neomake
 augroup END
 
