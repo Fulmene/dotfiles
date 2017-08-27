@@ -22,6 +22,7 @@ if dein#load_state(expand(pluginpath))
 	call dein#add('vim-airline/vim-airline-themes')
 
 	call dein#add('tpope/vim-fugitive')
+	call dein#add('tpope/vim-rhubarb')
 
 	call dein#end()
 	call dein#save_state()
