@@ -7,17 +7,10 @@
 
 # -- Colour -- #
 if which tput >&/dev/null; then
-    if tput setaf 9 >&/dev/null; then
-        colour_red="$(tput setaf 9)"
-        colour_green="$(tput setaf 10)"
-        colour_yellow="$(tput setaf 11)"
-        colour_cyan="$(tput setaf 14)"
-    elif tput setaf 1 >&/dev/null; then
-        colour_red="$(tput setaf 1)"
-        colour_green="$(tput setaf 2)"
-        colour_yellow="$(tput setaf 3)"
-        colour_cyan="$(tput setaf 6)"
-    fi
+    colour_red="$(tput setaf 1)"
+    colour_green="$(tput setaf 2)"
+    colour_yellow="$(tput setaf 3)"
+    colour_cyan="$(tput setaf 6)"
     term_reset="$(tput sgr0)"
 fi
 

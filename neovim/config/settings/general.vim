@@ -1,6 +1,6 @@
 augroup startup
-	autocmd!
-	autocmd BufNewFile,BufReadPost,FilterReadPost,FileReadPost * :set number            " Always show line number on new buffer
+    autocmd!
+    autocmd BufNewFile,BufReadPost,FilterReadPost,FileReadPost * :set number            " Always show line number on new buffer
 augroup end
 set nowrap
 
@@ -8,9 +8,9 @@ set nobackup        " Don't use backup file
 
 set cursorline
 augroup CursorLine
-	autocmd!
-	autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-	autocmd WinLeave * setlocal nocursorline
+    autocmd!
+    autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    autocmd WinLeave * setlocal nocursorline
 augroup END
 
 " Tab
