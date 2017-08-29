@@ -17,6 +17,7 @@ augroup END
 set tabstop=4
 set shiftwidth=0
 set softtabstop=-1
+set expandtab
 
 " UTF-8
 set encoding=utf-8
