@@ -1,0 +1,9 @@
+OPTIONS=name:Fulmina
+
+OPTIONS=noautopickup, autoquiver
+
+OPTIONS=boulder:0
+
+OPTIONS=color, hilite_pet, hilite_pile, lit_corridor
+
+OPTIONS=menucolors
