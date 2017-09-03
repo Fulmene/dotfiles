@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 # -- Colour -- #
-if which tput >&/dev/null; then
+if which tput &> /dev/null; then
     colour_red="$(tput setaf 1)"
     colour_green="$(tput setaf 2)"
     colour_yellow="$(tput setaf 3)"
