@@ -8,6 +8,10 @@ export EDITOR=nvim
 export SUDO_EDITOR=nvim
 export PATH=~/bin:~/.local/bin:$PATH
 
+# -- GNOME keyring -- #
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+
 [[ -f ~/.bashrc ]] && . ~/.bashrc &> /dev/null
 
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
