@@ -56,14 +56,14 @@ myKeys = [
     ((mod1Mask .|. shiftMask, xK_q), spawn myLogoutDialog) ,
     ((mod4Mask, xK_l), spawn myScreenLock)
     ]
-myRunDialog = "rofi -location 1 -yoffset 30 -combi-modi window,drun -show combi -modi combi"
+myRunDialog = "rofi -location 1 -yoffset 20 -combi-modi window,drun -show combi -modi combi"
 myLogoutDialog = "echo -e \"" ++ (unlines myLogoutOptions) ++ "\" | rofi -dmenu -p 'quit:' | { read option; systemctl $option; }"
     where myLogoutOptions = ["poweroff", "reboot", "suspend"]
 myScreenLock = "cinnamon-screensaver-command --lock -m '" ++ myScreenLockMessage ++ "'"
 myScreenLockMessage = "Exploring the power of freedom."
 
-myLayoutHook = onWorkspaces ["Game", "Media", "VM"] (noBorders Full) $
-               avoidStruts $ layoutHook def
+myLayoutHook = onWorkspaces [ "Game", "Media", "VM" ] (noBorders Full) $
+               layoutHook def
 
 myManageHook = customManageHook <+> manageDocks
 customManageHook = composeAll . concat $ [
