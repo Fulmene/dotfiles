@@ -1,7 +1,13 @@
 import XMonad
+
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+
+import XMonad.Layout.PerWorkspace
+import XMonad.Layout.OneBig
+import XMonad.Layout.Fullscreen
 import XMonad.Layout.NoBorders
+
 import XMonad.Util.EZConfig
 
 import qualified Data.Map as Map
@@ -9,22 +15,24 @@ import Control.Monad
 
 main = do
     xmonad =<< statusBar myStatusBar myPP myToggleStruts (
-        def {
-            terminal            = myTerminal ,
-            focusFollowsMouse   = myFocusFollowsMouse ,
-            clickJustFocuses    = myClickJustFocuses ,
+        -- fullscreenSupport (
+            def {
+                    terminal            = myTerminal ,
+                    focusFollowsMouse   = myFocusFollowsMouse ,
+                    clickJustFocuses    = myClickJustFocuses ,
 
-            borderWidth         = myBorderWidth ,
-            normalBorderColor   = myNormalBorderColor ,
-            focusedBorderColor  = myFocusedBorderColor ,
+                    borderWidth         = myBorderWidth ,
+                    normalBorderColor   = myNormalBorderColor ,
+                    focusedBorderColor  = myFocusedBorderColor ,
 
-            workspaces          = myWorkspaces ,
-            modMask             = myModMask ,
+                    workspaces          = myWorkspaces ,
+                    modMask             = myModMask ,
 
-            layoutHook          = myLayoutHook ,
-            manageHook          = myManageHook
-            }
+                    layoutHook          = myLayoutHook ,
+                    manageHook          = myManageHook
+                }
             `additionalKeys` myKeys
+            -- )
         )
 
 myStatusBar = "xmobar"
@@ -48,13 +56,14 @@ myKeys = [
     ((mod1Mask .|. shiftMask, xK_q), spawn myLogoutDialog) ,
     ((mod4Mask, xK_l), spawn myScreenLock)
     ]
-myRunDialog = "rofi -location 1 -yoffset 30 -combi-modi window,drun -show combi -modi combi -p 'Application> '"
-myLogoutDialog = "echo -e \"" ++ (unlines myLogoutOptions) ++ "\" | rofi -dmenu -p 'Quit> ' | { read option; systemctl $option; }"
+myRunDialog = "rofi -location 1 -yoffset 30 -combi-modi window,drun -show combi -modi combi"
+myLogoutDialog = "echo -e \"" ++ (unlines myLogoutOptions) ++ "\" | rofi -dmenu -p 'quit:' | { read option; systemctl $option; }"
     where myLogoutOptions = ["poweroff", "reboot", "suspend"]
 myScreenLock = "cinnamon-screensaver-command --lock -m '" ++ myScreenLockMessage ++ "'"
 myScreenLockMessage = "Exploring the power of freedom."
 
-myLayoutHook = avoidStruts $ layoutHook def
+myLayoutHook = onWorkspaces ["Game", "Media", "VM"] (noBorders Full) $
+               avoidStruts $ layoutHook def
 
 myManageHook = customManageHook <+> manageDocks
 customManageHook = composeAll . concat $ [
