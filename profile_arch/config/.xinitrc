@@ -59,7 +59,6 @@ trayer --edge top --align right --widthtype pixel --width 82 --heighttype pixel 
 redshift &
 nm-applet &
 sleep 3 && kalu &
-orage &
 
 cinnamon-screensaver &
 
