@@ -9,7 +9,7 @@ Config {
     -- Behaviour
     overrideRedirect = False ,
 
-    template = "%StdinReader% %uptime% %cpu% %cpufreq% %coretemp% %memory% Disk %diskio% %dynnetwork% %battery%}{%kbd% %date%" ,
+    template = "%StdinReader% | %uptime% | %cpu% %cpufreq% %coretemp% | %memory% | Disk %diskio% | %dynnetwork%}{%battery% | %kbd% | %date%" ,
 
     commands = [
 
@@ -53,22 +53,18 @@ Config {
             Run Battery [
                     "--template", "Bat <left>% / <timeleft>" ,
                     "--ppad", "3"
-                    -- "--" ,
-                        -- "-o", "<left>% (<timeleft>)" ,
-                        -- "-O", "Charging" ,
-                        -- "-i", "Charged"
                 ]
                 50 ,
 
             Run DiskIO [
-                    ("sda", "<read> <write>")
+                    ("sda", "<read>/<write>")
                 ] [
                     "--width", "4"
                 ]
                 10 ,
 
             Run DynNetwork [
-                    "--template", "Net <rx>KB/s|<tx>KB/s" ,
+                    "--template", "Net<rx>KB/s/<tx>KB/s" ,
                     "--width", "4"
                 ]
                 10 ,
@@ -82,7 +78,7 @@ Config {
                     ("gr", "GR")
                 ] ,
 
-            Run Date "%a %b %e %H:%M" "date" 10 ,
+            Run Date "<action='orage'>%a %b %e %H:%M</action>" "date" 10 ,
 
             Run StdinReader
         ]
