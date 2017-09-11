@@ -1,6 +1,6 @@
 Config {
     -- Appearance
-    font = "xft:Inconsolata:size=11:bold:antialias=true" ,
+    font = "xft:Noto Mono:size=9:bold:antialias=true" ,
     bgColor = "#0C2A19" ,
     fgColor = "#F4DFD3" ,
     alpha = 204 ,
