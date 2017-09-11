@@ -37,7 +37,7 @@ myStatusBar = "xmobar"
 myPP = xmobarPP
 myToggleStruts XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
-myTerminal = "xfce4-terminal"
+myTerminal = "termite"
 
 myFocusFollowsMouse = False
 myClickJustFocuses = False
