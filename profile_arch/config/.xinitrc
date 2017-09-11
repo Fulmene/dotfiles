@@ -53,9 +53,10 @@ start-pulseaudio-x11 &
 xsetroot -cursor_name left_ptr &
 
 compton &
-wal -R &
+bash ~/.wallpapers/wp_init.sh &
 trayer --edge top --align right --widthtype pixel --width 82 --heighttype pixel --height 20 --SetDockType true --SetPartialStrut true --transparent true --alpha 51 --tint 0x0C192A &
 
+redshift &
 sleep 10 && nm-applet &
 sleep 15 && kalu &
 
