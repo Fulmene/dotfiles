@@ -1,15 +1,15 @@
 Config {
     -- Appearance
-    font = "xft:Noto Mono:size=9:bold:antialias=true" ,
+    font = "xft:Noto Mono:size=8:bold:antialias=true" ,
     bgColor = "#0C2A19" ,
     fgColor = "#F4DFD3" ,
     alpha = 204 ,
-    position = TopSize L 94 20 ,
+    position = TopW L 94 ,
 
     -- Behaviour
     overrideRedirect = False ,
 
-    template = "%StdinReader% | %uptime% | %cpu% %cpufreq% %coretemp% | %memory% | Disk %diskio% | %dynnetwork%}{%default:Master% | %battery% | %kbd% | %date%" ,
+    template = "%StdinReader% | %uptime% | %cpu% %cpufreq% %coretemp% | %memory% | Disk %diskio% | %dynnetwork%}{%default:Master% | %battery% | %kbd% | %date% " ,
 
     commands = [
 

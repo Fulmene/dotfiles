@@ -54,7 +54,7 @@ xsetroot -cursor_name left_ptr &
 
 compton &
 bash ~/.wallpapers/wp_init.sh &
-trayer --edge top --align right --widthtype pixel --width 82 --heighttype pixel --height 20 --SetDockType true --SetPartialStrut true --transparent true --alpha 51 --tint 0x0C192A &
+trayer --edge top --align right --widthtype pixel --width 82 --heighttype pixel --height 17 --SetDockType true --SetPartialStrut true --transparent true --alpha 51 --tint 0x0C192A &
 
 redshift &
 sleep 10 && nm-applet &
