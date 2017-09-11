@@ -1,6 +1,6 @@
 Config {
     -- Appearance
-    font = "xft:Noto Mono:size=9:bold:antialias=true" ,
+    font = "xft:Inconsolata:size=11:bold:antialias=true" ,
     bgColor = "#0C2A19" ,
     fgColor = "#F4DFD3" ,
     alpha = 204 ,
@@ -9,28 +9,81 @@ Config {
     -- Behaviour
     overrideRedirect = False ,
 
-    -- template = "%battery% | %StdinReader%" ,
-    template = "%multicpu% %battery% %StdinReader%}{" ,
+    template = "%StdinReader% %uptime% %cpu% %cpufreq% %coretemp% %memory% Disk %diskio% %dynnetwork% %battery%}{%kbd% %date%" ,
 
     commands = [
-            Run MultiCpu [
-                    "--template", "CPU <autototal>" ,
-                    -- "CPU [<total0>%|<total1>%|<total2>%|<total3>%|<total4>%|<total5>%|<total6>%|<total7>%]" ,
+
+            Run Uptime [
+                    "--template", "<days>d <hours>h <minutes>m" ,
+                    "--width", "2"
+                ]
+                60 ,
+
+            Run Cpu [
+                    "--template", "CPU <total>%" ,
                     "--Low", "30" ,
                     "--High", "70" ,
                     "--low", "green" ,
                     "--normal", "orange" ,
                     "--high", "red" ,
-                    "--suffix", "true" ,
                     "--ppad", "3"
-                ] 10 ,
+                ]
+                10 ,
+
+            Run CpuFreq [
+                    "--template", "<cpu0>" ,
+                    "--width", "4"
+                ]
+                10 ,
+
+            Run CoreTemp [
+                    "--template", "Tmp <core0>C" ,
+                    "--width", "2"
+                ]
+                10 ,
+
+            Run Memory [
+                    "--template", "Mem <usedratio>%" ,
+                    "--Low", "20" ,
+                    "--High", "60",
+                    "--ppad", "3"
+                ]
+                10 ,
+
             Run Battery [
-                    "--template", "<acstatus>" ,
-                    "--" ,
-                        "-o", "<left>% (<timeleft>)" ,
-                        "-O", "Charging" ,
-                        "-i", "Charged"
-                ] 50 ,
+                    "--template", "Bat <left>% / <timeleft>" ,
+                    "--ppad", "3"
+                    -- "--" ,
+                        -- "-o", "<left>% (<timeleft>)" ,
+                        -- "-O", "Charging" ,
+                        -- "-i", "Charged"
+                ]
+                50 ,
+
+            Run DiskIO [
+                    ("sda", "<read> <write>")
+                ] [
+                    "--width", "4"
+                ]
+                10 ,
+
+            Run DynNetwork [
+                    "--template", "Net <rx>KB/s|<tx>KB/s" ,
+                    "--width", "4"
+                ]
+                10 ,
+
+            -- Run Volume "default" "Master" [] 10 ,
+
+            Run Kbd [
+                    ("us", "EN") ,
+                    ("th", "TH") ,
+                    ("jp", "JP") ,
+                    ("gr", "GR")
+                ] ,
+
+            Run Date "%a %b %e %H:%M" "date" 10 ,
+
             Run StdinReader
         ]
 }
