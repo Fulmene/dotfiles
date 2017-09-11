@@ -58,8 +58,6 @@ myKeys = [
     ]
 myRunDialog = "rofi -location 1 -yoffset 17 -combi-modi window,drun -show combi -modi combi"
 myLogoutDialog = "rofi-logout"
--- myLogoutDialog = "echo -e \"" ++ (unlines myLogoutOptions) ++ "\" | rofi -dmenu -p 'quit:' | { read option; systemctl $option; }"
-    -- where myLogoutOptions = ["poweroff", "reboot", "suspend"]
 myScreenLock = "cinnamon-screensaver-command --lock -m '" ++ myScreenLockMessage ++ "'"
 myScreenLockMessage = "Exploring the power of freedom."
 
@@ -69,5 +67,9 @@ myLayoutHook = onWorkspaces [ "Game", "Media", "VM" ] (noBorders Full) $
 myManageHook = customManageHook <+> manageDocks
 customManageHook = composeAll . concat $ [
         -- TODO add manageHook
-    ]
+        [ className =? c --> doFloat | c <- floatClass ]
+    ] where
+        floatClass = [
+                "Orage"
+            ]
 
