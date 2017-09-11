@@ -2,6 +2,7 @@ import XMonad
 
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.EwmhDesktops
 
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.OneBig
@@ -15,7 +16,7 @@ import Control.Monad
 
 main = do
     xmonad =<< statusBar myStatusBar myPP myToggleStruts (
-        -- fullscreenSupport (
+            ewmh
             def {
                     terminal            = myTerminal ,
                     focusFollowsMouse   = myFocusFollowsMouse ,
@@ -32,7 +33,6 @@ main = do
                     manageHook          = myManageHook
                 }
             `additionalKeys` myKeys
-            -- )
         )
 
 myStatusBar = "xmobar"
