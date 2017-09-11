@@ -31,7 +31,7 @@ main = do
 myStatusBar = "xmobar"
 myPP = xmobarPP
 myToggleStruts XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
-mySystemTray = "trayer --edge top --align right --widthtype pixel --width 137 --heighttype pixel --height 30 --SetDockType true --SetPartialStrut true --transparent true --alpha 51 --tint 0x0C192A --expand true"
+mySystemTray = "trayer --edge top --align right --widthtype pixel --width 137 --heighttype pixel --height 20 --SetDockType true --SetPartialStrut true --transparent true --alpha 51 --tint 0x0C192A --expand true"
 myCompositor = "compton"
 myDesktopBackground = "wal -R"
 myScreenSaver = "cinnamon-screensaver"

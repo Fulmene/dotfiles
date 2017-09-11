@@ -1,13 +1,37 @@
 Config {
     -- Appearance
-    font = "xft:Inconsolata:size=12:bold:antialias=true"
-    bgColor = "#0C2A19"
-    fgColor = "#F4DFD3"
-    alpha = 204
-    position = TopSize L 90 30
+    font = "xft:Noto Mono:size=9:bold:antialias=true" ,
+    bgColor = "#0C2A19" ,
+    fgColor = "#F4DFD3" ,
+    alpha = 204 ,
+    position = TopSize L 90 20 ,
 
     -- Behaviour
-    -- lowerOnStart = True
-    overrideRedirect = False
+    overrideRedirect = False ,
+
+    -- template = "%battery% | %StdinReader%" ,
+    template = "%multicpu% %battery% %StdinReader%}{" ,
+
+    commands = [
+            Run MultiCpu [
+                    "--template", "CPU <autototal>" ,
+                    -- "CPU [<total0>%|<total1>%|<total2>%|<total3>%|<total4>%|<total5>%|<total6>%|<total7>%]" ,
+                    "--Low", "30" ,
+                    "--High", "70" ,
+                    "--low", "green" ,
+                    "--normal", "orange" ,
+                    "--high", "red" ,
+                    "--suffix", "true" ,
+                    "--ppad", "3"
+                ] 10 ,
+            Run Battery [
+                    "--template", "<acstatus>" ,
+                    "--" ,
+                        "-o", "<left>% (<timeleft>)" ,
+                        "-O", "Charging" ,
+                        "-i", "Charged"
+                ] 50 ,
+            Run StdinReader
+        ]
 }
 
