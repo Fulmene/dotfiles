@@ -11,13 +11,9 @@ import XMonad.Layout.NoBorders
 
 import XMonad.Util.EZConfig
 
-import qualified Data.Map as Map
-import Control.Monad
-
 main = do
     xmonad =<< statusBar myStatusBar myPP myToggleStruts (
-            ewmh
-            def {
+            ewmh def {
                     terminal            = myTerminal ,
                     focusFollowsMouse   = myFocusFollowsMouse ,
                     clickJustFocuses    = myClickJustFocuses ,
@@ -50,12 +46,12 @@ myFocusedBorderColor = "#F4DFD3"
 
 myWorkspaces = [ "Work", "Web", "Game", "Media", "VM" ]
 myModMask = mod1Mask
-myKeys = [
-    -- Run applications
-    ((mod1Mask .|. shiftMask, xK_r), spawn myRunDialog) ,
-    ((mod1Mask .|. shiftMask, xK_q), spawn myLogoutDialog) ,
-    ((mod4Mask, xK_l), spawn myScreenLock)
-    ]
+myKeys = spawnKeys where
+    spawnKeys = [
+            ((mod1Mask .|. shiftMask, xK_r), spawn myRunDialog) ,
+            ((mod1Mask .|. shiftMask, xK_q), spawn myLogoutDialog) ,
+            ((mod4Mask, xK_l), spawn myScreenLock)
+        ]
 myRunDialog = "rofi -location 1 -yoffset 17 -combi-modi window,drun -show combi -modi combi"
 myLogoutDialog = "rofi-logout"
 myScreenLock = "cinnamon-screensaver-command --lock -m '" ++ myScreenLockMessage ++ "'"
