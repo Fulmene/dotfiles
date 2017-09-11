@@ -14,7 +14,7 @@ search_wrap = true
 #geometry = 640x480
 
 # "system", "on" or "off"
-cursor_blink = system
+cursor_blink = off
 
 # "block", "underline" or "ibeam"
 cursor_shape = block
@@ -33,7 +33,7 @@ filter_unmatched_urls = true
 
 [colors]
 #cursor = #dcdccc
-#cursor_foreground = #dcdccc
+cursor_foreground = #0C192A
 #foreground = #dcdccc
 #foreground_bold = #ffffff
 #background = #3f3f3f
