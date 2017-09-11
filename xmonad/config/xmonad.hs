@@ -11,6 +11,8 @@ import XMonad.Layout.NoBorders
 
 import XMonad.Util.EZConfig
 
+import Graphics.X11.ExtraTypes.XF86
+
 main = do
     xmonad =<< statusBar myStatusBar myPP myToggleStruts (
             ewmh def {
@@ -46,13 +48,23 @@ myFocusedBorderColor = "#F4DFD3"
 
 myWorkspaces = [ "Work", "Web", "Game", "Media", "VM" ]
 myModMask = mod1Mask
-myKeys = spawnKeys where
+myKeys = spawnKeys ++ hardwareKeys where
     spawnKeys = [
             ((mod1Mask, xK_p), spawn myDesktopRunDialog) ,
             ((mod1Mask .|. shiftMask, xK_p), spawn myRunDialog) ,
             ((mod1Mask .|. shiftMask, xK_q), spawn myLogoutDialog) ,
             ((mod4Mask, xK_l), spawn myScreenLock)
         ]
+    hardwareKeys = [
+            ((0, xF86XK_TouchpadToggle), spawn $ "xinput-toggle " ++ touchpad) ,
+            ((0, xF86XK_AudioMute), spawn $ mute "toggle") ,
+            ((0, xF86XK_AudioLowerVolume), spawn $ mute "false" ++ "; " ++ lowerVolume) ,
+            ((0, xF86XK_AudioRaiseVolume), spawn $ mute "false" ++ "; " ++ raiseVolume)
+        ] where
+        touchpad = "'FocalTechPS/2 FocalTech Touchpad'"
+        mute mode = "pactl set-sink-mute 0 " ++ mode
+        lowerVolume = "pactl set-sink-volume 0 -5%"
+        raiseVolume = "pactl set-sink-volume 0 +5%"
 
 myDesktopRunDialog = "rofi -location 1 -yoffset 17 -combi-modi window,drun -show combi -modi combi -display-combi drun"
 myRunDialog = "rofi -location 1 -yoffset 17 -show run"
