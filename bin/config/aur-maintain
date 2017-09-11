@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [[ $# -lt 1 ]]; then
+    echo 'Usage: aur-create pkg ...'
+    exit 1
+fi
+
+for pkg in $@; do
+    echo "git clone ssh://aur@aur.archlinux.org/${pkg}.git"
+    git clone ssh://aur@aur.archlinux.org/${pkg}.git
+done
+

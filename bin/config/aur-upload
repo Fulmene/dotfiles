@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [[ $# -ne 1 ]]; then
+    echo "Usage: aur-upload \"[commit message]\""
+    exit 1
+fi
+
+makepkg --printsrcinfo > .SRCINFO 
+if [[ $? -eq 0 ]]; then
+    git add PKGBUILD .SRCINFO
+    git commit -m "$1"
+    git push
+fi
+

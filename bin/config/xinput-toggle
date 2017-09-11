@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [[ $# -ne 1 ]]; then
+    echo 'Usage: xinput-toggle "[device]"'
+    exit 1
+fi
+
+touchpad_device=$1
+state=$( xinput list-props "$touchpad_device" | grep "Device Enabled" | grep -o "[01]$" )
+
+xinput set-int-prop "$touchpad_device" "Device Enabled" 8 "$((1-state))"
+
