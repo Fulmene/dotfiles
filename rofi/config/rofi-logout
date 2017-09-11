@@ -1,0 +1,13 @@
+#!/bin/bash
+
+options="poweroff\nreboot\nsuspend\nlogout"
+cmd=$(echo -e "$options" | rofi -dmenu -p quit:)
+case $cmd in
+logout)
+    pkill xmonad
+    ;;
+*)
+    systemctl $cmd
+    ;;
+esac
+
