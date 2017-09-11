@@ -9,7 +9,7 @@ Config {
     -- Behaviour
     overrideRedirect = False ,
 
-    template = "%StdinReader% | %uptime% | %cpu% %cpufreq% %coretemp% | %memory% | Disk %diskio% | %dynnetwork%}{%default:Master% | %battery% | %kbd% | %date% " ,
+    template = "%StdinReader% [Up %uptime%] [CPU %cpu% %cpufreq% %coretemp%] [Mem %memory%] [Disk %diskio%] [Net %dynnetwork%]}{%default:Master% [Bat %battery%] [%kbd%] %date% " ,
 
     commands = [
 
@@ -17,10 +17,10 @@ Config {
                     "--template", "<days>d <hours>h <minutes>m" ,
                     "--width", "2"
                 ]
-                60 ,
+                600 ,
 
             Run Cpu [
-                    "--template", "CPU <total>%" ,
+                    "--template", "<total>%" ,
                     "--Low", "30" ,
                     "--High", "70" ,
                     "--low", "green" ,
@@ -37,13 +37,13 @@ Config {
                 10 ,
 
             Run CoreTemp [
-                    "--template", "Tmp <core0>C" ,
+                    "--template", "<core0>C" ,
                     "--width", "2"
                 ]
                 10 ,
 
             Run Memory [
-                    "--template", "Mem <usedratio>%" ,
+                    "--template", "<usedratio>%" ,
                     "--Low", "20" ,
                     "--High", "60",
                     "--ppad", "3"
@@ -51,20 +51,20 @@ Config {
                 10 ,
 
             Run Battery [
-                    "--template", "Bat <left>% / <timeleft>" ,
+                    "--template", "<left>% / <timeleft>" ,
                     "--ppad", "3"
                 ]
                 50 ,
 
             Run DiskIO [
-                    ("sda", "<read>/<write>")
+                    ("sda", "<read>|<write>")
                 ] [
                     "--width", "4"
                 ]
                 10 ,
 
             Run DynNetwork [
-                    "--template", "Net<rx>KB/s/<tx>KB/s" ,
+                    "--template", "<rx>KB/s|<tx>KB/s" ,
                     "--width", "4"
                 ]
                 10 ,
