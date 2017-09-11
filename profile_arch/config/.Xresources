@@ -1,4 +1,5 @@
 Xcursor*theme: Hacked-White
 
 rofi*font: Noto Sans 12
+rofi*hide-scrollbar: true
 

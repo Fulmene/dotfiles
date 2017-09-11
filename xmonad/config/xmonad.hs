@@ -48,11 +48,14 @@ myWorkspaces = [ "Work", "Web", "Game", "Media", "VM" ]
 myModMask = mod1Mask
 myKeys = spawnKeys where
     spawnKeys = [
-            ((mod1Mask .|. shiftMask, xK_r), spawn myRunDialog) ,
+            ((mod1Mask, xK_p), spawn myDesktopRunDialog) ,
+            ((mod1Mask .|. shiftMask, xK_p), spawn myRunDialog) ,
             ((mod1Mask .|. shiftMask, xK_q), spawn myLogoutDialog) ,
             ((mod4Mask, xK_l), spawn myScreenLock)
         ]
-myRunDialog = "rofi -location 1 -yoffset 17 -combi-modi window,drun -show combi -modi combi"
+
+myDesktopRunDialog = "rofi -location 1 -yoffset 17 -combi-modi window,drun -show combi -modi combi -display-combi drun"
+myRunDialog = "rofi -location 1 -yoffset 17 -show run"
 myLogoutDialog = "rofi-logout"
 myScreenLock = "cinnamon-screensaver-command --lock -m '" ++ myScreenLockMessage ++ "'"
 myScreenLockMessage = "Exploring the power of freedom."
