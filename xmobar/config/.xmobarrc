@@ -1,0 +1,13 @@
+Config {
+    -- Appearance
+    font = "xft:Inconsolata:size=12:bold:antialias=true"
+    bgColor = "#0C2A19"
+    fgColor = "#F4DFD3"
+    alpha = 204
+    position = TopSize L 90 30
+
+    -- Behaviour
+    -- lowerOnStart = True
+    overrideRedirect = False
+}
+

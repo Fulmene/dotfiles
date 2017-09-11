@@ -46,5 +46,21 @@ export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 ibus-daemon -drx
 
-exec startxfce4
+#exec startxfce4
+
+# /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+# start-pulseaudio-x11 &
+
+# xmobar &
+# stalonetray &
+
+# compton &
+# nm-applet &
+# redshift &
+# wal -R
+# kalu &
+
+# cinnamon-screensaver &
+
+exec xmonad
 
