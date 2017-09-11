@@ -48,8 +48,8 @@ myFocusedBorderColor = "#F4DFD3"
 
 myWorkspaces = [ "Work", "Web", "Game", "Media", "VM" ]
 myModMask = mod1Mask
-myKeys = spawnKeys ++ hardwareKeys where
-    spawnKeys = [
+myKeys = applicationKeys ++ hardwareKeys where
+    applicationKeys = [
             ((mod1Mask, xK_p), spawn myDesktopRunDialog) ,
             ((mod1Mask .|. shiftMask, xK_p), spawn myRunDialog) ,
             ((mod1Mask .|. shiftMask, xK_q), spawn myLogoutDialog) ,
