@@ -9,7 +9,7 @@ Config {
     -- Behaviour
     overrideRedirect = False ,
 
-    template = "%StdinReader% | %uptime% | %cpu% %cpufreq% %coretemp% | %memory% | Disk %diskio% | %dynnetwork%}{%battery% | %kbd% | %date%" ,
+    template = "%StdinReader% | %uptime% | %cpu% %cpufreq% %coretemp% | %memory% | Disk %diskio% | %dynnetwork%}{%default:Master% | %battery% | %kbd% | %date%" ,
 
     commands = [
 
@@ -69,7 +69,7 @@ Config {
                 ]
                 10 ,
 
-            -- Run Volume "default" "Master" [] 10 ,
+            Run Volume "default" "Master" [] 10 ,
 
             Run Kbd [
                     ("us", "EN") ,
