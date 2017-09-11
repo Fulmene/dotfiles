@@ -21,7 +21,6 @@ main = do
             workspaces          = myWorkspaces ,
             modMask             = myModMask ,
 
-            startupHook         = myStartupHook ,
             layoutHook          = myLayoutHook ,
             manageHook          = myManageHook
             }
@@ -31,10 +30,6 @@ main = do
 myStatusBar = "xmobar"
 myPP = xmobarPP
 myToggleStruts XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
-mySystemTray = "trayer --edge top --align right --widthtype pixel --width 137 --heighttype pixel --height 20 --SetDockType true --SetPartialStrut true --transparent true --alpha 51 --tint 0x0C192A --expand true"
-myCompositor = "compton"
-myDesktopBackground = "wal -R"
-myScreenSaver = "cinnamon-screensaver"
 
 myTerminal = "xfce4-terminal"
 
@@ -58,21 +53,6 @@ myLogoutDialog = "echo -e \"" ++ (unlines myLogoutOptions) ++ "\" | rofi -dmenu 
     where myLogoutOptions = ["poweroff", "reboot", "suspend"]
 myScreenLock = "cinnamon-screensaver-command --lock -m '" ++ myScreenLockMessage ++ "'"
 myScreenLockMessage = "Exploring the power of freedom."
-
-myStartupHook = mapM_ spawn [
-        "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1" , -- Polkit agent
-        "start-pulseaudio-x11" , -- PulseAudio
-        "xsetroot -cursor_name left_ptr" , -- Mouse cursor on root window
-        myCompositor ,
-        myDesktopBackground ,
-        mySystemTray ,
-        myStatusBar ,
-        sleep 10 ++ "nm-applet" ,
-        sleep 15 ++ "kalu" ,
-        "redshift" ,
-        myScreenSaver
-    ]
-    where sleep n = "sleep " ++ show n ++ " && "
 
 myLayoutHook = avoidStruts $ layoutHook def
 

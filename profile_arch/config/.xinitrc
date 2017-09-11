@@ -1,4 +1,6 @@
-#!/bin/sh
+#
+# ~/.xinitrc
+#
 
 # -- System xinitrc -- #
 userresources=$HOME/.Xresources
@@ -45,6 +47,19 @@ export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 ibus-daemon -drx
+
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+start-pulseaudio-x11 &
+xsetroot -cursor_name left_ptr &
+
+compton &
+wal -R &
+trayer --edge top --align right --widthtype pixel --width 137 --heighttype pixel --height 20 --SetDockType true --SetPartialStrut true --transparent true --alpha 51 --tint 0x0C192A --expand true &
+
+sleep 10 && nm-applet &
+sleep 15 && kalu &
+
+cinnamon-screensaver &
 
 exec xmonad
 
