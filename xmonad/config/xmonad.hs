@@ -56,7 +56,7 @@ myKeys = [
     ((mod1Mask .|. shiftMask, xK_q), spawn myLogoutDialog) ,
     ((mod4Mask, xK_l), spawn myScreenLock)
     ]
-myRunDialog = "rofi -location 1 -yoffset 20 -combi-modi window,drun -show combi -modi combi"
+myRunDialog = "rofi -location 1 -yoffset 17 -combi-modi window,drun -show combi -modi combi"
 myLogoutDialog = "echo -e \"" ++ (unlines myLogoutOptions) ++ "\" | rofi -dmenu -p 'quit:' | { read option; systemctl $option; }"
     where myLogoutOptions = ["poweroff", "reboot", "suspend"]
 myScreenLock = "cinnamon-screensaver-command --lock -m '" ++ myScreenLockMessage ++ "'"
