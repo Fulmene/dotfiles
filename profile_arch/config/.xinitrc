@@ -54,7 +54,7 @@ xsetroot -cursor_name left_ptr &
 
 compton &
 wal -R &
-trayer --edge top --align right --widthtype pixel --width 137 --heighttype pixel --height 20 --SetDockType true --SetPartialStrut true --transparent true --alpha 51 --tint 0x0C192A --expand true &
+trayer --edge top --align right --widthtype pixel --width 82 --heighttype pixel --height 20 --SetDockType true --SetPartialStrut true --transparent true --alpha 51 --tint 0x0C192A &
 
 sleep 10 && nm-applet &
 sleep 15 && kalu &

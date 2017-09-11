@@ -4,7 +4,7 @@ Config {
     bgColor = "#0C2A19" ,
     fgColor = "#F4DFD3" ,
     alpha = 204 ,
-    position = TopSize L 90 20 ,
+    position = TopSize L 94 20 ,
 
     -- Behaviour
     overrideRedirect = False ,
