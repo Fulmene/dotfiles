@@ -74,7 +74,10 @@ myKeys = applicationKeys ++ hardwareKeys where
             ("M-p", spawn myDesktopRunDialog) ,
             ("M-S-p", spawn myRunDialog) ,
             ("M-S-q", spawn myLogoutDialog) ,
-            ("C-M-S-l", spawn myScreenLock)
+            ("C-M-S-l", spawn myScreenLock) ,
+
+            ("C-M-S-1", spawn "pkill -USR1 redshift") ,
+            ("C-M-S-2", spawn "pkill compton || compton")
         ]
     hardwareKeys = [
             ("<XF86TouchpadToggle>", spawn $ "xinput-toggle " ++ touchpad) ,
