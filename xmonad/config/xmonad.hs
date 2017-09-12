@@ -8,6 +8,8 @@ import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.NoBorders
 
+import qualified XMonad.StackSet as StackSet
+
 import XMonad.Util.EZConfig
 
 import Graphics.X11.ExtraTypes.XF86
@@ -57,8 +59,8 @@ myKeys = applicationKeys ++ hardwareKeys where
     hardwareKeys = [
             ((0, xF86XK_TouchpadToggle), spawn $ "xinput-toggle " ++ touchpad) ,
             ((0, xF86XK_AudioMute), spawn $ mute "toggle") ,
-            ((0, xF86XK_AudioLowerVolume), spawn $ mute "false" ++ "; " ++ lowerVolume) ,
-            ((0, xF86XK_AudioRaiseVolume), spawn $ mute "false" ++ "; " ++ raiseVolume)
+            ((0, xF86XK_AudioLowerVolume), spawn $ mute "false" ++ " && " ++ lowerVolume) ,
+            ((0, xF86XK_AudioRaiseVolume), spawn $ mute "false" ++ " && " ++ raiseVolume)
         ] where
         touchpad = "'FocalTechPS/2 FocalTech Touchpad'"
         mute mode = "pactl set-sink-mute 0 " ++ mode
@@ -76,9 +78,8 @@ myLayoutHook =  onWorkspaces [ "Game", "Media", "VM" ] (noBorders Full) $
                 layoutHook def where
                     webTall = Tall 1 (3/100) (2/3)
 
-myManageHook = customManageHook <+> manageDocks <+> manageHook def
+myManageHook = customManageHook <+> (doF StackSet.swapDown) <+> manageDocks <+> manageHook def
 customManageHook = composeAll . concat $ [
-        -- TODO add manageHook
         [ className =? c --> doShift "Web" | c <- webClass ] ,
         [ title =? t --> doShift "Game" | t <- gameTitle ] ,
         [ className =? c --> doShift "Media" | c <- mediaClass ] ,
