@@ -31,7 +31,7 @@ main = do
                     layoutHook          = myLayoutHook ,
                     manageHook          = myManageHook
                 }
-            `additionalKeys` myKeys
+            `additionalKeysP` myKeys
         )
 
 myStatusBar = "xmobar"
@@ -51,16 +51,16 @@ myWorkspaces = [ "Work", "Web", "Game", "Media", "VM" ]
 myModMask = mod1Mask
 myKeys = applicationKeys ++ hardwareKeys where
     applicationKeys = [
-            ((mod1Mask, xK_p), spawn myDesktopRunDialog) ,
-            ((mod1Mask .|. shiftMask, xK_p), spawn myRunDialog) ,
-            ((mod1Mask .|. shiftMask, xK_q), spawn myLogoutDialog) ,
-            ((mod4Mask, xK_l), spawn myScreenLock)
+            ("M-p", spawn myDesktopRunDialog) ,
+            ("M-S-p", spawn myRunDialog) ,
+            ("M-S-q", spawn myLogoutDialog) ,
+            ("C-M-S-l", spawn myScreenLock)
         ]
     hardwareKeys = [
-            ((0, xF86XK_TouchpadToggle), spawn $ "xinput-toggle " ++ touchpad) ,
-            ((0, xF86XK_AudioMute), spawn $ mute "toggle") ,
-            ((0, xF86XK_AudioLowerVolume), spawn $ mute "false" ++ " && " ++ lowerVolume) ,
-            ((0, xF86XK_AudioRaiseVolume), spawn $ mute "false" ++ " && " ++ raiseVolume)
+            ("<XF86TouchpadToggle>", spawn $ "xinput-toggle " ++ touchpad) ,
+            ("<XF86AudioMute>", spawn $ mute "toggle") ,
+            ("<XF86AudioLowerVolume>", spawn $ mute "false" ++ " && " ++ lowerVolume) ,
+            ("<XF86AudioRaiseVolume>", spawn $ mute "false" ++ " && " ++ raiseVolume)
         ] where
         touchpad = "'FocalTechPS/2 FocalTech Touchpad'"
         mute mode = "pactl set-sink-mute 0 " ++ mode
