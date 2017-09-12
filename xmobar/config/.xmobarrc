@@ -9,7 +9,7 @@ Config {
     -- Behaviour
     overrideRedirect = False ,
 
-    template = "%StdinReader% [Up %uptime%] [CPU %cpu% %cpufreq% %coretemp%] [Mem %memory%] [Disk %diskio%] [Net %dynnetwork%]}{%default:Master% [Bat %battery%] [%kbd%] %date% " ,
+    template = "%UnsafeStdinReader% [Up %uptime%] [CPU %cpu% %cpufreq% %coretemp%] [Mem %memory%] [Disk %diskio%] [Net %dynnetwork%]}{%default:Master% [Bat %battery%] [%kbd%] %date% " ,
 
     commands = [
 
@@ -80,7 +80,7 @@ Config {
 
             Run Date "<action='orage'>%a %b %e %H:%M</action>" "date" 600 ,
 
-            Run StdinReader
+            Run UnsafeStdinReader
         ]
 }
 

@@ -8,11 +8,15 @@ import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.NoBorders
 
+import XMonad.Util.WorkspaceCompare
+
 import qualified XMonad.StackSet as StackSet
 
 import XMonad.Util.EZConfig
 
 import Graphics.X11.ExtraTypes.XF86
+
+import Data.List
 
 main = do
     xmonad =<< statusBar myStatusBar myPP myToggleStruts (
@@ -35,7 +39,23 @@ main = do
         )
 
 myStatusBar = "xmobar"
-myPP = xmobarPP
+myPP = xmobarPP {
+        ppCurrent = myPPCurrent ,
+        ppHidden = myPPHidden ,
+        ppHiddenNoWindows = myPPHiddenNoWindows ,
+        ppUrgent = myPPUrgent ,
+        ppWsSep = "" ,
+        ppOrder = myPPOrder
+    } where
+        filterWorkspace wid = if wid `elem` myWorkspaces then wid else ""
+        switchWorkspace wid = switchWorkspaceIndex (wid `elemIndex` myWorkspaces) where
+            switchWorkspaceIndex (Just x) = wrap ("<action=`xdotool key alt+" ++ show (x+1) ++ "`>") "</action>"
+            switchWorkspaceIndex Nothing  = id
+        myPPCurrent wid = xmobarColor "#F2CEA4" "" $ wrap "[" "]" $ filterWorkspace wid
+        myPPHidden wid = pad $ switchWorkspace wid $ filterWorkspace wid
+        myPPHiddenNoWindows wid = pad $ xmobarColor "#6D757F" "" $ switchWorkspace wid $ filterWorkspace wid
+        myPPUrgent wid = xmobarColor "#FF7595" "" $ wrap ">" "<" $ switchWorkspace wid $ filterWorkspace wid
+        myPPOrder (ws:_:_:_) = [ws]
 myToggleStruts XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 myTerminal = "termite"
