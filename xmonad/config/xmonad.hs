@@ -36,7 +36,9 @@ main = do
             `additionalKeysP` myKeys
         )
 
+
 myStatusBar = "xmobar"
+
 myPP = xmobarPP {
         ppCurrent = myPPCurrent ,
         ppHidden = myPPHidden ,
@@ -45,16 +47,18 @@ myPP = xmobarPP {
         ppWsSep = "" ,
         ppOrder = myPPOrder
     } where
-        filterWorkspace wid = if wid `elem` myWorkspaces then wid else ""
         switchWorkspace wid = switchWorkspaceIndex (wid `elemIndex` myWorkspaces) where
             switchWorkspaceIndex (Just x) = wrap ("<action=`xdotool key alt+" ++ show (x+1) ++ "`>") "</action>"
             switchWorkspaceIndex Nothing  = id
-        myPPCurrent wid = xmobarColor "#F2CEA4" "" $ wrap "[" "]" $ filterWorkspace wid
-        myPPHidden wid = pad $ switchWorkspace wid $ filterWorkspace wid
-        myPPHiddenNoWindows wid = pad $ xmobarColor "#6D757F" "" $ switchWorkspace wid $ filterWorkspace wid
-        myPPUrgent wid = xmobarColor "#FF7595" "" $ wrap ">" "<" $ switchWorkspace wid $ filterWorkspace wid
+
+        myPPCurrent wid = xmobarColor "#F2CEA4" "" $ ' ': (wid ++ replicate padLength ' ') where padLength = (maximum $ map length myWorkspaces) - length wid
+        myPPHidden wid = switchWorkspace wid $ ' ':[head wid]
+        myPPHiddenNoWindows wid = xmobarColor "#6D757F" "" $ switchWorkspace wid $ ' ':[head wid]
+        myPPUrgent wid = xmobarColor "#FF7595" "" $ switchWorkspace wid $ ' ':[head wid]
         myPPOrder (ws:_:_:_) = [ws]
+
 myToggleStruts XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
+
 
 myTerminal = "termite"
 
@@ -66,7 +70,9 @@ myNormalBorderColor = "#0C192A"
 myFocusedBorderColor = "#F4DFD3"
 
 myWorkspaces = [ "1 main", "2 web", "3 game", "4 media", "5 vm" ] ++ map show [6..9]
+
 myModMask = mod1Mask
+
 myKeys = windowKeys ++ applicationKeys ++ hardwareKeys where
     windowKeys = [
             ("M-S-h", prevWS) ,
@@ -74,6 +80,7 @@ myKeys = windowKeys ++ applicationKeys ++ hardwareKeys where
             ("C-M-h", shiftToPrev >> prevWS) ,
             ("C-M-l", shiftToNext >> nextWS)
         ]
+
     applicationKeys = [
             ("M-p", spawn myDesktopRunDialog) ,
             ("M-S-p", spawn myRunDialog) ,
@@ -83,6 +90,7 @@ myKeys = windowKeys ++ applicationKeys ++ hardwareKeys where
             ("C-M-S-r", spawn "pkill -USR1 redshift") ,
             ("C-M-S-c", spawn "pkill compton || compton")
         ]
+
     hardwareKeys = [
             ("<XF86TouchpadToggle>", spawn $ "xinput-toggle " ++ touchpad) ,
             ("<XF86AudioMute>", spawn $ mute "toggle") ,
@@ -99,6 +107,7 @@ myRunDialog = "rofi -location 1 -yoffset 17 -show run"
 myLogoutDialog = "rofi-logout"
 myScreenLock = "cinnamon-screensaver-command --lock -m '" ++ myScreenLockMessage ++ "'"
 myScreenLockMessage = "Exploring the power of freedom."
+
 
 myLayoutHook =  onWorkspace "2 web" (webTall ||| Mirror webTall) $
                 onWorkspaces [ "3 game", "4 media", "5 vm" ] (noBorders Full) $
