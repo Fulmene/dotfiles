@@ -94,7 +94,7 @@ myScreenLockMessage = "Exploring the power of freedom."
 
 myLayoutHook =  onWorkspace "Web" (webTall ||| Mirror webTall) $
                 onWorkspaces [ "Game", "Media" ] (noBorders Full) $
-                onWorkspace "VM" (Grid ||| noBorders Full) $
+                -- onWorkspace "VM" (Grid defaultRatio ||| (noBorders Full)) $
                 layoutHook def where
                     webTall = Tall 1 (3/100) (2/3)
 
