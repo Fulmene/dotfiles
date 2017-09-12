@@ -4,17 +4,13 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
 
+import XMonad.Layout.Grid
 import XMonad.Layout.PerWorkspace
-import XMonad.Layout.Fullscreen
 import XMonad.Layout.NoBorders
 
-import XMonad.Util.WorkspaceCompare
-
-import qualified XMonad.StackSet as StackSet
+import XMonad.StackSet(swapDown)
 
 import XMonad.Util.EZConfig
-
-import Graphics.X11.ExtraTypes.XF86
 
 import Data.List
 
@@ -96,12 +92,13 @@ myLogoutDialog = "rofi-logout"
 myScreenLock = "cinnamon-screensaver-command --lock -m '" ++ myScreenLockMessage ++ "'"
 myScreenLockMessage = "Exploring the power of freedom."
 
-myLayoutHook =  onWorkspaces [ "Game", "Media", "VM" ] (noBorders Full) $
-                onWorkspace "Web" (webTall ||| Mirror webTall) $
+myLayoutHook =  onWorkspace "Web" (webTall ||| Mirror webTall) $
+                onWorkspaces [ "Game", "Media" ] (noBorders Full) $
+                -- onWorkspace "VM" (Grid defaultRatio ||| (noBorders Full)) $
                 layoutHook def where
                     webTall = Tall 1 (3/100) (2/3)
 
-myManageHook = customManageHook <+> (doF StackSet.swapDown) <+> manageDocks <+> manageHook def
+myManageHook = customManageHook <+> (doF swapDown) <+> manageDocks <+> manageHook def
 customManageHook = composeAll . concat $ [
         [ className =? c --> doShift "Web" | c <- webClass ] ,
         [ title =? t --> doShift "Game" | t <- gameTitle ] ,
