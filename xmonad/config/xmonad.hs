@@ -5,7 +5,6 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
 
 import XMonad.Layout.PerWorkspace
-import XMonad.Layout.OneBig
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.NoBorders
 
@@ -72,15 +71,23 @@ myLogoutDialog = "rofi-logout"
 myScreenLock = "cinnamon-screensaver-command --lock -m '" ++ myScreenLockMessage ++ "'"
 myScreenLockMessage = "Exploring the power of freedom."
 
-myLayoutHook = onWorkspaces [ "Game", "Media", "VM" ] (noBorders Full) $
-               layoutHook def
+myLayoutHook =  onWorkspaces [ "Game", "Media", "VM" ] (noBorders Full) $
+                onWorkspace "Web" (webTall ||| Mirror webTall) $
+                layoutHook def where
+                    webTall = Tall 1 (3/100) (2/3)
 
-myManageHook = customManageHook <+> manageDocks
+myManageHook = customManageHook <+> manageDocks <+> manageHook def
 customManageHook = composeAll . concat $ [
         -- TODO add manageHook
+        [ className =? c --> doShift "Web" | c <- webClass ] ,
+        [ title =? t --> doShift "Game" | t <- gameTitle ] ,
+        [ className =? c --> doShift "Media" | c <- mediaClass ] ,
+        [ className =? c --> doShift "VM" | c <- vmClass ] ,
         [ className =? c --> doFloat | c <- floatClass ]
     ] where
-        floatClass = [
-                "Orage"
-            ]
+        floatClass = [ "Orage" ]
+        webClass = [ "Firefox" , "Chromium" ]
+        gameTitle = [ "Steam" , "Blizzard App" ]
+        mediaClass = [ "mpv" ]
+        vmClass = [ "VirtualBox" , "Genymotion", "Genymotion Player" ]
 
