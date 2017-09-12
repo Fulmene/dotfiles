@@ -8,6 +8,8 @@ import XMonad.Layout.Grid
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.NoBorders
 
+import XMonad.Actions.CycleWS
+
 import XMonad.StackSet(swapDown)
 
 import XMonad.Util.EZConfig
@@ -65,7 +67,13 @@ myFocusedBorderColor = "#F4DFD3"
 
 myWorkspaces = [ "Main", "Web", "Game", "Media", "VM" ]
 myModMask = mod1Mask
-myKeys = applicationKeys ++ hardwareKeys where
+myKeys = windowKeys ++ applicationKeys ++ hardwareKeys where
+    windowKeys = [
+            ("M-S-h", prevWS) ,
+            ("M-S-l", nextWS) ,
+            ("C-M-h", shiftToPrev >> prevWS) ,
+            ("C-M-l", shiftToNext >> nextWS)
+        ]
     applicationKeys = [
             ("M-p", spawn myDesktopRunDialog) ,
             ("M-S-p", spawn myRunDialog) ,
