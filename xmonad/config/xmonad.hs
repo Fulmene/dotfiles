@@ -63,7 +63,7 @@ myBorderWidth = 1
 myNormalBorderColor = "#0C192A"
 myFocusedBorderColor = "#F4DFD3"
 
-myWorkspaces = [ "Work", "Web", "Game", "Media", "VM" ]
+myWorkspaces = [ "Main", "Web", "Game", "Media", "VM" ]
 myModMask = mod1Mask
 myKeys = applicationKeys ++ hardwareKeys where
     applicationKeys = [
@@ -92,10 +92,11 @@ myLogoutDialog = "rofi-logout"
 myScreenLock = "cinnamon-screensaver-command --lock -m '" ++ myScreenLockMessage ++ "'"
 myScreenLockMessage = "Exploring the power of freedom."
 
-myLayoutHook =  onWorkspace "Web" (webTall ||| Mirror webTall) $
-                onWorkspaces [ "Game", "Media" ] (noBorders Full) $
-                -- onWorkspace "VM" (Grid defaultRatio ||| (noBorders Full)) $
+myLayoutHook =  onWorkspace "Main" (mainTall ||| Mirror mainTall ||| Grid) $
+                onWorkspace "Web" (webTall ||| Mirror webTall) $
+                onWorkspaces [ "Game", "Media", "VM" ] (noBorders Full) $
                 layoutHook def where
+                    mainTall = Tall 2 (3/100) (1/2)
                     webTall = Tall 1 (3/100) (2/3)
 
 myManageHook = customManageHook <+> (doF swapDown) <+> manageDocks <+> manageHook def
