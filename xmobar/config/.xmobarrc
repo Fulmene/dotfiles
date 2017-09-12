@@ -69,7 +69,7 @@ Config {
                 ]
                 10 ,
 
-            Run Volume "default" "Master" [] 10 ,
+            Run Volume "default" "Master" [] 1 ,
 
             Run Kbd [
                     ("us", "EN") ,
@@ -78,7 +78,7 @@ Config {
                     ("gr", "GR")
                 ] ,
 
-            Run Date "<action='orage'>%a %b %e %H:%M</action>" "date" 10 ,
+            Run Date "<action='orage'>%a %b %e %H:%M</action>" "date" 600 ,
 
             Run StdinReader
         ]
