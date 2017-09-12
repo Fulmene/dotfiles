@@ -8,6 +8,7 @@ Config {
 
     -- Behaviour
     overrideRedirect = False ,
+    lowerOnStart = True ,
 
     template = "%UnsafeStdinReader% [Up %uptime%] [CPU %cpu% %cpufreq% %coretemp%] [Mem %memory%] [Disk %diskio%] [Net %dynnetwork%]}{%default:Master% [Bat %battery%] [%kbd%] %date% " ,
 
