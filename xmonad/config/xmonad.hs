@@ -65,7 +65,7 @@ myBorderWidth = 1
 myNormalBorderColor = "#0C192A"
 myFocusedBorderColor = "#F4DFD3"
 
-myWorkspaces = [ "Main", "Web", "Game", "Media", "VM" ]
+myWorkspaces = [ "1 main", "2 web", "3 game", "4 media", "5 vm" ] ++ map show [6..9]
 myModMask = mod1Mask
 myKeys = windowKeys ++ applicationKeys ++ hardwareKeys where
     windowKeys = [
@@ -100,19 +100,18 @@ myLogoutDialog = "rofi-logout"
 myScreenLock = "cinnamon-screensaver-command --lock -m '" ++ myScreenLockMessage ++ "'"
 myScreenLockMessage = "Exploring the power of freedom."
 
-myLayoutHook =  onWorkspace "Main" (mainTall ||| Mirror mainTall ||| Grid) $
-                onWorkspace "Web" (webTall ||| Mirror webTall) $
-                onWorkspaces [ "Game", "Media", "VM" ] (noBorders Full) $
-                layoutHook def where
+myLayoutHook =  onWorkspace "2 web" (webTall ||| Mirror webTall) $
+                onWorkspaces [ "3 game", "4 media", "5 vm" ] (noBorders Full) $
+                (mainTall ||| Mirror mainTall ||| Grid ||| Full) where
                     mainTall = Tall 2 (3/100) (1/2)
                     webTall = Tall 1 (3/100) (2/3)
 
 myManageHook = customManageHook <+> (doF swapDown) <+> manageDocks <+> manageHook def
 customManageHook = composeAll . concat $ [
-        [ className =? c --> doShift "Web" | c <- webClass ] ,
-        [ title =? t --> doShift "Game" | t <- gameTitle ] ,
-        [ className =? c --> doShift "Media" | c <- mediaClass ] ,
-        [ className =? c --> doShift "VM" | c <- vmClass ] ,
+        [ className =? c --> doShift "2 web" | c <- webClass ] ,
+        [ title =? t --> doShift "3 game" | t <- gameTitle ] ,
+        [ className =? c --> doShift "4 media" | c <- mediaClass ] ,
+        [ className =? c --> doShift "5 vm" | c <- vmClass ] ,
         [ className =? c --> doFloat | c <- floatClass ]
     ] where
         floatClass = [ "Orage" ]
