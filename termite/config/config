@@ -32,35 +32,35 @@ filter_unmatched_urls = true
 #modify_other_keys = false
 
 [colors]
-#cursor = #dcdccc
+cursor = #F4DFD3
 cursor_foreground = #0C192A
 #foreground = #dcdccc
 #foreground_bold = #ffffff
 #background = #3f3f3f
 
 # 20% background transparency (requires a compositor)
-background = rgba(12, 25, 42, 0.8)
+background = rgba(23, 23, 23, 0.8)
 
 # if unset, will reverse foreground and background
 #highlight = #2f2f2f
 
 # colors from color0 to color254 can be set
-#color0 = #3f3f3f
-#color1 = #705050
-#color2 = #60b48a
-#color3 = #dfaf8f
-#color4 = #506070
-#color5 = #dc8cc3
-#color6 = #8cd0d3
-#color7 = #dcdccc
-#color8 = #709080
-#color9 = #dca3a3
-#color10 = #c3bf9f
-#color11 = #f0dfaf
-#color12 = #94bff3
-#color13 = #ec93d3
-#color14 = #93e0e3
-#color15 = #ffffff
+color0 = #171717
+color1 = #DF6070
+color2 = #79B893
+color3 = #D2A795
+color4 = #55628E
+color5 = #9C7595
+color6 = #55C0E0
+color7 = #F4DFD3
+color8 = #747474
+color9 = #FF6060
+color10 = #79EB93
+color11 = #F2CEA4
+color12 = #6072FF
+color13 = #C050B8
+color14 = #50C8FF
+color15 = #FFFFFF
 
 #[hints]
 #font = Monospace 12
