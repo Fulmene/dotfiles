@@ -3,14 +3,13 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.InsertPosition
 
 import XMonad.Layout.Grid
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.NoBorders
 
 import XMonad.Actions.CycleWS
-
-import XMonad.StackSet(swapDown)
 
 import XMonad.Util.EZConfig
 
@@ -120,7 +119,7 @@ myLayoutHook =  onWorkspace "2 web" (webTall ||| Mirror webTall) $
                     mainTall = Tall 2 (3/100) (1/2)
                     webTall = Tall 1 (3/100) (2/3)
 
-myManageHook = customManageHook <+> (doF swapDown) <+> manageDocks <+> manageHook def
+myManageHook = insertPosition Below Newer <+> customManageHook <+> manageDocks <+> manageHook def
 customManageHook = composeAll . concat $ [
         [ className =? c --> doShift "2 web" | c <- webClass ] ,
         [ title =? t --> doShift "3 game" | t <- gameTitle ] ,
