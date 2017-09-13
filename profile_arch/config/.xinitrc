@@ -56,6 +56,7 @@ compton &
 wal -R &
 trayer --edge top --align right --widthtype pixel --width 82 --heighttype pixel --height 19 --SetDockType true --SetPartialStrut true --transparent true --alpha 51 --tint 0x0C192A &
 
+numlockx &
 redshift &
 nm-applet &
 sleep 3 && kalu &
