@@ -72,8 +72,10 @@ Config {
 
             Run Volume "default" "Master" [] 1 ,
 
+            -- TODO replace this with my own IBus plugin
             Run Kbd [
-                    ("us", "EN") ,
+                    ("us(altgr-intl)", "EN") ,
+                    ("us", "TH") , -- ibus-libthai uses US layout
                     ("th", "TH") ,
                     ("jp", "JP") ,
                     ("gr", "GR")
