@@ -46,8 +46,8 @@ function parse_git_branch {
     test -n "$git_branch" && printf '(%s%s%s)' "$colour_branch" "$git_branch" "$term_reset"
 }
 function prompt {
-    PS1="\$\[$term_reset\] "
-    printf '%s%s@%s%s [%s%s%s] %s\n%s' "${colour_host}$(tput bold)" "$USER" "$HOSTNAME" "$term_reset" "${colour_dir}$(tput bold)" "${PWD/#$HOME/'~'}" "$term_reset" "$(parse_git_branch)" "$(tput bold)"
+    PS1="\[$(tput bold)\]\$\[$term_reset\] "
+    printf '%s%s@%s%s [%s%s%s] %s\n' "${colour_host}$(tput bold)" "$USER" "$HOSTNAME" "$term_reset" "${colour_dir}$(tput bold)" "${PWD/#$HOME/'~'}" "$term_reset" "$(parse_git_branch)"
 }
 PROMPT_COMMAND=prompt
 
