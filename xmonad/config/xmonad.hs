@@ -54,8 +54,8 @@ myPP = xmobarPP {
 
         myPPCurrent wid         = xmobarColor "#F2CEA4" "" $ (wid ++ replicate padLength ' ') where padLength = (maximum $ map length myWorkspaces) - length wid
         myPPHidden wid          = switchWorkspace wid $ [head wid]
-        myPPHiddenNoWindows wid = xmobarColor "#6D757F" "" $ switchWorkspace wid $ [head wid]
-        myPPUrgent wid          = xmobarColor "#FF7595" "" $ switchWorkspace wid $ [head wid]
+        myPPHiddenNoWindows wid = xmobarColor "#747474" "" $ switchWorkspace wid $ [head wid]
+        myPPUrgent wid          = xmobarColor "#BF4D4D" "" $ switchWorkspace wid $ [head wid]
 
         myPPOrder (ws:_:_:_) = [
                 switchPreviousWorkspace "4" $ switchNextWorkspace "5" $ wrap (switchPreviousWorkspace "1" "<") ((switchNextWorkspace "1" ">")) . pad $ ws
