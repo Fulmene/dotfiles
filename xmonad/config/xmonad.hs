@@ -70,7 +70,7 @@ myFocusFollowsMouse = False
 myClickJustFocuses = False
 
 myBorderWidth = 1
-myNormalBorderColor = "#0C192A"
+myNormalBorderColor = "#171717"
 myFocusedBorderColor = "#F4DFD3"
 
 myWorkspaces = [ "1 main", "2 web", "3 game", "4 media", "5 vm" ] ++ map show [6..9]
