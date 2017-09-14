@@ -1,6 +1,7 @@
 Config {
     -- Appearance
     font = "xft:Noto Mono:size=9:bold:antialias=true" ,
+    additionalFonts = [ "xft:FontAwesome:size=10" ]
     bgColor = "#0C2A19" ,
     fgColor = "#F4DFD3" ,
     alpha = 204 ,
@@ -10,7 +11,7 @@ Config {
     overrideRedirect = False ,
     lowerOnStart = True ,
 
-    template = "%UnsafeStdinReader% [Up %uptime%] [CPU %cpu% %cpufreq% %coretemp%] [Mem %memory%] [Disk %diskio%] [Net %dynnetwork%]}{%default:Master% [Bat %battery%] [%kbd%] %date% " ,
+    template = "%UnsafeStdinReader% [Up %uptime%] [CPU %cpu% %cpufreq% %coretemp%] [Mem %memory%] [Disk %diskio%] [Net %dynnetwork%]}{%default:Master% %battery% [%kbd%] %date% " ,
 
     commands = [
 
@@ -52,8 +53,14 @@ Config {
                 10 ,
 
             Run Battery [
-                    "--template", "<left>% / <timeleft>" ,
-                    "--ppad", "3"
+                    "--template", "<fn=1></fn><left>% (<timeleft>)" ,
+                    "--Low", "40" ,
+                    "--high", "#A5C6A7" ,
+                    "--normal", "#A5C6A7" ,
+                    "--low", "#BF4D4D" ,
+                    "--ppad", "3" ,
+                    "--" ,
+                        "-f", "/sys/class/power_supply/AC0/online"
                 ]
                 50 ,
 
