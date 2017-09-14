@@ -27,7 +27,7 @@ Config {
                     "--High", "70" ,
                     "--Low", "30" ,
                     "--high", "#BF4D4D" ,
-                    "--normal", "#A5C6A7" ,
+                    "--normal", "#F2CEA4" ,
                     "--low", "#F4DFD3" ,
                     "--suffix", "true" ,
                     "--ppad", "3"
