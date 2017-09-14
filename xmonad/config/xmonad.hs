@@ -4,6 +4,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.InsertPosition
+import XMonad.Hooks.SetWMName
 
 import XMonad.Layout.Grid
 import XMonad.Layout.PerWorkspace
@@ -29,12 +30,12 @@ main = do
                     workspaces          = myWorkspaces ,
                     modMask             = myModMask ,
 
+                    startupHook         = myStartupHook ,
                     layoutHook          = myLayoutHook ,
                     manageHook          = myManageHook
                 }
             `additionalKeysP` myKeys
         )
-
 
 myStatusBar = "xmobar"
 
@@ -62,7 +63,6 @@ myPP = xmobarPP {
             ]
 
 myToggleStruts XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
-
 
 myTerminal = "termite"
 
@@ -112,6 +112,7 @@ myLogoutDialog = "rofi-logout"
 myScreenLock = "cinnamon-screensaver-command --lock -m '" ++ myScreenLockMessage ++ "'"
 myScreenLockMessage = "Exploring the power of freedom."
 
+myStartupHook = setWMName "LG3D"
 
 myLayoutHook =  onWorkspace "2 web" (webTall ||| Mirror webTall) $
                 onWorkspaces [ "3 game", "4 media", "5 vm" ] (noBorders Full) $
