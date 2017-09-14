@@ -21,8 +21,8 @@ rofi*hide-scrollbar: true
 *color7: #F4DFD3
 *.color8: #747474
 *color8: #747474
-*.color9: #C04DDA
-*color9: #C04DDA
+*.color9: #BF4D4D
+*color9: #BF4D4D
 *.color10: #A5C6A7
 *color10: #A5C6A7
 *.color11: #F2CEA4
