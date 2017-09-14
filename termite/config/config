@@ -46,20 +46,20 @@ background = rgba(23, 23, 23, 0.8)
 
 # colors from color0 to color254 can be set
 color0 = #171717
-color1 = #DF6070
-color2 = #79B893
+color1 = #8C303E
+color2 = #78927A
 color3 = #D2A795
 color4 = #55628E
 color5 = #9C7595
-color6 = #55C0E0
+color6 = #558E8B
 color7 = #F4DFD3
 color8 = #747474
-color9 = #FF6060
-color10 = #79EB93
+color9 = #C04DDA
+color10 = #A5C6A7
 color11 = #F2CEA4
-color12 = #6072FF
-color13 = #C050B8
-color14 = #50C8FF
+color12 = #7F96E0
+color13 = #D19AC7
+color14 = #7FD8D4
 color15 = #FFFFFF
 
 #[hints]
