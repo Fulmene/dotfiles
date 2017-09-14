@@ -2,7 +2,7 @@ Config {
     -- Appearance
     font = "xft:Noto Mono:size=9:bold:antialias=true" ,
     additionalFonts = [ "xft:FontAwesome:size=10" ]
-    bgColor = "#0C2A19" ,
+    bgColor = "#171717" ,
     fgColor = "#F4DFD3" ,
     alpha = 204 ,
     position = TopW L 94 ,
@@ -53,14 +53,17 @@ Config {
                 10 ,
 
             Run Battery [
-                    "--template", "<fn=1></fn><left>% (<timeleft>)" ,
+                    "--template", "<fn=1><acstatus></fn><left>% (<timeleft>)" ,
                     "--Low", "40" ,
                     "--high", "#A5C6A7" ,
                     "--normal", "#A5C6A7" ,
                     "--low", "#BF4D4D" ,
                     "--ppad", "3" ,
                     "--" ,
-                        "-f", "/sys/class/power_supply/AC0/online"
+                        "-O", "<fc=#A5C6A7></fc>" ,
+                        "-i", "<fc=#A5C6A7></fc>" ,
+                        "-o", "<fc=#BF4D4D></fc>" ,
+                        "-f", "AC0/online"
                 ]
                 50 ,
 
@@ -88,7 +91,7 @@ Config {
                     ("gr", "GR")
                 ] ,
 
-            Run Date "<action='orage'>%a %b %e %H:%M</action>" "date" 600 ,
+            Run Date "<action='orage'>%a %b %e <fc=#7F96E0>%H:%M</fc></action>" "date" 600 ,
 
             Run UnsafeStdinReader
         ]
