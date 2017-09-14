@@ -106,8 +106,8 @@ myKeys = windowKeys ++ applicationKeys ++ hardwareKeys where
         lowerVolume = "pactl set-sink-volume 0 -5%"
         raiseVolume = "pactl set-sink-volume 0 +5%"
 
-myDesktopRunDialog = "rofi -location 1 -yoffset 17 -combi-modi window,drun -show combi -modi combi -display-combi drun"
-myRunDialog = "rofi -location 1 -yoffset 17 -show run"
+myDesktopRunDialog = "rofi -location 1 -yoffset 19 -combi-modi window,drun -show combi -modi combi -display-combi drun"
+myRunDialog = "rofi -location 1 -yoffset 19 -show run"
 myLogoutDialog = "rofi-logout"
 myScreenLock = "cinnamon-screensaver-command --lock -m '" ++ myScreenLockMessage ++ "'"
 myScreenLockMessage = "Exploring the power of freedom."
