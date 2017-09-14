@@ -122,15 +122,19 @@ myLayoutHook =  onWorkspace "2 web" (webTall ||| Mirror webTall) $
 
 myManageHook = insertPosition Below Newer <+> customManageHook <+> manageDocks <+> manageHook def
 customManageHook = composeAll . concat $ [
-        [ className =? c --> doShift "2 web" | c <- webClass ] ,
-        [ title =? t --> doShift "3 game" | t <- gameTitle ] ,
-        [ className =? c --> doShift "4 media" | c <- mediaClass ] ,
-        [ className =? c --> doShift "5 vm" | c <- vmClass ] ,
+        [ className =? c --> doShift ws | (ws, cs) <- wsClass, c <- cs ] ,
         [ className =? c --> doFloat | c <- floatClass ]
     ] where
         floatClass = [ "Orage" ]
-        webClass = [ "Firefox" , "Chromium" ]
-        gameTitle = [ "Steam" , "Blizzard App" ]
-        mediaClass = [ "mpv" ]
-        vmClass = [ "VirtualBox" , "Genymotion", "Genymotion Player" ]
+        wsClass = zip myWorkspaces [
+                [] , -- 1 main
+                [ "Firefox" , "Chromium" ] , -- 2 web
+                [ "Steam" , "Steam.exe" ] , -- 3 game
+                [ "mpv" ] , -- 4 media
+                [ "VirtualBox" , "Genymotion", "Genymotion Player" ] , -- 5 vm
+                [] , -- 6
+                [] , -- 7
+                [] , -- 8
+                []   -- 9
+            ]
 
