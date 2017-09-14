@@ -47,10 +47,7 @@ Config {
 
             Run Battery [
                     "--template", "<fc=#F2CEA4><fn=1><acstatus></fn><left> (<timeleft>)</fc>" ,
-                    "--High", "90" ,
                     "--Low", "40" ,
-                    "--high", "#A5C6A7" ,
-                    "--normal", "#F2CEA4" ,
                     "--low", "#BF4D4D" ,
                     "--ppad", "3" ,
                     "--suffix", "true" ,
