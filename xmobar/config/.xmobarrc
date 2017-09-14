@@ -60,7 +60,7 @@ Config {
                 50 ,
 
             Run DiskIO [
-                    ("sda", "<fc=#F2CEA4><fn=1></fn> <write>B</fc> <fc=#7F96E0><fn=1></fn> <read>B</fc>")
+                    ("sda", "<fc=#F2CEA4><fn=1></fn> <read>B</fc> <fc=#7F96E0><fn=1></fn> <write>B</fc>")
                 ] [
                     "--width", "4"
                 ]
