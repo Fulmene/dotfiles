@@ -73,7 +73,7 @@ myBorderWidth = 1
 myNormalBorderColor = "#171717"
 myFocusedBorderColor = "#F4DFD3"
 
-myWorkspaces = [ "1 main", "2 web", "3 game", "4 media", "5 vm" ] ++ map show [6..9]
+myWorkspaces = [ "1 main", "2 web", "3 game", "4 media", "5 vm", "6 chat" ] ++ map show [7..9]
 
 myModMask = mod1Mask
 
@@ -132,7 +132,7 @@ customManageHook = composeAll . concat $ [
                 [ "Steam" , "Steam.exe" ] , -- 3 game
                 [ "mpv" ] , -- 4 media
                 [ "VirtualBox" , "Genymotion", "Genymotion Player" ] , -- 5 vm
-                [] , -- 6
+                [ "Slack" ] , -- 6 chat
                 [] , -- 7
                 [] , -- 8
                 []   -- 9
