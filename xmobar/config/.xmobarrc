@@ -73,7 +73,7 @@ Config {
                 10 ,
 
             Run Volume "default" "Master" [
-                    "--template", "<status>" ,
+                    "--template", "<action=`pactl set-sink-mute 0 toggle` button=1><action=`pactl set-sink-mute 0 false` button=45><action=`pactl set-sink-volume 0 +2%` button=4><action=`pactl set-sink-volume 0 -2%` button=5><status></action></action></action></action>" ,
                     "--" ,
                         "--on", "<fn=1></fn><volume>%" ,
                         "--off", "<fn=1>  </fn>    " ,
