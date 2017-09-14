@@ -10,7 +10,7 @@ if dein#load_state(expand(pluginpath))
 
     call dein#add(expand(pluginpath . '/repos/github.com/Shougo/dein.vim'))
 
-    call dein#add('dylanaraps/wal.vim')
+    call dein#add('jacoborus/tender.vim')
 
     call dein#add('scrooloose/nerdtree', {'on_cmd': 'NERDTreeToggle'})
 
