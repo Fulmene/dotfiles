@@ -91,6 +91,10 @@ myKeys = windowKeys ++ applicationKeys ++ hardwareKeys where
             ("M-S-q", spawn myLogoutDialog) ,
             ("C-M-S-l", spawn myScreenLock) ,
 
+            ("M-w", spawn myWebBrowser) ,
+            ("M-e", spawn myFileManager) ,
+            ("M-r", spawn myMailReader) ,
+
             ("C-M-S-r", spawn "pkill -USR1 redshift") ,
             ("C-M-S-c", spawn "pkill compton || compton")
         ]
@@ -111,6 +115,10 @@ myRunDialog = "rofi -location 1 -yoffset 19 -show run"
 myLogoutDialog = "rofi-logout"
 myScreenLock = "cinnamon-screensaver-command --lock -m '" ++ myScreenLockMessage ++ "'"
 myScreenLockMessage = "Exploring the power of freedom."
+
+myWebBrowser = "chromium"
+myFileManager = myTerminal ++ " -e ranger"
+myMailReader = ""
 
 myStartupHook = setWMName "LG3D"
 
