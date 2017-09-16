@@ -1,6 +1,6 @@
-colorscheme wal
-highlight CursorLine ctermfg=none ctermbg=238
-highlight CursorLineNr ctermfg=none ctermbg=238
+"set termguicolors
+colorscheme ir_black
+let g:airline_theme = 'behelit'
 
 " NERDTree Key
 nnoremap <leader>n :NERDTreeToggle<CR>
