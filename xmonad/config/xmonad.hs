@@ -12,6 +12,8 @@ import XMonad.Layout.NoBorders
 
 import XMonad.Actions.CycleWS
 
+import qualified XMonad.StackSet as W
+
 import XMonad.Util.EZConfig
 
 import Data.List
@@ -95,6 +97,9 @@ myKeys = windowKeys ++ applicationKeys ++ hardwareKeys where
             ("M-e", spawn myFileManager) ,
             ("M-r", spawn myMailReader) ,
 
+            ("<Print>", spawn myScreenShooter) ,
+            ("M-<Print>", spawn mySelectionScreenShooter) ,
+
             ("C-M-S-r", spawn "pkill -USR1 redshift") ,
             ("C-M-S-c", spawn "pkill compton || compton")
         ]
@@ -119,6 +124,9 @@ myScreenLockMessage = "Exploring the power of freedom."
 myWebBrowser = "chromium"
 myFileManager = myTerminal ++ " -e ranger"
 myMailReader = ""
+myScreenShooter = "maim | xclip -selection clipboard -t image/png && xclip -o -selection clipboard -t image/png > " ++ screenShooterFileName
+mySelectionScreenShooter = "maim -s | xclip -selection clipboard -t image/png && xclip -o -selection clipboard -t image/png > " ++ screenShooterFileName
+screenShooterFileName = "~/Pictures/Screenshots/Screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"
 
 myStartupHook = setWMName "LG3D"
 
@@ -133,7 +141,7 @@ customManageHook = composeAll . concat $ [
         [ className =? c --> doShift ws | (ws, cs) <- wsClass, c <- cs ] ,
         [ className =? c --> doFloat | c <- floatClass ]
     ] where
-        floatClass = [ "Orage" ]
+        floatClass = [ "Orage", "feh" ]
         wsClass = zip myWorkspaces [
                 [] , -- 1 main
                 [ "Firefox" , "Chromium" ] , -- 2 web
