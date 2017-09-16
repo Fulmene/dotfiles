@@ -12,7 +12,7 @@ nnoremap J <C-w>j
 nnoremap K <C-w>k
 nnoremap L <C-w>l
 
-" Maximize
+" Maximise
 nnoremap <leader>_ <C-w>_
 nnoremap <leader>\| <C-w>\|
 nnoremap <leader>= <C-w>_<C-w>\|
@@ -24,4 +24,8 @@ nnoremap <C-l> :tabnext<CR>
 
 " Close tab
 nnoremap <leader>q :tabclose<CR>
+
+" Search
+" Unhighlight search
+nnoremap <leader>h :nohl<CR>
 
