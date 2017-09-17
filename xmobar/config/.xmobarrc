@@ -11,19 +11,19 @@ Config {
     overrideRedirect = False ,
     lowerOnStart = True ,
 
-    template = "%UnsafeStdinReader% %uptime% %multicpu% %memory% %diskio% %dynnetwork%}{%default:Master% %battery% <action=`ibus-setup`><fn=1></fn>%kbd%</action> %date% " ,
+    template = "%UnsafeStdinReader% %uptime% %multicpu% %memory% %diskio% %dynnetwork%}{%default:Master% %battery% <action=`ibus-setup`><fc=#D2A795><fn=1></fn>%kbd%</fc></action> %date% " ,
 
     commands = [
 
             Run Uptime [
-                    "--template", "<fc=#7F96E0><fn=1></fn><hours>:<minutes></fc>" ,
+                    "--template", "<fc=#D2A795><fn=1></fn><days>d</fc> <fc=#F2CEA4><hours>:<minutes></fc>" ,
                     "--padchars", "0" ,
                     "--width", "2"
                 ]
                 600 ,
 
             Run MultiCpu [
-                    "--template", "<fc=#7FD8D4><fn=1></fn>[<autototal>]</fc>" ,
+                    "--template", "<fc=#F4DFD3><fn=1></fn>[<autototal>]</fc>" ,
                     "--High", "70" ,
                     "--Low", "30" ,
                     "--high", "#BF4D4D" ,
@@ -35,7 +35,7 @@ Config {
                 10 ,
 
             Run Memory [
-                    "--template", "<fc=#D19AC7><fn=1></fn> <used>MB</fc>" ,
+                    "--template", "<fc=#F4DFD3><fn=1></fn></fc> <fc=#F4DFD3><used>MB</fc>" ,
                     "--High", "5120",
                     "--Low", "2048" ,
                     "--high", "#BF4D4D" ,
@@ -46,28 +46,31 @@ Config {
                 10 ,
 
             Run Battery [
-                    "--template", "<fc=#F2CEA4><fn=1><acstatus></fn><left> (<timeleft>)</fc>" ,
+                    "--template", "<fc=#F4DFD3><fn=1><acstatus></fn><left> (<timeleft>)</fc>" ,
+                    "--High", "80" ,
                     "--Low", "40" ,
+                    "--high", "#F4DFD3" ,
+                    "--normal", "#F2CEA4" ,
                     "--low", "#BF4D4D" ,
                     "--ppad", "3" ,
                     "--suffix", "true" ,
                     "--" ,
-                        "-O", "" ,
-                        "-i", "" ,
-                        "-o", "" ,
+                        "-O", "" ,
+                        "-i", "" ,
+                        "-o", "" ,
                         "-f", "AC0/online"
                 ]
                 50 ,
 
             Run DiskIO [
-                    ("sda", "<fc=#F2CEA4><fn=1></fn> <read>B</fc> <fc=#7F96E0><fn=1></fn> <write>B</fc>")
+                    ("sda", "<fc=#F2CEA4><fn=1></fn> <read>B</fc> <fc=#D2A795><fn=1></fn> <write>B</fc>")
                 ] [
                     "--width", "4"
                 ]
                 10 ,
 
             Run DynNetwork [
-                    "--template", "<fc=#F2CEA4><fn=1></fn><rx>KB</fc> <fc=#7F96E0><fn=1></fn><tx>KB</fc>" ,
+                    "--template", "<fc=#F2CEA4><fn=1></fn><rx>KB</fc> <fc=#D2A795><fn=1></fn><tx>KB</fc>" ,
                     "--width", "4"
                 ]
                 10 ,
@@ -77,8 +80,8 @@ Config {
                     "--" ,
                         "--on", "<fn=1></fn><volume>%" ,
                         "--off", "<fn=1>  </fn>    " ,
-                        "--onc", "#A5C6A7" ,
-                        "--offc", "#747474"
+                        "--onc", "#F2CEA4" ,
+                        "--offc", "#D2A795"
                 ] 1 ,
 
             -- TODO replace this with my own IBus plugin
@@ -90,7 +93,7 @@ Config {
                     ("gr", "GR")
                 ] ,
 
-            Run Date "<action='orage'><fc=#7FD8D4><fn=1></fn>%a %b %e</fc> <fc=#7F96E0><fn=1></fn>%H:%M</fc></action>" "date" 600 ,
+            Run Date "<fc=#D2A795><fn=1></fn>%a %b %e</fc> <fc=#F4DFD3><fn=1></fn>%H:%M</fc>" "date" 600 ,
 
             Run UnsafeStdinReader
         ]

@@ -55,12 +55,12 @@ myPP = xmobarPP {
         switchNextWorkspace button = wrap ("<action=`xdotool key alt+shift+l` button=" ++ button ++ ">") "</action>"
 
         myPPCurrent wid         = xmobarColor "#F2CEA4" "" $ (wid ++ replicate padLength ' ') where padLength = (maximum $ map length myWorkspaces) - length wid
-        myPPHidden wid          = switchWorkspace wid $ [head wid]
+        myPPHidden wid          = xmobarColor "#F4DFD3" "" $switchWorkspace wid $ [head wid]
         myPPHiddenNoWindows wid = xmobarColor "#747474" "" $ switchWorkspace wid $ [head wid]
         myPPUrgent wid          = xmobarColor "#BF4D4D" "" $ switchWorkspace wid $ [head wid]
 
         myPPOrder (ws:_:_:_) = [
-                switchPreviousWorkspace "4" $ switchNextWorkspace "5" $ wrap (switchPreviousWorkspace "1" "[") ((switchNextWorkspace "1" "]")) . pad $ ws
+                xmobarColor "#D2A795" "" $ switchPreviousWorkspace "4" $ switchNextWorkspace "5" $ wrap (switchPreviousWorkspace "1" "[") ((switchNextWorkspace "1" "]")) . pad $ ws
             ]
 
 myToggleStruts XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
