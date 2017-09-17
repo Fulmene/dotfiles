@@ -12,8 +12,6 @@ import XMonad.Layout.NoBorders
 
 import XMonad.Actions.CycleWS
 
-import qualified XMonad.StackSet as W
-
 import XMonad.Util.EZConfig
 
 import Data.List
