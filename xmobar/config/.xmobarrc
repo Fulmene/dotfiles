@@ -1,7 +1,7 @@
 Config {
     -- Appearance
     font = "xft:Noto Mono:size=9:bold:antialias=true" ,
-    additionalFonts = [ "xft:FontAwesome:size=10" ]
+    additionalFonts = [ "xft:FontAwesome:size=10" ] ,
     bgColor = "#171717" ,
     fgColor = "#F4DFD3" ,
     alpha = 204 ,
