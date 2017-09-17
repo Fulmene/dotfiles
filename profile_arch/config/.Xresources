@@ -38,8 +38,8 @@ rofi.color-urgent: argb: 00171717, #8C303E, argb: 00171717, #8C303E, #171717
 *color13: #D19AC7
 *.color14: #7FD8D4
 *color14: #7FD8D4
-*.color15: #FFFFFF
-*color15: #FFFFFF
+*.color15: #FFE6D8
+*color15: #FFE6D8
 
 *.color66: #171717
 *color66:  #171717

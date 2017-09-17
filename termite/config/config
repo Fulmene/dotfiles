@@ -35,7 +35,7 @@ filter_unmatched_urls = true
 cursor = #F4DFD3
 cursor_foreground = #171717
 foreground = #F4DFD3
-foreground_bold = #FFFFFF
+foreground_bold = #FFE6D8
 #background = #3f3f3f
 
 # 20% background transparency (requires a compositor)
@@ -60,7 +60,7 @@ color11 = #F2CEA4
 color12 = #7F96E0
 color13 = #D19AC7
 color14 = #7FD8D4
-color15 = #FFFFFF
+color15 = #FFE6D8
 
 #[hints]
 #font = Monospace 12
