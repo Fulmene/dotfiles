@@ -141,7 +141,7 @@ customManageHook = composeAll . concat $ [
         [ className =? c --> doShift ws | (ws, cs) <- wsClass, c <- cs ] ,
         [ className =? c --> doFloat | c <- floatClass ]
     ] where
-        floatClass = [ "Orage", "feh" ]
+        floatClass = [ "feh" ]
         wsClass = zip myWorkspaces [
                 [] , -- 1 main
                 [ "Firefox" , "Chromium" ] , -- 2 web
