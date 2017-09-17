@@ -35,8 +35,8 @@ case $TERM in
     *color)
         ;&
     *-termite)
-        colour_host=$colour_yellow
-        colour_dir=$colour_lwhite
+        colour_host=$colour_lcyan
+        colour_dir=$colour_lgreen
         colour_branch=$colour_lyellow
         ;;
     *)
