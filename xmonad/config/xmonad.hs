@@ -123,8 +123,8 @@ myScreenLockMessage = "Exploring the power of freedom."
 myWebBrowser = "chromium"
 myFileManager = myTerminal ++ " -e ranger"
 myMailReader = ""
-myScreenShooter = "maim | xclip -selection clipboard -t image/png && xclip -o -selection clipboard -t image/png > " ++ screenShooterFileName
-mySelectionScreenShooter = "maim -s | xclip -selection clipboard -t image/png && xclip -o -selection clipboard -t image/png > " ++ screenShooterFileName
+myScreenShooter = "maim | xclip -selection clipboard -t image/png && xclip -o -selection clipboard -t image/png > " ++ screenShooterFileName ++ " && notify-send \"Screen captured\""
+mySelectionScreenShooter = "maim -s | xclip -selection clipboard -t image/png && xclip -o -selection clipboard -t image/png > " ++ screenShooterFileName ++ " && notify-send \"Screen captured\""
 screenShooterFileName = "~/Pictures/Screenshots/Screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"
 
 myLayoutHook =  onWorkspace "2 web" (webTall ||| Mirror webTall) $
