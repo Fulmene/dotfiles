@@ -32,7 +32,6 @@ main = do
                     workspaces          = myWorkspaces ,
                     modMask             = myModMask ,
 
-                    startupHook         = myStartupHook ,
                     layoutHook          = myLayoutHook ,
                     manageHook          = myManageHook
                 }
@@ -127,8 +126,6 @@ myMailReader = ""
 myScreenShooter = "maim | xclip -selection clipboard -t image/png && xclip -o -selection clipboard -t image/png > " ++ screenShooterFileName
 mySelectionScreenShooter = "maim -s | xclip -selection clipboard -t image/png && xclip -o -selection clipboard -t image/png > " ++ screenShooterFileName
 screenShooterFileName = "~/Pictures/Screenshots/Screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"
-
-myStartupHook = setWMName "LG3D"
 
 myLayoutHook =  onWorkspace "2 web" (webTall ||| Mirror webTall) $
                 onWorkspaces [ "3 game", "4 media", "5 vm" ] (noBorders Full) $
