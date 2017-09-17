@@ -4,7 +4,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.InsertPosition
-import XMonad.Hooks.SetWMName
+import XMonad.Hooks.UrgencyHook
 
 import XMonad.Layout.Grid
 import XMonad.Layout.PerWorkspace
@@ -18,6 +18,7 @@ import Data.List
 
 main = do
     xmonad =<< statusBar myStatusBar myPP myToggleStruts (
+            withUrgencyHook NoUrgencyHook $
             ewmh def {
                     terminal            = myTerminal ,
                     focusFollowsMouse   = myFocusFollowsMouse ,
