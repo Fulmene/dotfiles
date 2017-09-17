@@ -144,7 +144,7 @@ customManageHook = composeAll . concat $ [
                 [ "Steam" , "Steam.exe" ] , -- 3 game
                 [ "mpv" ] , -- 4 media
                 [ "VirtualBox" , "Genymotion", "Genymotion Player" ] , -- 5 vm
-                [ "Slack" ] , -- 6 chat
+                [ "discord", "Slack" ] , -- 6 chat
                 [] , -- 7
                 [] , -- 8
                 []   -- 9
