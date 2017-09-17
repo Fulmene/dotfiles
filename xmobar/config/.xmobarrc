@@ -5,7 +5,7 @@ Config {
     bgColor = "#171717" ,
     fgColor = "#F4DFD3" ,
     alpha = 204 ,
-    position = TopW L 94 ,
+    position = TopW L 92 ,
 
     -- Behaviour
     overrideRedirect = False ,
