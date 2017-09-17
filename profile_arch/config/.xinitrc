@@ -48,6 +48,10 @@ export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 ibus-daemon -drx
 
+# -- Java options -- #
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dsun.java2d.opengl=true"
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 start-pulseaudio-x11 &
 xsetroot -cursor_name left_ptr &
