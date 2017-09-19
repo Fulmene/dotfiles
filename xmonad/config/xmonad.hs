@@ -144,10 +144,10 @@ customManageHook = composeAll . concat $ [
                 [ "Firefox" , "Chromium" ] , -- 2 web
                 [ "Steam" , "Steam.exe" ] , -- 3 game
                 [ "mpv" ] , -- 4 media
-                [ "VirtualBox" , "Genymotion", "Genymotion Player" ] , -- 5 vm
+                [ "VirtualBox" , "Genymotion" , "Genymotion Player" ] , -- 5 vm
                 [ "discord", "Slack" ] , -- 6 chat
                 [] , -- 7
-                [ "libreoffice" ] , -- 8 office
+                [ "libreoffice" , "libreoffice-writer" , "libreoffice-calc" , "libreoffice-impress" ] , -- 8 office
                 [ "Eclipse" ]   -- 9 ide
             ]
 
