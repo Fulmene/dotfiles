@@ -5,6 +5,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.InsertPosition
 import XMonad.Hooks.UrgencyHook
+import XMonad.Hooks.ManageHelpers
 
 import XMonad.Layout.Grid
 import XMonad.Layout.PerWorkspace
@@ -132,7 +133,7 @@ myLayoutHook =  onWorkspace "2 web" (webTall ||| Mirror webTall) $
                     mainTall = Tall 2 (3/100) (1/2)
                     webTall = Tall 1 (3/100) (2/3)
 
-myManageHook = insertPosition Below Newer <+> customManageHook <+> manageDocks <+> manageHook def
+myManageHook = composeOne [ transience, return True -?> insertPosition Below Newer ] <+> customManageHook <+> manageDocks <+> manageHook def
 customManageHook = composeAll . concat $ [
         [ className =? c --> doShift ws | (ws, cs) <- wsClass, c <- cs ] ,
         [ className =? c --> doFloat | c <- floatClass ]
