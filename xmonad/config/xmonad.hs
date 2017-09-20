@@ -133,10 +133,16 @@ myLayoutHook =  onWorkspace "2 web" (webTall ||| Mirror webTall) $
                     mainTall = Tall 2 (3/100) (1/2)
                     webTall = Tall 1 (3/100) (2/3)
 
-myManageHook = composeOne [ transience, return True -?> insertPosition Below Newer ] <+> customManageHook <+> manageDocks <+> manageHook def
+myManageHook = composeAll [
+        composeOne [ transience, return True -?> insertPosition Below Newer ] ,
+        customManageHook ,
+        manageDocks ,
+        manageHook def
+    ]
 customManageHook = composeAll . concat $ [
         [ className =? c --> doShift ws | (ws, cs) <- wsClass, c <- cs ] ,
-        [ className =? c --> doFloat | c <- floatClass ]
+        [ className =? c --> doFloat | c <- floatClass ] ,
+        [ isDialog --> doFloat ]
     ] where
         floatClass = [ "feh" ]
         wsClass = zip myWorkspaces [
