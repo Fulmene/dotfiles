@@ -1,6 +1,6 @@
 #!/bin/bash
 
-options="poweroff\nreboot\nsuspend\nlogout"
+options="poweroff\nreboot\nsuspend\nhibernate\nlogout"
 cmd=$(echo -e "$options" | rofi -dmenu -width 30 -lines 10 -p quit:)
 case $cmd in
     logout)
