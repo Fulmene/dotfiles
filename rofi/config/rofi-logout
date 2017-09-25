@@ -1,7 +1,12 @@
 #!/bin/bash
 
-options="poweroff\nreboot\nsuspend\nhibernate\nlogout"
-cmd=$(echo -e "$options" | rofi -dmenu -width 30 -lines 10 -p quit:)
+options=\
+"suspend
+hibernate
+logout
+reboot
+poweroff"
+cmd=$(echo "$options" | rofi -dmenu -width 30 -lines 10 -p quit:)
 case $cmd in
     logout)
         pkill xmonad
