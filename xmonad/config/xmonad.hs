@@ -87,17 +87,25 @@ myKeys = windowKeys ++ applicationKeys ++ hardwareKeys where
         ]
 
     applicationKeys = [
-            ("M-p", spawn myDesktopRunDialog) ,
-            ("M-S-p", spawn myRunDialog) ,
-            ("M-S-q", spawn myLogoutDialog) ,
-            ("C-M-S-l", spawn myScreenLock) ,
+            ("M-p", spawn desktopRunDialog) ,
+            ("M-S-p", spawn runDialog) ,
+            ("M-S-q", spawn logoutDialog) ,
+            ("C-M-S-l", spawn screenLock) ,
 
-            ("<Print>", spawn myScreenShooter) ,
-            ("M-<Print>", spawn mySelectionScreenShooter) ,
+            ("<Print>", spawn screenShooter) ,
+            ("M-<Print>", spawn selectionScreenShooter) ,
 
             ("C-M-S-r", spawn "pkill -USR1 redshift") ,
             ("C-M-S-c", spawn "pkill compton || compton")
-        ]
+        ] where
+        desktopRunDialog = "rofi -location 1 -yoffset 19 -combi-modi window,drun -show combi -modi combi -display-combi drun"
+        runDialog = "rofi -location 1 -yoffset 19 -show run"
+        logoutDialog = "rofi-logout"
+        screenLock = "cinnamon-screensaver-command --lock -m '" ++ screenLockMessage ++ "'"
+        screenLockMessage = "Exploring the power of freedom."
+        screenShooter = "maim | xclip -selection clipboard -t image/png && xclip -o -selection clipboard -t image/png > " ++ screenShooterFileName ++ " && notify-send \"Screen captured\""
+        selectionScreenShooter = "maim -s | xclip -selection clipboard -t image/png && xclip -o -selection clipboard -t image/png > " ++ screenShooterFileName ++ " && notify-send \"Screen selection captured\""
+        screenShooterFileName = "~/Pictures/Screenshots/Screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"
 
     hardwareKeys = [
             ("<XF86TouchpadToggle>", spawn $ "xinput-toggle " ++ touchpad) ,
@@ -109,16 +117,6 @@ myKeys = windowKeys ++ applicationKeys ++ hardwareKeys where
         mute mode = "pactl set-sink-mute 0 " ++ mode
         lowerVolume = "pactl set-sink-volume 0 -5%"
         raiseVolume = "pactl set-sink-volume 0 +5%"
-
-myDesktopRunDialog = "rofi -location 1 -yoffset 19 -combi-modi window,drun -show combi -modi combi -display-combi drun"
-myRunDialog = "rofi -location 1 -yoffset 19 -show run"
-myLogoutDialog = "rofi-logout"
-myScreenLock = "cinnamon-screensaver-command --lock -m '" ++ myScreenLockMessage ++ "'"
-myScreenLockMessage = "Exploring the power of freedom."
-
-myScreenShooter = "maim | xclip -selection clipboard -t image/png && xclip -o -selection clipboard -t image/png > " ++ screenShooterFileName ++ " && notify-send \"Screen captured\""
-mySelectionScreenShooter = "maim -s | xclip -selection clipboard -t image/png && xclip -o -selection clipboard -t image/png > " ++ screenShooterFileName ++ " && notify-send \"Screen captured\""
-screenShooterFileName = "~/Pictures/Screenshots/Screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"
 
 myLayoutHook =  onWorkspace "2 web" (webTall ||| Mirror webTall) $
                 onWorkspaces [ "3 game", "4 media", "5 vm" ] (noBorders Full) $
