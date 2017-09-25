@@ -69,7 +69,7 @@ xset dpms 0 0 0
 xset s off
 
 cinnamon-screensaver &
-xss-lock -l -- cinnamon-screensaver-command -l -m "Productivity is overrated." &
+xss-lock -l -- screen-lock &
 
 exec xmonad
 
