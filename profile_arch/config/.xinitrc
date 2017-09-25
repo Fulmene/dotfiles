@@ -65,8 +65,11 @@ redshift &
 nm-applet &
 sleep 3 && kalu &
 
+xset dpms 0 0 0
+xset s off
+
 cinnamon-screensaver &
-xss-lock -l -- cinnamon-screensaver-command -l -m "Reliability is overrated." &
+xss-lock -l -- cinnamon-screensaver-command -l -m "Productivity is overrated." &
 
 exec xmonad
 
