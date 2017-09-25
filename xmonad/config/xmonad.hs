@@ -127,8 +127,9 @@ myScreenShooter = "maim | xclip -selection clipboard -t image/png && xclip -o -s
 mySelectionScreenShooter = "maim -s | xclip -selection clipboard -t image/png && xclip -o -selection clipboard -t image/png > " ++ screenShooterFileName ++ " && notify-send \"Screen captured\""
 screenShooterFileName = "~/Pictures/Screenshots/Screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"
 
-myLayoutHook =  onWorkspace "2 web" (webTall ||| Mirror webTall) $
-                onWorkspaces [ "3 game", "4 media", "5 vm" ] (noBorders Full) $
+myLayoutHook =  smartBorders $
+                onWorkspace "2 web" (webTall ||| Mirror webTall) $
+                onWorkspaces [ "3 game", "4 media", "5 vm" ] Full $
                 (mainTall ||| Mirror mainTall ||| Grid ||| Full) where
                     mainTall = Tall 2 (3/100) (1/2)
                     webTall = Tall 1 (3/100) (2/3)
