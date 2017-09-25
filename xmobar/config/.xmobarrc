@@ -11,7 +11,7 @@ Config {
     overrideRedirect = False ,
     lowerOnStart = True ,
 
-    template = "%UnsafeStdinReader% %uptime% %multicpu% %memory% %diskio% %dynnetwork%}{%default:Master% %battery% <action=`ibus-setup`><fc=#D2A795><fn=1></fn>%kbd%</fc></action> %date% " ,
+    template = "%UnsafeStdinReader% %uptime% %multicpu% %memory% +%swap% %diskio%}{%default:Master% %battery% <action=`ibus-setup`><fc=#D2A795><fn=1></fn>%kbd%</fc></action> %date% " ,
 
     commands = [
 
@@ -36,7 +36,7 @@ Config {
 
             Run Memory [
                     "--template", "<fc=#F4DFD3><fn=1></fn></fc> <fc=#F4DFD3><used>MB</fc>" ,
-                    "--High", "5120",
+                    "--High", "4096",
                     "--Low", "2048" ,
                     "--high", "#BF4D4D" ,
                     "--normal", "#F2CEA4" ,
@@ -44,6 +44,33 @@ Config {
                     "--width", "4"
                 ]
                 10 ,
+
+            Run Swap [
+                    "--template", "<used>MB" ,
+                    "--High", "4096",
+                    "--Low", "2048" ,
+                    "--high", "#BF4D4D" ,
+                    "--normal", "#F2CEA4" ,
+                    "--low", "#F4DFD3" ,
+                    "--width", "5"
+                ]
+                10 ,
+
+            Run DiskIO [
+                    ("sda", "<fc=#F2CEA4><fn=1></fn> <read>B</fc> <fc=#D2A795><fn=1></fn> <write>B</fc>")
+                ] [
+                    "--width", "4"
+                ]
+                10 ,
+
+            Run Volume "default" "Master" [
+                    "--template", "<action=`pactl set-sink-mute 0 toggle` button=1><action=`pactl set-sink-mute 0 false` button=45><action=`pactl set-sink-volume 0 +2%` button=4><action=`pactl set-sink-volume 0 -2%` button=5><status></action></action></action></action>" ,
+                    "--" ,
+                        "--on", "<fn=1></fn><volume>%" ,
+                        "--off", "<fn=1>  </fn>    " ,
+                        "--onc", "#F2CEA4" ,
+                        "--offc", "#D2A795"
+                ] 1 ,
 
             Run Battery [
                     "--template", "<fc=#F4DFD3><fn=1><acstatus></fn><left> (<timeleft>)</fc>" ,
@@ -61,28 +88,6 @@ Config {
                         "-f", "AC0/online"
                 ]
                 50 ,
-
-            Run DiskIO [
-                    ("sda", "<fc=#F2CEA4><fn=1></fn> <read>B</fc> <fc=#D2A795><fn=1></fn> <write>B</fc>")
-                ] [
-                    "--width", "4"
-                ]
-                10 ,
-
-            Run DynNetwork [
-                    "--template", "<fc=#F2CEA4><fn=1></fn><rx>KB</fc> <fc=#D2A795><fn=1></fn><tx>KB</fc>" ,
-                    "--width", "4"
-                ]
-                10 ,
-
-            Run Volume "default" "Master" [
-                    "--template", "<action=`pactl set-sink-mute 0 toggle` button=1><action=`pactl set-sink-mute 0 false` button=45><action=`pactl set-sink-volume 0 +2%` button=4><action=`pactl set-sink-volume 0 -2%` button=5><status></action></action></action></action>" ,
-                    "--" ,
-                        "--on", "<fn=1></fn><volume>%" ,
-                        "--off", "<fn=1>  </fn>    " ,
-                        "--onc", "#F2CEA4" ,
-                        "--offc", "#D2A795"
-                ] 1 ,
 
             -- TODO replace this with my own IBus plugin
             Run Kbd [
