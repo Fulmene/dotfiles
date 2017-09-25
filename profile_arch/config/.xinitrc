@@ -66,6 +66,7 @@ nm-applet &
 sleep 3 && kalu &
 
 cinnamon-screensaver &
+xss-lock -l -- cinnamon-screensaver-command -l -m "Reliability is overrated." &
 
 exec xmonad
 
