@@ -47,8 +47,8 @@ Config {
 
             Run Swap [
                     "--template", "<used>MB" ,
-                    "--High", "4096",
-                    "--Low", "2048" ,
+                    "--High", "1024",
+                    "--Low", "512" ,
                     "--high", "#BF4D4D" ,
                     "--normal", "#F2CEA4" ,
                     "--low", "#F4DFD3" ,
