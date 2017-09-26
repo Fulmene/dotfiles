@@ -63,7 +63,7 @@ trayer --edge top --align right --widthtype pixel --width 110 --heighttype pixel
 numlockx &
 redshift &
 nm-applet &
-sleep 3 && kalu &
+sleep 10 && kalu &
 
 xset dpms 0 0 0
 xset s off
