@@ -66,7 +66,7 @@ nm-applet &
 sleep 10 && kalu &
 
 xset dpms 0 0 0
-xset s off
+xset s 0 0
 
 cinnamon-screensaver &
 xss-lock -l -- screen-lock &
