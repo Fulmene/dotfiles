@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if which primusrun &> /dev/null; then
+    primusrun $@
+elif which optirun &> /dev/null; then
+    optirun $@
+else
+    env DRI_PRIME=1 $@
+fi
