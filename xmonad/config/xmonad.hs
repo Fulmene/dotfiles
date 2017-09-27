@@ -138,7 +138,7 @@ customManageHook = composeAll . concat $ [
         wsClass = zip myWorkspaces [
                 [] , -- 1 main
                 [ "Firefox" , "Chromium" ] , -- 2 web
-                [ "Steam" , "Steam.exe" ] , -- 3 game
+                [ "Steam" , "steam.exe" , "shadowverse.exe" ] , -- 3 game
                 [ "mpv" ] , -- 4 media
                 [ "VirtualBox" , "Genymotion" , "Genymotion Player" ] , -- 5 vm
                 [ "discord", "Slack" ] , -- 6 chat
