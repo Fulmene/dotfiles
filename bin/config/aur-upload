@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ $# -ne 1 ]]; then
-    echo "Usage: aur-upload \"[commit message]\""
+    echo "Usage: aur-upload \"[commit message]\"" >&2
     exit 1
 fi
 

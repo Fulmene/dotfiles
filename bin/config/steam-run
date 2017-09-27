@@ -11,14 +11,14 @@ while [[ $# -gt 0 ]]; do
             wine=1
             ;;
         -*)
-            echo "Error: Unrecognised option ${key}." 1>&2
+            echo "Error: Unrecognised option ${key}." >&2
             ;;
         *)
             if [[ "$key" -lt 0 ]]; then
-                echo "Error: Game ID must be non-negative integer." 1>&2
+                echo "Error: Game ID must be non-negative integer." >&2
                 exit 1
             elif [[ -n "$game_id" ]]; then
-                echo "Error: Multiple game ID present." 1>&2
+                echo "Error: Multiple game ID present." >&2
                 exit 1
             else
                 game_id=$key
@@ -29,7 +29,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [[ -z "$game_id" ]]; then
-    echo "Error: No game ID." 1>&2
+    echo "Error: No game ID." >&2
     exit 1
 fi
 
@@ -38,7 +38,7 @@ steam_desktop_file="steam.desktop"
 steam_command="steam"
 
 if [[ "$wine" -eq 1 ]] && [[ "$native" -eq 1 ]]; then
-    echo "Error: Native and Wine options can't be used at the same time." 1>&2
+    echo "Error: Native and Wine options can't be used at the same time." >&2
     exit 1
 elif [[ "$wine" -eq 1 ]]; then
     export WINEPREFIX=~/.wine/steam
