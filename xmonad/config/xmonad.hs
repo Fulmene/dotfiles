@@ -11,6 +11,8 @@ import XMonad.Layout.Grid
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.NoBorders
 
+import qualified XMonad.StackSet as W
+
 import XMonad.Actions.CycleWS
 
 import XMonad.Util.EZConfig
@@ -35,6 +37,7 @@ main = do
                     layoutHook          = myLayoutHook ,
                     manageHook          = myManageHook
                 }
+            `removeKeysP` myRemoveKeys
             `additionalKeysP` myKeys
         )
 
@@ -78,8 +81,15 @@ myWorkspaces = [ "1 main", "2 web", "3 game", "4 media", "5 vm", "6 chat", "7", 
 
 myModMask = mod1Mask
 
+myRemoveKeys = [ "M-h", "M-j", "M-k", "M-l" ]
+
 myKeys = windowKeys ++ applicationKeys ++ hardwareKeys where
     windowKeys = [
+            ("M-S-j", windows W.focusDown) ,
+            ("M-S-k", windows W.focusUp) ,
+            ("C-M-j", windows W.swapDown) ,
+            ("C-M-k", windows W.swapUp) ,
+
             ("M-S-h", prevWS) ,
             ("M-S-l", nextWS) ,
             ("C-M-h", shiftToPrev >> prevWS) ,
