@@ -128,7 +128,7 @@ myKeys = windowKeys ++ applicationKeys ++ hardwareKeys where
         raiseVolume = "pactl set-sink-volume 0 +5%"
 
 myLayoutHook =  onWorkspace "2 web" (webTall ||| Mirror webTall) $
-                onWorkspaces [ "3 game", "4 media", "5 vm" ] (noBorders Full) $
+                onWorkspaces [ "3 game", "4 media", "5 vm" ] (smartBorders Full) $
                 (mainTall ||| Mirror mainTall ||| Grid ||| Full) where
                     mainTall = Tall 2 (3/100) (1/2)
                     webTall = Tall 1 (3/100) (2/3)
