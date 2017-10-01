@@ -63,10 +63,10 @@ trayer --edge top --align right --widthtype pixel --width 110 --heighttype pixel
 numlockx &
 redshift &
 nm-applet &
-sleep 10 && kalu &
+(sleep 10; kalu) &
 
-xset dpms 0 0 0
-xset s 0 0
+(sleep 15; xset dpms 0 0 0) &
+(sleep 15; xset s 0 0) &
 
 cinnamon-screensaver &
 xss-lock -l -- screen-lock &
