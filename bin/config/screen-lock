@@ -9,15 +9,21 @@ kill_locker() {
     cinnamon-screensaver-command -d
 }
 
+lock_inactive() {
+    return [[ -n "$(cinnamon-screensaver-command -q | grep inactive)" ]]
+}
+
 trap kill_locker TERM INT
 
 if [[ -e /dev/fd/${XSS_SLEEP_LOCK_FD:--1} ]]; then
 
     # Make screen locker not inherit sleep lock
-    cinnamon-screensaver-command -l -m "$message_sleep" {XSS_SLEEP_LOCK_FD}<&-
+    if lock_inactive; then
+        cinnamon-screensaver-command -l -m "$message_sleep" {XSS_SLEEP_LOCK_FD}<&-
+    fi
 
     # Wait until the screen is locked
-    while [[ -n "$(cinnamon-screensaver-command -q | grep inactive)" ]]; do
+    while lock_inactive; do
         sleep 0.1
     done
 
