@@ -10,7 +10,7 @@ kill_locker() {
 }
 
 lock_inactive() {
-    [[ -n "$(cinnamon-screensaver-command -q | grep inactive)" ]]
+    cinnamon-screensaver-command -q | grep inactive
 }
 
 trap kill_locker TERM INT
