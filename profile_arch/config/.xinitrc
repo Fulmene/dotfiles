@@ -65,8 +65,8 @@ redshift &
 nm-applet &
 (sleep 10; kalu) &
 
-(sleep 15; xset dpms 0 0 0) &
-(sleep 15; xset s 0 0) &
+xset dpms 0 0 0
+xset s 0 0
 
 cinnamon-screensaver &
 xss-lock -l -- screen-lock &
