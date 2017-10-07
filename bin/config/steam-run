@@ -34,8 +34,8 @@ if [[ -z "$game_id" ]]; then
 fi
 
 steam_process_name="steam"
-steam_desktop_file="steam.desktop"
 steam_command="steam"
+steam_run_command="steam"
 
 if [[ "$wine" -eq 1 ]] && [[ "$native" -eq 1 ]]; then
     echo "Error: Native and Wine options can't be used at the same time." >&2
@@ -44,14 +44,14 @@ elif [[ "$wine" -eq 1 ]]; then
     export WINEPREFIX=~/.wine/steam
     export FREETYPE_PROPERTIES="truetype:interpreter-version=35"
     steam_process_name="Steam.exe"
-    steam_desktop_file="steam-wine.desktop"
-    steam_command="wine start"
+    steam_command="wine 'C:\\Program Files\\Steam\\Steam.exe' -no-cef-sandbox"
+    steam_run_command="wine start"
 elif [[ "$native" -eq 1 ]]; then
     steam_process_name="steam"
-    steam_desktop_file="steam-native.desktop"
     steam_command="steam-native"
+    steam_run_command="steam-native"
 fi
 
-pgrep "$steam_process_name" &> /dev/null || gtk-launch "$steam_desktop_file"
-$steam_command "steam://rungameid/${game_id}"
+pgrep "$steam_process_name" &> /dev/null || $steam_command
+$steam_run_command "steam://rungameid/${game_id}"
 
