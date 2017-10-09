@@ -39,7 +39,6 @@ done
 steam_process_name="steam"
 steam_other_process_name="Steam.exe"
 steam_command="steam"
-steam_run_command="steam"
 
 if [[ $(($runtime+$native+$wine)) -lt 1 ]]; then
     echo "Error: No options specified." >&2
@@ -52,24 +51,23 @@ elif [[ "$wine" -eq 1 ]]; then
     export FREETYPE_PROPERTIES="truetype:interpreter-version=35"
     steam_process_name="Steam.exe"
     steam_other_process_name="steam"
-    steam_command="wine 'C:\\Program Files\\Steam\\Steam.exe' -no-cef-sandbox"
-    steam_run_command="wine start"
+    steam_path="$WINEPREFIX/drive_c/Program Files/Steam/Steam.exe"
+    steam_command="wine \"$steam_path\" -no-cef-sandbox"
 elif [[ "$native" -eq 1 ]]; then
     steam_process_name="steam"
     steam_command="steam-native"
-    steam_run_command="steam-native"
 fi
 
-if ! pgrep --exact "$steam_process_name"; then # &> /dev/null; then
-    echo "not grepped"
-    pkill --exact "$steam_other_process_name" # &> /dev/null
-    while pgrep --exact "$steam_other_process_name"; do # &> /dev/null; do
+if ! pgrep --exact "$steam_process_name" &> /dev/null; then
+    pkill --exact "$steam_other_process_name" &> /dev/null
+    while pgrep --exact "$steam_other_process_name" &> /dev/null; do
         sleep 0.1
     done
-    $steam_command
 fi
 
 if [[ -n "$game_id" ]]; then
-    $steam_run_command "steam://rungameid/${game_id}"
+    eval $steam_command "steam://rungameid/${game_id}"
+else
+    eval $steam_command
 fi
 
