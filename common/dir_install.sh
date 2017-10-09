@@ -16,5 +16,5 @@ fi
 
 shopt -s dotglob
 mkdir -p $install_dir
-ln -sf $current_dir/config/* $install_dir
+ln -sf $current_dir/files/* $install_dir
 

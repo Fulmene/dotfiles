@@ -3,7 +3,7 @@
 source current_dir.sh
 
 # File paths
-source_config_dir=$current_dir/config
+source_config_dir=$current_dir/files
 source_init_vim_file=$source_config_dir/init.vim
 source_settings_dir=$source_config_dir/settings
 source_plugin_dir=$source_config_dir/plugin
