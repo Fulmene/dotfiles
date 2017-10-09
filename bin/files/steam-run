@@ -1,9 +1,17 @@
 #!/bin/bash
 
+# Initialise
+runtime=0
+native=0
+wine=0
+
 # Parse arguments
 while [[ $# -gt 0 ]]; do
     key=$1
     case "$key" in
+        -r|--runtime)
+            runtime=1
+            ;;
         -n|--native)
             native=1
             ;;
@@ -28,22 +36,22 @@ while [[ $# -gt 0 ]]; do
     shift
 done
 
-if [[ -z "$game_id" ]]; then
-    echo "Error: No game ID." >&2
-    exit 1
-fi
-
 steam_process_name="steam"
+steam_other_process_name="Steam.exe"
 steam_command="steam"
 steam_run_command="steam"
 
-if [[ "$wine" -eq 1 ]] && [[ "$native" -eq 1 ]]; then
-    echo "Error: Native and Wine options can't be used at the same time." >&2
+if [[ $(($runtime+$native+$wine)) -lt 1 ]]; then
+    echo "Error: No options specified." >&2
+    exit 1
+elif [[ $(($runtime+$native+$wine)) -gt 1 ]]; then
+    echo "Error: Multiple options specified." >&2
     exit 1
 elif [[ "$wine" -eq 1 ]]; then
     export WINEPREFIX=~/.wine/steam
     export FREETYPE_PROPERTIES="truetype:interpreter-version=35"
     steam_process_name="Steam.exe"
+    steam_other_process_name="steam"
     steam_command="wine 'C:\\Program Files\\Steam\\Steam.exe' -no-cef-sandbox"
     steam_run_command="wine start"
 elif [[ "$native" -eq 1 ]]; then
@@ -52,6 +60,16 @@ elif [[ "$native" -eq 1 ]]; then
     steam_run_command="steam-native"
 fi
 
-pgrep "$steam_process_name" &> /dev/null || $steam_command
-$steam_run_command "steam://rungameid/${game_id}"
+if ! pgrep --exact "$steam_process_name"; then # &> /dev/null; then
+    echo "not grepped"
+    pkill --exact "$steam_other_process_name" # &> /dev/null
+    while pgrep --exact "$steam_other_process_name"; do # &> /dev/null; do
+        sleep 0.1
+    done
+    $steam_command
+fi
+
+if [[ -n "$game_id" ]]; then
+    $steam_run_command "steam://rungameid/${game_id}"
+fi
 
