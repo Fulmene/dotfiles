@@ -5,8 +5,14 @@ if [[ $# -ne 1 ]]; then
     exit 1
 fi
 
-touchpad_device=$1
-state=$( xinput list-props "$touchpad_device" | grep "Device Enabled" | grep -o "[01]$" )
+device=$1
+state=$( xinput list-props "$device" | grep "Device Enabled" | grep -o "[01]$" )
+if [[ state -eq 0 ]]; then
+    state_name=enabled
+else
+    state_name=disabled
+fi
 
-xinput set-int-prop "$touchpad_device" "Device Enabled" 8 "$((1-state))"
+xinput set-int-prop "$device" "Device Enabled" 8 "$((1-state))"
+notify-send --urgency=low --app-name=xinput "Device $device $state_name"
 
