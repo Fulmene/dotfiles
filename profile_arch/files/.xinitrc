@@ -68,6 +68,8 @@ nm-applet &
 xset dpms 0 0 0
 xset s 0 0
 
+xinput disable 'FocalTechPS/2 FocalTech Touchpad'
+
 cinnamon-screensaver &
 xss-lock -l -- screen-lock &
 
