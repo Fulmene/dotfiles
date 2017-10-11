@@ -65,8 +65,8 @@ redshift &
 nm-applet &
 (sleep 10; kalu) &
 
-xset dpms 0 0 0
-xset s 0 0
+xset -dpms
+xset s off
 
 xinput disable 'FocalTechPS/2 FocalTech Touchpad'
 

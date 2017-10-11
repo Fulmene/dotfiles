@@ -117,6 +117,7 @@ myKeys = windowKeys ++ applicationKeys ++ hardwareKeys where
         screenShooterFileName = "~/Pictures/Screenshots/Screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"
 
     hardwareKeys = [
+            ("C-M-S-d", spawn "dpms-toggle") ,
             ("<XF86TouchpadToggle>", spawn $ "xinput-toggle " ++ touchpad) ,
             ("<XF86AudioMute>", spawn $ mute "toggle") ,
             ("<XF86AudioLowerVolume>", spawn $ mute "false" ++ " && " ++ lowerVolume) ,
