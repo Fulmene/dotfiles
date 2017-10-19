@@ -3,10 +3,10 @@ Xcursor*theme: Hacked-White
 rofi*font: Noto Mono 12
 rofi*hide-scrollbar: true
 
-rofi.color-window: argb: CC171717, argb: CC171717, argb: CC78927A
-rofi.color-normal: argb: 00171717, #F4DFD3, argb: 00171717, #F2CEA4, #171717
-rofi.color-active: argb: 00171717, #F4DFD3, argb: 00171717, #F2CEA4, #171717
-rofi.color-urgent: argb: 00171717, #8C303E, argb: 00171717, #8C303E, #171717
+rofi.color-window: argb:CC171717, argb:CC171717, argb:CC78927A
+rofi.color-normal: argb:00171717, #F4DFD3, argb:00171717, #F2CEA4, #171717
+rofi.color-active: argb:00171717, #F4DFD3, argb:00171717, #F2CEA4, #171717
+rofi.color-urgent: argb:00171717, #8C303E, argb:00171717, #8C303E, #171717
 
 *.color0: #171717
 *color0: #171717
