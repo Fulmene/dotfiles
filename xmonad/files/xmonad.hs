@@ -128,7 +128,7 @@ myKeys = windowKeys ++ applicationKeys ++ hardwareKeys where
         lowerVolume = "pactl set-sink-volume 0 -5%"
         raiseVolume = "pactl set-sink-volume 0 +5%"
 
-myLayoutHook =  onWorkspace "2 web" (webTall ||| Mirror webTall) $
+myLayoutHook =  onWorkspaces [ "2 web", "9 ide" ] (webTall ||| Mirror webTall) $
                 onWorkspaces [ "3 game", "4 media", "5 vm" ] (smartBorders (Full ||| mainTall)) $
                 (mainTall ||| Mirror mainTall ||| Grid ||| Full) where
                     mainTall = Tall 2 (3/100) (1/2)
@@ -145,7 +145,7 @@ customManageHook = composeAll . concat $ [
         [ className =? c --> doCenterFloat | c <- floatClass ] ,
         [ isDialog --> doFloat ]
     ] where
-        floatClass = [ "feh" , "shadowverse.exe" ]
+        floatClass = [ "feh" , "shadowverse.exe" , "Java" ]
         wsClass = zip myWorkspaces [
                 [] , -- 1 main
                 [ "Firefox" , "Chromium" ] , -- 2 web
