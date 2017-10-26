@@ -135,17 +135,19 @@ myLayoutHook =  onWorkspaces [ "2 web", "9 ide" ] (webTall ||| Mirror webTall) $
                     webTall = Tall 1 (3/100) (2/3)
 
 myManageHook = composeAll [
-        composeOne [ transience, return True -?> insertPosition Below Newer ] ,
-        customManageHook ,
+        workspaceManageHook ,
         manageDocks ,
+        composeOne . concat $ [
+                [ isDialog -?> doCenterFloat ] ,
+                [ stringProperty "WM_WINDOW_ROLE" =? "pop-up" -?> doCenterFloat ] ,
+                [ className =? c -?> doCenterFloat | c <- floatClass ] ,
+                [ transience ] ,
+                [ pure True -?> insertPosition Below Newer ]
+            ] ,
         manageHook def
-    ]
-customManageHook = composeAll . concat $ [
-        [ className =? c --> doShift ws | (ws, cs) <- wsClass, c <- cs ] ,
-        [ className =? c --> doCenterFloat | c <- floatClass ] ,
-        [ isDialog --> doFloat ]
     ] where
         floatClass = [ "feh" , "shadowverse.exe" , "Java" , "application.Main" ]
+        workspaceManageHook = composeAll [ className =? c --> doShift ws | (ws, cs) <- wsClass, c <- cs ]
         wsClass = zip myWorkspaces [
                 [] , -- 1 main
                 [ "Firefox" , "Chromium" ] , -- 2 web
