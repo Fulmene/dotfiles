@@ -24,6 +24,8 @@ if dein#load_state(expand(pluginpath))
     call dein#add('tpope/vim-fugitive')
     call dein#add('tpope/vim-rhubarb')
 
+    call dein#add('ervandew/supertab', {'on_event': 'InsertEnter'})
+
     call dein#end()
     call dein#save_state()
 
