@@ -1,0 +1,29 @@
+#!/bin/sh
+
+if [[ $# -lt 2 ]]; then
+    echo "Usage: junit-testrun [root directory|jar file] [names of test case packages]"
+    exit 1
+fi
+
+root=$1
+shift
+test_pkgs=$@
+
+for test_pkg in $test_pkgs; do
+
+    test_dir=$(echo "$test_pkg" | sed "s/\./\//g")
+
+    if [[ -d "$root" ]]; then
+        test_cases=$root/$test_dir/*
+    else
+        test_cases=$(jar tf "$root" 2> /dev/null | grep "$test_dir")
+    fi
+
+    for test_case in $test_cases; do
+        test_case_name=$(basename "${test_case%.*}")
+        echo "Testing $test_case_name"
+        java -cp "${root}:/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar" org.junit.runner.JUnitCore "${test_pkg}.${test_case_name}"
+    done
+
+done
+
