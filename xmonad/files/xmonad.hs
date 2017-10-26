@@ -145,7 +145,7 @@ customManageHook = composeAll . concat $ [
         [ className =? c --> doCenterFloat | c <- floatClass ] ,
         [ isDialog --> doFloat ]
     ] where
-        floatClass = [ "feh" , "shadowverse.exe" , "Java" , "application.Main" ]
+        floatClass = [ "feh" , "shadowverse.exe" , "Java" ]
         wsClass = zip myWorkspaces [
                 [] , -- 1 main
                 [ "Firefox" , "Chromium" ] , -- 2 web
