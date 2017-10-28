@@ -146,7 +146,7 @@ myManageHook = composeAll [
             ] ,
         manageHook def
     ] where
-        floatClass = [ "feh" , "shadowverse.exe" , "Java" , "application.Main" ]
+        floatClass = [ "feh" , "Java" , "application.Main" ]
         workspaceManageHook = composeAll [ className =? c --> doShift ws | (ws, cs) <- wsClass, c <- cs ]
         wsClass = zip myWorkspaces [
                 [] , -- 1 main
