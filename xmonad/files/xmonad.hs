@@ -131,7 +131,7 @@ myKeys = windowKeys ++ applicationKeys ++ hardwareKeys where
 myLayoutHook =  onWorkspaces [ "2 web", "9 ide" ] (webTall ||| Mirror webTall) $
                 onWorkspaces [ "3 game", "4 media", "5 vm" ] (smartBorders (Full ||| mainTall)) $
                 (mainTall ||| Mirror mainTall ||| Grid ||| Full) where
-                    mainTall = Tall 2 (3/100) (1/2)
+                    mainTall = Tall 1 (3/100) (1/2)
                     webTall = Tall 1 (3/100) (2/3)
 
 myManageHook = composeAll [
