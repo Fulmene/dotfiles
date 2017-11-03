@@ -119,14 +119,18 @@ myKeys = windowKeys ++ applicationKeys ++ hardwareKeys where
     hardwareKeys = [
             ("C-M-S-d", spawn "dpms-toggle") ,
             ("<XF86TouchpadToggle>", spawn $ "xinput-toggle " ++ touchpad) ,
-            ("<XF86AudioMute>", spawn $ mute "toggle") ,
-            ("<XF86AudioLowerVolume>", spawn $ mute "false" ++ " && " ++ lowerVolume) ,
-            ("<XF86AudioRaiseVolume>", spawn $ mute "false" ++ " && " ++ raiseVolume)
+            ("<XF86AudioMute>", spawn $ setVolume toggle) ,
+            ("<XF86AudioLowerVolume>", spawn $ (setVolume unmute) `andThen` (setVolume lower)) ,
+            ("<XF86AudioRaiseVolume>", spawn $ (setVolume unmute) `andThen` (setVolume raise))
         ] where
         touchpad = "'FocalTechPS/2 FocalTech Touchpad'"
-        mute mode = "pactl set-sink-mute 0 " ++ mode
-        lowerVolume = "pactl set-sink-volume 0 -5%"
-        raiseVolume = "pactl set-sink-volume 0 +5%"
+        setVolume mode = "amixer -q sset Master " ++ mode
+        unmute = "unmute"
+        mute = "mute"
+        toggle = "toggle"
+        lower = "2dB-"
+        raise = "2dB+"
+        andThen cmd1 cmd2 = cmd1 ++ " && " ++ cmd2
 
 myLayoutHook =  onWorkspaces [ "2 web", "8 office", "9 ide" ] (tallTwoThird ||| Mirror tallTwoThird) $
                 onWorkspaces [ "3 game", "4 media", "5 vm" ] (smartBorders (Full ||| tallHalf)) $
