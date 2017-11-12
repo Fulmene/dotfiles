@@ -70,7 +70,7 @@ xset s off
 
 xinput disable 'FocalTechPS/2 FocalTech Touchpad'
 
-cinnamon-screensaver &
+# cinnamon-screensaver &
 xss-lock -l -- screen-lock &
 
 exec xmonad
