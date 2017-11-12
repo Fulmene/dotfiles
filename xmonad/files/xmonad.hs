@@ -155,7 +155,7 @@ myManageHook = composeAll [
         wsClass = zip myWorkspaces [
                 [] , -- 1 main
                 [ "Firefox" , "Chromium" ] , -- 2 web
-                [ "Steam" , "steam.exe" , "shadowverse.exe" , "magic-MagicMain" ] , -- 3 game
+                [ "Steam" , "steam.exe" , "shadowverse.exe" , "magic-MagicMain" , "ygoproth experimental.exe" , "ygopro_test.exe" ] , -- 3 game
                 [ "mpv" ] , -- 4 media
                 [ "VirtualBox" , "Genymotion" , "Genymotion Player" ] , -- 5 vm
                 [ "discord", "Slack" ] , -- 6 chat
