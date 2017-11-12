@@ -32,5 +32,5 @@ if [[ -e /dev/fd/${XSS_SLEEP_LOCK_FD:--1} ]]; then
     exec {XSS_SLEEP_LOCK_FD}<&-
 
 else
-    physlock -d -m -s -p "$message_lock"
+    physlock -m -s -p "$message_lock"
 fi
