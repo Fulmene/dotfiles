@@ -1,16 +1,20 @@
-#!/bin/bash
+#!/bin/sh
 
 # Use with xss-lock -l to differentiate between regular lock and sleep lock
 
-message_lock="Exploring the power of freedom."
-message_sleep="Productivity is overrated."
+message_lock="
+Exploring the power of freedom.
+                    ~$USER"
+message_sleep="
+Productivity is overrated.
+                ~$USER"
 
 kill_locker() {
-    cinnamon-screensaver-command -d
+    pkill physlock
 }
 
 lock_inactive() {
-    cinnamon-screensaver-command -q | grep inactive
+    ! pgrep physlock > /dev/null 2>&1
 }
 
 trap kill_locker TERM INT
@@ -19,16 +23,14 @@ if [[ -e /dev/fd/${XSS_SLEEP_LOCK_FD:--1} ]]; then
 
     if lock_inactive; then
         # Make screen locker not inherit sleep lock
-        cinnamon-screensaver-command -l -m "$message_sleep" {XSS_SLEEP_LOCK_FD}<&-
+        physlock -d -m -s -p "$message_sleep" {XSS_SLEEP_LOCK_FD}<&-
         # Wait until the screen is locked
-        while lock_inactive; do
-            sleep 0.1
-        done
+        wait
     fi
 
     # Release the sleep lock
     exec {XSS_SLEEP_LOCK_FD}<&-
 
 else
-    cinnamon-screensaver-command -l -m "$message_lock"
+    physlock -d -m -s -p "$message_lock"
 fi
