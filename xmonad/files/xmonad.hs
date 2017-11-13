@@ -77,7 +77,7 @@ myBorderWidth = 1
 myNormalBorderColor = "#171717"
 myFocusedBorderColor = "#F4DFD3"
 
-myWorkspaces = [ "1 main", "2 web", "3 game", "4 media", "5 vm", "6 chat", "7", "8 office", "9 ide" ]
+myWorkspaces = [ "1 main", "2 web", "3 game", "4 media", "5 vm", "6 chat", "7 server", "8 office", "9 ide" ]
 
 myModMask = mod1Mask
 
@@ -159,7 +159,7 @@ myManageHook = composeAll [
                 [ "mpv" ] , -- 4 media
                 [ "VirtualBox" , "Genymotion" , "Genymotion Player" ] , -- 5 vm
                 [ "discord", "Slack" ] , -- 6 chat
-                [] , -- 7
+                [] , -- 7 server
                 [ "libreoffice" , "libreoffice-writer" , "libreoffice-calc" , "libreoffice-impress" ] , -- 8 office
                 [ "Eclipse" ]   -- 9 ide
             ]
