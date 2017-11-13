@@ -61,7 +61,7 @@ compton &
 trayer --edge top --align right --widthtype pixel --width 110 --heighttype pixel --height 19 --SetDockType true --SetPartialStrut true --transparent true --alpha 51 --tint 0x171717 &
 
 numlockx &
-redshift &
+redshift -t 6500:5000 &
 nm-applet &
 (sleep 10; kalu) &
 
