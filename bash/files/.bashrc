@@ -15,14 +15,14 @@ if which tput &> /dev/null; then
     colour_magenta="$(tput setaf 5)"
     colour_cyan="$(tput setaf 6)"
     colour_white="$(tput setaf 7)"
-    colour_lblack="$(tput setaf 8)"
-    colour_lred="$(tput setaf 9)"
-    colour_lgreen="$(tput setaf 10)"
-    colour_lyellow="$(tput setaf 11)"
-    colour_lblue="$(tput setaf 12)"
-    colour_lmagenta="$(tput setaf 13)"
-    colour_lcyan="$(tput setaf 14)"
-    colour_lwhite="$(tput setaf 15)"
+    colour_bblack="$(tput setaf 8)"
+    colour_bred="$(tput setaf 9)"
+    colour_bgreen="$(tput setaf 10)"
+    colour_byellow="$(tput setaf 11)"
+    colour_bblue="$(tput setaf 12)"
+    colour_bmagenta="$(tput setaf 13)"
+    colour_bcyan="$(tput setaf 14)"
+    colour_bwhite="$(tput setaf 15)"
 
     term_reset="$(tput sgr0)"
 fi
@@ -35,9 +35,9 @@ case $TERM in
     *color)
         ;&
     *-termite)
-        colour_host=$colour_yellow
-        colour_dir=$colour_lyellow
-        colour_branch=$colour_white
+        colour_host=$colour_byellow
+        colour_dir=$colour_bblue
+        colour_branch=$colour_byellow
         ;;
     *)
         colour_host=$colour_cyan
@@ -47,13 +47,13 @@ case $TERM in
 esac
 function parse_git_branch {
     git_branch="$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //')"
-    test -n "$git_branch" && printf '(%s%s%s)' "$colour_branch" "$git_branch" "$term_reset"
+    test -n "$git_branch" && printf '(%s%s%s)' "$colour_branch$(tput bold)" "$git_branch" "$term_reset"
 }
 function prompt {
-    PS1="\[$(tput bold)\]\$\[$term_reset\] "
     printf '%s%s@%s%s [%s%s%s] %s\n' "${colour_host}$(tput bold)" "$USER" "$HOSTNAME" "$term_reset" "${colour_dir}$(tput bold)" "${PWD/#$HOME/'~'}" "$term_reset" "$(parse_git_branch)"
 }
 PROMPT_COMMAND=prompt
+PS1="\[$(tput bold)\]\$\[$term_reset\] "
 
 if [[ -d ~/.bashrc.d ]]; then
     for cfg in ~/.bashrc.d/?*.sh; do
