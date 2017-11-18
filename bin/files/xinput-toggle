@@ -14,5 +14,5 @@ else
 fi
 
 xinput set-int-prop "$device" "Device Enabled" 8 "$((1-state))"
-notify-send --urgency=low --app-name=xinput "Device $device $state_name"
+notify-send --urgency=low --app-name=xinput "Device $state_name" "$device"
 
