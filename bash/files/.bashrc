@@ -45,13 +45,16 @@ case $TERM in
         colour_branch=$colour_yellow
         ;;
 esac
-function parse_git_branch {
+
+parse_git_branch() {
     git_branch="$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //')"
     test -n "$git_branch" && printf '(%s%s%s)' "$colour_branch$(tput bold)" "$git_branch" "$term_reset"
 }
-function prompt {
+
+prompt() {
     printf '%s%s@%s%s [%s%s%s] %s\n' "${colour_host}$(tput bold)" "$USER" "$HOSTNAME" "$term_reset" "${colour_dir}$(tput bold)" "${PWD/#$HOME/'~'}" "$term_reset" "$(parse_git_branch)"
 }
+
 PROMPT_COMMAND=prompt
 PS1="\[$(tput bold)\]\$\[$term_reset\] "
 
