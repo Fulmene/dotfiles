@@ -51,11 +51,15 @@ parse_git_branch() {
     test -n "$git_branch" && printf '(%s%s%s)' "$colour_branch$(tput bold)" "$git_branch" "$term_reset"
 }
 
+# -- __vte_prompt_command to set directory -- #
+vte_sh="/etc/profile.d/vte.sh"
+[[ -f "$vte_sh" ]] && [[ -r "$vte_sh" ]] && . "$vte_sh"
+
 prompt() {
     printf '%s%s@%s%s [%s%s%s] %s\n' "${colour_host}$(tput bold)" "$USER" "$HOSTNAME" "$term_reset" "${colour_dir}$(tput bold)" "${PWD/#$HOME/'~'}" "$term_reset" "$(parse_git_branch)"
 }
 
-PROMPT_COMMAND=prompt
+PROMPT_COMMAND="__vte_prompt_command; prompt"
 PS1="\[$(tput bold)\]\$\[$term_reset\] "
 
 if [[ -d ~/.bashrc.d ]]; then
