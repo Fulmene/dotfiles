@@ -52,14 +52,18 @@ parse_git_branch() {
 }
 
 # -- __vte_prompt_command to set directory -- #
-vte_sh="/etc/profile.d/vte.sh"
-[[ -f "$vte_sh" ]] && [[ -r "$vte_sh" ]] && . "$vte_sh"
+if [[ $TERM == *-termite ]]; then
+    vte_sh="/etc/profile.d/vte.sh"
+    [[ -f "$vte_sh" ]] && [[ -r "$vte_sh" ]] && . "$vte_sh"
+    unset vte_sh
+fi
 
 prompt() {
+    [[ "$TERM" == *-termite ]] && __vte_prompt_command
     printf '%s%s@%s%s [%s%s%s] %s\n' "${colour_host}$(tput bold)" "$USER" "$HOSTNAME" "$term_reset" "${colour_dir}$(tput bold)" "${PWD/#$HOME/'~'}" "$term_reset" "$(parse_git_branch)"
 }
 
-PROMPT_COMMAND="__vte_prompt_command; prompt"
+PROMPT_COMMAND="prompt"
 PS1="\[$(tput bold)\]\$\[$term_reset\] "
 
 if [[ -d ~/.bashrc.d ]]; then
