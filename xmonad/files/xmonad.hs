@@ -157,7 +157,7 @@ myManageHook = composeAll [
                 [ "Firefox" , "Chromium" ] , -- 2 web
                 [ "Steam" , "steam.exe" , "shadowverse.exe" , "magic-MagicMain" , "ygoproth experimental.exe" , "ygopro_test.exe" ] , -- 3 game
                 [ "mpv" ] , -- 4 media
-                [ "VirtualBox" , "Genymotion" , "Genymotion Player" ] , -- 5 vm
+                [ "VirtualBox Machine" , "Genymotion Player" ] , -- 5 vm
                 [ "discord", "Slack" ] , -- 6 chat
                 [] , -- 7 server
                 [ "libreoffice" , "libreoffice-writer" , "libreoffice-calc" , "libreoffice-impress" ] , -- 8 office
