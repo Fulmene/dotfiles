@@ -132,7 +132,7 @@ myKeys = windowKeys ++ applicationKeys ++ hardwareKeys where
         raise = "2dB+"
         andThen cmd1 cmd2 = cmd1 ++ " && " ++ cmd2
 
-myLayoutHook =  onWorkspaces [ "2 web", "8 office", "9 ide" ] (tallTwoThird ||| Mirror tallTwoThird) $
+myLayoutHook =  onWorkspaces [ "2 web", "8 office", "9 ide" ] (tallTwoThird ||| Mirror tallTwoThird ||| Full) $
                 onWorkspaces [ "3 game", "4 media", "5 vm" ] (smartBorders (Full ||| tallHalf)) $
                 (tallHalf ||| Mirror tallHalf ||| Grid ||| Full) where
                     tallHalf = Tall 1 (3/100) (1/2)
