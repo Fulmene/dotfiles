@@ -53,7 +53,6 @@ export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswi
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-start-pulseaudio-x11 &
 xsetroot -cursor_name left_ptr &
 
 compton &
@@ -61,7 +60,7 @@ compton &
 trayer --edge top --align right --widthtype pixel --width 110 --heighttype pixel --height 19 --SetDockType true --SetPartialStrut true --transparent true --alpha 51 --tint 0x171717 &
 
 numlockx &
-redshift -t 6500:5000 &
+redshift &
 nm-applet &
 (sleep 10; kalu) &
 
