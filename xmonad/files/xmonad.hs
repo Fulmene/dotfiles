@@ -81,7 +81,7 @@ myWorkspaces = [ "1 main", "2 web", "3 game", "4 media", "5 vm", "6 chat", "7 se
 
 myModMask = mod1Mask
 
-myRemoveKeys = [ "M-h", "M-j", "M-k", "M-l" ]
+myRemoveKeys = []
 
 myKeys = windowKeys ++ applicationKeys ++ hardwareKeys where
     windowKeys = [
