@@ -85,11 +85,6 @@ myRemoveKeys = [ "M-h", "M-j", "M-k", "M-l" ]
 
 myKeys = windowKeys ++ applicationKeys ++ hardwareKeys where
     windowKeys = [
-            ("M-S-j", windows W.focusDown) ,
-            ("M-S-k", windows W.focusUp) ,
-            ("C-M-j", windows W.swapDown) ,
-            ("C-M-k", windows W.swapUp) ,
-
             ("M-S-h", prevWS) ,
             ("M-S-l", nextWS) ,
             ("C-M-h", shiftToPrev >> prevWS) ,
