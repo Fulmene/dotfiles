@@ -54,8 +54,8 @@ myPP = xmobarPP {
         switchWorkspace wid = switchWorkspaceIndex (wid `elemIndex` myWorkspaces) where
             switchWorkspaceIndex (Just x) = wrap ("<action=`xdotool key alt+" ++ show (x+1) ++ "`>") "</action>"
             switchWorkspaceIndex Nothing  = id
-        switchPreviousWorkspace button = wrap ("<action=`xdotool key alt+shift+h` button=" ++ button ++ ">") "</action>"
-        switchNextWorkspace button = wrap ("<action=`xdotool key alt+shift+l` button=" ++ button ++ ">") "</action>"
+        switchPreviousWorkspace button = wrap ("<action=`xdotool key alt+h` button=" ++ button ++ ">") "</action>"
+        switchNextWorkspace button = wrap ("<action=`xdotool key alt+l` button=" ++ button ++ ">") "</action>"
 
         myPPCurrent wid         = xmobarColor "#F2CEA4" "" $ (wid ++ replicate padLength ' ') where padLength = (maximum $ map length myWorkspaces) - length wid
         myPPHidden wid          = xmobarColor "#F4DFD3" "" $switchWorkspace wid $ [head wid]
