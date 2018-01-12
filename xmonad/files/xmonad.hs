@@ -85,10 +85,10 @@ myRemoveKeys = []
 
 myKeys = windowKeys ++ applicationKeys ++ hardwareKeys where
     windowKeys = [
-            ("M-S-h", prevWS) ,
-            ("M-S-l", nextWS) ,
-            ("C-M-h", shiftToPrev >> prevWS) ,
-            ("C-M-l", shiftToNext >> nextWS)
+            ("M-h", prevWS) ,
+            ("M-l", nextWS) ,
+            ("M-S-h", shiftToPrev >> prevWS) ,
+            ("M-S-l", shiftToNext >> nextWS)
         ]
 
     applicationKeys = [
