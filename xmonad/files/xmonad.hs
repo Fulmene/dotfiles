@@ -128,7 +128,7 @@ myKeys = windowKeys ++ applicationKeys ++ hardwareKeys where
         andThen cmd1 cmd2 = cmd1 ++ " && " ++ cmd2
 
 myLayoutHook =  onWorkspaces [ "2 web", "8 office", "9 ide" ] (tallTwoThird ||| Mirror tallTwoThird ||| Full) $
-                onWorkspaces [ "3 game", "4 media", "5 vm" ] (smartBorders (Full ||| tallHalf)) $
+                onWorkspaces [ "3 game", "4 media", "5 vm" ] (lessBorders OnlyFloat (Full ||| tallHalf)) $
                 (tallHalf ||| Mirror tallHalf ||| Grid ||| Full) where
                     tallHalf = Tall 1 (3/100) (1/2)
                     tallTwoThird = Tall 1 (3/100) (2/3)
@@ -145,12 +145,12 @@ myManageHook = composeAll [
             ] ,
         manageHook def
     ] where
-        floatClass = [ "feh" , "Java" , "application.Main" ]
+        floatClass = [ "feh" , "Java" , "application.Main" , "Wine" ]
         workspaceManageHook = composeAll [ className =? c --> doShift ws | (ws, cs) <- wsClass, c <- cs ]
         wsClass = zip myWorkspaces [
                 [] , -- 1 main
                 [ "Firefox" , "Chromium" ] , -- 2 web
-                [ "Steam" , "steam.exe" , "shadowverse.exe" , "magic-MagicMain" , "ygoproth experimental.exe" , "ygopro_test.exe" ] , -- 3 game
+                [ "Steam" , "Wine" , "magic-MagicMain" ] , -- 3 game
                 [ "mpv" ] , -- 4 media
                 [ "VirtualBox Machine" , "Genymotion Player" ] , -- 5 vm
                 [ "discord", "Slack" ] , -- 6 chat
