@@ -63,6 +63,7 @@ numlockx &
 redshift &
 nm-applet &
 (sleep 10; kalu) &
+(sleep 15; dropbox) &
 
 xset -dpms
 xset s off
