@@ -37,6 +37,9 @@ set clipboard=unnamed,unnamedplus
 
 let $VISUAL = 'nvr -cc split --remote-wait'         " Split instead of nested editor inside neovim terminal
 
+set ignorecase
+set smartcase
+
 set exrc
 set secure
 
