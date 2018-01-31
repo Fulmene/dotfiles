@@ -57,7 +57,7 @@ xsetroot -cursor_name left_ptr &
 
 compton &
 ~/.fehbg
-trayer --edge top --align right --widthtype pixel --width 110 --heighttype pixel --height 19 --SetDockType true --SetPartialStrut true --transparent true --alpha 51 --tint 0x171717 &
+trayer --edge top --align right --widthtype pixel --width 110 --heighttype pixel --height 19 --SetDockType true --SetPartialStrut true --transparent true --alpha 51 --tint 0x262626 &
 
 numlockx &
 redshift &
