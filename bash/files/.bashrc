@@ -31,20 +31,9 @@ fi
 source /usr/share/bash-completion/bash_completion
 
 # -- Prompt -- #
-case $TERM in
-    *color)
-        ;&
-    *-termite)
-        colour_host=$colour_cyan
-        colour_dir=$colour_green
-        colour_branch=$colour_yellow
-        ;;
-    *)
-        colour_host=$colour_cyan
-        colour_dir=$colour_green
-        colour_branch=$colour_yellow
-        ;;
-esac
+colour_host=$colour_green
+colour_dir=$colour_blue
+colour_branch=$colour_yellow
 
 parse_git_branch() {
     git_branch="$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //')"
