@@ -10,6 +10,7 @@ import XMonad.Hooks.ManageHelpers
 import XMonad.Layout.Grid
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.NoBorders
+import XMonad.Layout.Spacing
 
 import qualified XMonad.StackSet as W
 
@@ -130,9 +131,9 @@ myKeys = windowKeys ++ applicationKeys ++ hardwareKeys where
         raise = "2dB+"
         andThen cmd1 cmd2 = cmd1 ++ " && " ++ cmd2
 
-myLayoutHook =  onWorkspaces [ "2 web", "8 office", "9 ide" ] (smartBorders (tallTwoThird ||| Mirror tallTwoThird ||| Full)) $
-                onWorkspaces [ "3 game", "4 media", "5 vm" ] (smartBorders (Full ||| tallHalf)) $
-                (tallHalf ||| Mirror tallHalf ||| Grid ||| Full) where
+myLayoutHook =  onWorkspaces [ "2 web", "8 office", "9 ide" ] (spacingWithEdge 3 $ tallTwoThird ||| Mirror tallTwoThird ||| Full) $
+                onWorkspaces [ "3 game", "4 media", "5 vm" ] (smartBorders $ Full ||| tallHalf) $
+                (spacingWithEdge 3 $ tallHalf ||| Mirror tallHalf ||| Grid ||| Full) where
                     tallHalf = Tall 1 (3/100) (1/2)
                     tallTwoThird = Tall 1 (3/100) (2/3)
 
