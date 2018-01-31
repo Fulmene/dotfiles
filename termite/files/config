@@ -33,7 +33,7 @@ filter_unmatched_urls = true
 
 [colors]
 cursor = #DFDFAF
-cursor_foreground = #262626
+cursor_foreground = #303030
 foreground = #FFFFDF
 #foreground_bold = #FFE6D8
 #background = #3f3f3f
@@ -49,17 +49,17 @@ color0 = #303030
 color1 = #D75F5F
 color2 = #5F8787
 color3 = #DFAF87
-color4 = #AF875F
+color4 = #5F87AF
 color5 = #875F5F
-color6 = #87AFAF
+color6 = #5FAFAF
 color7 = #FFFFDF
 color8 = #767676
 color9 = #D75F5F
 color10 = #5F8787
 color11 = #DFAF87
-color12 = #AF875F
+color12 = #5F87AF
 color13 = #875F5F
-color14 = #87AFAF
+color14 = #5FAFAF
 color15 = #FFFFDF
 
 #[hints]
