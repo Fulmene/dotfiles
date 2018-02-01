@@ -59,6 +59,10 @@ compton &
 ~/.fehbg
 trayer --edge top --align right --margin 190 --widthtype percent --width 27 --heighttype pixel --height 19 --SetDockType true --SetPartialStrut true --transparent true --alpha 51 --tint 0x262626 &
 
+for bar in ~/.xmobar/*; do
+    [ `basename $bar` != "xmonad" ] && xmobar $bar &
+done
+
 numlockx &
 redshift &
 nm-applet &
@@ -71,10 +75,6 @@ xset s off
 xinput disable 'FocalTechPS/2 FocalTech Touchpad'
 
 xss-lock -l -- screen-lock &
-
-for bar in ~/.xmobar/*; do
-    [ `basename $bar` != "xmonad" ] && xmobar $bar &
-done
 
 exec xmonad
 
