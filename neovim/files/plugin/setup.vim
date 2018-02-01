@@ -7,7 +7,8 @@ highlight LineNr guibg=none ctermbg=none
 let g:airline_theme = 'minimalist'
 
 " NERDTree Key
-nnoremap <leader>n :Denite file_rec<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>d :Denite file_rec<CR>
 
 " Neomake
 augroup neomake_lint
