@@ -2,8 +2,8 @@ Config {
     -- Appearance
     font = "xft:Noto Mono:size=9:bold:antialias=true" ,
     additionalFonts = [ "xft:FontAwesome:size=10" ] ,
-    bgColor = "#171717" ,
-    fgColor = "#F4DFD3" ,
+    bgColor = "#262626" ,
+    fgColor = "#FFFFDF" ,
     alpha = 204 ,
     position = TopW L 92 ,
 
@@ -11,36 +11,36 @@ Config {
     overrideRedirect = False ,
     lowerOnStart = True ,
 
-    template = "%UnsafeStdinReader% %uptime% %multicpu% %memory% +%swap% %diskio%}{%default:Master% %battery% <action=`ibus-setup`><fc=#D2A795><fn=1></fn>%kbd%</fc></action> %date% " ,
+    template = "%UnsafeStdinReader% %uptime% %multicpu% %memory% +%swap% %diskio%}{%default:Master% %battery% <action=`ibus-setup`><fc=#AF875F><fn=1></fn>%kbd%</fc></action> %date% " ,
 
     commands = [
 
             Run Uptime [
-                    "--template", "<fc=#D2A795><fn=1></fn><days>d</fc> <fc=#F2CEA4><hours>:<minutes></fc>" ,
+                    "--template", "<fc=#AF875F><fn=1></fn><days>d</fc> <fc=#DFAF87><hours>:<minutes></fc>" ,
                     "--padchars", "0" ,
                     "--width", "2"
                 ]
                 600 ,
 
             Run MultiCpu [
-                    "--template", "<fc=#F4DFD3><fn=1></fn>[<autototal>]</fc>" ,
+                    "--template", "<fc=#FFFFDF><fn=1></fn>[<autototal>]</fc>" ,
                     "--High", "70" ,
                     "--Low", "30" ,
-                    "--high", "#BF4D4D" ,
-                    "--normal", "#F2CEA4" ,
-                    "--low", "#F4DFD3" ,
+                    "--high", "#D75F5F" ,
+                    "--normal", "#DFAF87" ,
+                    "--low", "#FFFFDF" ,
                     "--suffix", "true" ,
                     "--ppad", "3"
                 ]
                 10 ,
 
             Run Memory [
-                    "--template", "<fc=#F4DFD3><fn=1></fn></fc> <fc=#F4DFD3><used>MB</fc>" ,
+                    "--template", "<fc=#FFFFDF><fn=1></fn> <used>MB</fc>" ,
                     "--High", "4096",
                     "--Low", "2048" ,
-                    "--high", "#BF4D4D" ,
-                    "--normal", "#F2CEA4" ,
-                    "--low", "#F4DFD3" ,
+                    "--high", "#D75F5F" ,
+                    "--normal", "#DFAF87" ,
+                    "--low", "#FFFFDF" ,
                     "--width", "4"
                 ]
                 10 ,
@@ -49,15 +49,15 @@ Config {
                     "--template", "<used>MB" ,
                     "--High", "1024",
                     "--Low", "512" ,
-                    "--high", "#BF4D4D" ,
-                    "--normal", "#F2CEA4" ,
-                    "--low", "#F4DFD3" ,
+                    "--high", "#D75F5F" ,
+                    "--normal", "#DFAF87" ,
+                    "--low", "#FFFFDF" ,
                     "--width", "5"
                 ]
                 10 ,
 
             Run DiskIO [
-                    ("sda", "<fc=#F2CEA4><fn=1></fn> <read>B</fc> <fc=#D2A795><fn=1></fn> <write>B</fc>")
+                    ("sda", "<fc=#DFAF87><fn=1></fn> <read>B</fc> <fc=#AF875F><fn=1></fn> <write>B</fc>")
                 ] [
                     "--width", "4"
                 ]
@@ -69,17 +69,17 @@ Config {
                     "--" ,
                         "--on", "<fn=1></fn><volume>%" ,
                         "--off", "<fn=1>  </fn>    " ,
-                        "--onc", "#F2CEA4" ,
-                        "--offc", "#D2A795"
+                        "--onc", "#DFAF87" ,
+                        "--offc", "#AF875F"
                 ] 1 ,
 
             Run Battery [
-                    "--template", "<fc=#F4DFD3><fn=1><acstatus></fn><left> (<timeleft>)</fc>" ,
+                    "--template", "<fc=#FFFFDF><fn=1><acstatus></fn><left> (<timeleft>)</fc>" ,
                     "--High", "80" ,
                     "--Low", "40" ,
-                    "--high", "#F4DFD3" ,
-                    "--normal", "#F2CEA4" ,
-                    "--low", "#BF4D4D" ,
+                    "--high", "#FFFFDF" ,
+                    "--normal", "#DFAF87" ,
+                    "--low", "#D75F5F" ,
                     "--ppad", "3" ,
                     "--suffix", "true" ,
                     "--" ,
@@ -99,7 +99,7 @@ Config {
                     ("gr", "GR")
                 ] ,
 
-            Run Date "<fc=#D2A795><fn=1></fn>%a %b %e</fc> <fc=#F4DFD3><fn=1></fn>%H:%M</fc>" "date" 600 ,
+            Run Date "<fc=#5F8787><fn=1></fn>%a %b %e</fc> <fc=#FFFFDF><fn=1></fn>%H:%M</fc>" "date" 600 ,
 
             Run UnsafeStdinReader
         ]
