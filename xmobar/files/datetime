@@ -1,0 +1,17 @@
+Config {
+    -- Appearance
+    font = "xft:Noto Mono:size=9:bold:antialias=true" ,
+    additionalFonts = [ "xft:FontAwesome:size=10" ] ,
+    bgColor = "#262626" ,
+    fgColor = "#FFFFDF" ,
+    alpha = 204 ,
+    position = TopW C 20 ,
+
+    -- Behaviour
+    overrideRedirect = False ,
+    lowerOnStart = True ,
+
+    template = "}%date%{" ,
+
+    commands = [ Run Date "<fc=#5F8787><fn=1></fn>%a %b %e</fc> <fc=#FFFFDF><fn=1></fn>%H:%M</fc>" "date" 600 ]
+}

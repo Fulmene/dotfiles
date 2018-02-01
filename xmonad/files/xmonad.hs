@@ -42,7 +42,7 @@ main = do
             `additionalKeysP` myKeys
         )
 
-myStatusBar = "xmobar"
+myStatusBar = "xmobar ~/.xmobar/xmonad"
 
 myPP = xmobarPP {
         ppCurrent = myPPCurrent ,

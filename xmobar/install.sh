@@ -1,4 +1,4 @@
 #!/bin/bash
 
-../common/dir_install.sh
+../common/dir_install.sh ~/.xmobar
 
