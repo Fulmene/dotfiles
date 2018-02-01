@@ -49,6 +49,7 @@ myPP = xmobarPP {
         ppHidden = myPPHidden ,
         ppHiddenNoWindows = myPPHiddenNoWindows ,
         ppUrgent = myPPUrgent ,
+        ppSep = " " ,
         ppWsSep = " " ,
         ppOrder = myPPOrder
     } where
@@ -66,8 +67,10 @@ myPP = xmobarPP {
         myPPHiddenNoWindows wid = xmobarColor "#747474" "" $ switchWorkspace wid $ [head wid]
         myPPUrgent wid          = xmobarColor "#BF4D4D" "" $ switchWorkspace wid $ [head wid]
 
-        myPPOrder (ws:_:_:_) = [
-                xmobarColor "#D2A795" "" $ switchPreviousWorkspace "4" $ switchNextWorkspace "5" $ wrap (switchPreviousWorkspace "1" "[") ((switchNextWorkspace "1" "]")) . pad $ ws
+        myPPOrder (ws:layout:title:_) = [
+                xmobarColor "#D2A795" "" $ switchPreviousWorkspace "4" $ switchNextWorkspace "5" $ wrap (switchPreviousWorkspace "1" "[") ((switchNextWorkspace "1" "]")) . pad $ ws ,
+                map head $ words layout ,
+                title
             ]
 
 myToggleStruts XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
