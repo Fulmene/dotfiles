@@ -31,6 +31,7 @@ if dein#load_state(expand(pluginpath))
     " Git
     call dein#add('tpope/vim-fugitive')
     call dein#add('tpope/vim-rhubarb')
+    call dein#add('airblade/vim-gitgutter')
 
     " Syntax
     call dein#add('modille/groovy.vim')
