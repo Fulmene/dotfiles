@@ -19,10 +19,27 @@ myLogoutDialog = "rofi-logout"
 
 myScreenLock = "xset s activate"
 
-myScreenShooter = "maim | xclip -selection clipboard -t image/png && xclip -o -selection clipboard -t image/png > " ++ myScreenShotFileName ++ " && notify-send \"Screen captured\""
-mySelectionScreenShooter = "maim -s | xclip -selection clipboard -t image/png && xclip -o -selection clipboard -t image/png > " ++ myScreenShotFileName ++ " && notify-send \"Screen selection captured\""
+myScreenShooter =
+    myImageToClipboard "maim" `andThen`
+    myImageSaveFromClipboard `andThen`
+    myNotifySend "Screen captured"
+mySelectionScreenShooter =
+    myImageToClipboard "maim -s" `andThen`
+    myImageSaveFromClipboard `andThen`
+    myNotifySend "Screen selection captured"
+
+myImageToClipboard image = image `pipe` "xclip -selection clipboard -t image/png"
+myImageSaveFromClipboard = "xclip -o -selection clipboard -t image/png" `output` myScreenShotFileName
 myScreenShotFileName = "~/Pictures/Screenshots/Screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"
 
 myToggleGammaCorrection = "pkill -USR1 redshift"
-myToggleCompositor = "pkill compton || compton"
+myToggleCompositor = "pkill compton" `orElse` "compton"
+
+myNotifySend notif = "notify-send \"" ++ notif ++ "\""
+
+-- Utility functions
+pipe p1 p2 = p1 ++ " | " ++ p2
+andThen p1 p2 = p1 ++ " && " ++ p2
+orElse p1 p2 = p1 ++ " || " ++ p2
+output prog out = prog ++ " > " ++ out
 
