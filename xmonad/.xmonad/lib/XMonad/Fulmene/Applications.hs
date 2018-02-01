@@ -22,6 +22,9 @@ module XMonad.Fulmene.Applications(
 
     mySwitchWorkspace,
     mySwitchWorkspaceIndex,
+    currentWorkspace,
+    previousWorkspace,
+    nextWorkspace,
 
     pipe,
     andThen,
@@ -83,14 +86,14 @@ mySwitchWorkspaceIndex x = "wmctrl -s" `input` show x
 mySwitchWorkspaceMaybe (Just x) = mySwitchWorkspaceIndex x
 mySwitchWorkspaceMaybe Nothing = "false"
 
---currentWorkspace = "$(wmctrl -d | grep '*' | cut -d ' ' -f 1)"
---previousWorkspace = "$(( (" ++ currentWs ++ " + " ++ (show $ (length myWorkspaces) - 1) ++ ") % " ++ (show $ length myWorkspaces) ++ "))"
---nextWorkspace = "$(( (" ++ currentWs ++ " + 1" ++ ") % " ++ (show $ length myWorkspaces) ++ "))"
+currentWorkspace = "$(wmctrl -d | grep '*' | cut -d ' ' -f 1)"
+previousWorkspace = "$(( (" ++ currentWorkspace ++ " + " ++ (show $ (length myWorkspaces) - 1) ++ ") % " ++ (show $ length myWorkspaces) ++ "))"
+nextWorkspace = "$(( (" ++ currentWorkspace ++ " + 1" ++ ") % " ++ (show $ length myWorkspaces) ++ "))"
 
 -- Utility functions
-pipe p1 p2 = p1 ++ " | " ++ p2
-andThen p1 p2 = p1 ++ " && " ++ p2
-orElse p1 p2 = p1 ++ " || " ++ p2
-input prog inp = prog ++ " \"" ++ inp ++ "\""
-output prog out = prog ++ " > \"" ++ out ++ "\""
+pipe cmd1 cmd2 = cmd1 ++ " | " ++ cmd2
+andThen cmd1 cmd2 = cmd1 ++ " && " ++ cmd2
+orElse cmd1 cmd2 = cmd1 ++ " || " ++ cmd2
+input cmd inp = cmd ++ " \"" ++ inp ++ "\""
+output cmd out = cmd ++ " > \"" ++ out ++ "\""
 
