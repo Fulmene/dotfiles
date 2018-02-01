@@ -8,7 +8,10 @@ highlight LineNr guibg=none ctermbg=none
 let g:airline_theme = 'minimalist'
 let g:airline#extensions#ale#enabled = 1 
 
-" NERDTree Key
+" Lint
+let g:ale_haskell_ghc_options = '-fno-code -v0 -dynamic'
+
+" File management
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>d :Denite file_rec<CR>
 
