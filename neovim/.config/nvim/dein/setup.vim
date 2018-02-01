@@ -4,17 +4,13 @@ highlight Normal guibg=none ctermbg=none
 highlight NonText guibg=none ctermbg=none
 highlight LineNr guibg=none ctermbg=none
 
+" Airline
 let g:airline_theme = 'minimalist'
+let g:airline#extensions#ale#enabled = 1 
 
 " NERDTree Key
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>d :Denite file_rec<CR>
-
-" Neomake
-augroup neomake_lint
-    autocmd!
-    autocmd BufWritePost * Neomake
-augroup END
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1

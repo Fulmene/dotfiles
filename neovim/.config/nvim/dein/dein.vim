@@ -22,7 +22,7 @@ if dein#load_state(expand(pluginpath))
     call dein#add('radenling/vim-dispatch-neovim')
 
     " Lint
-    call dein#add('neomake/neomake')
+    call dein#add('w0rp/ale')
 
     " Airline
     call dein#add('vim-airline/vim-airline')
@@ -55,6 +55,8 @@ endif
 filetype plugin indent on
 syntax enable
 
+call dein#recache_runtimepath()
+call map(dein#check_clean(), "delete(v:val, 'rf')")
 if dein#check_install()
     call dein#install()
 endif
