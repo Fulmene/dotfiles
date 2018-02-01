@@ -22,22 +22,22 @@ import XMonad.Fulmene.StatusBar
 import Data.List
 
 main = xmonad =<< statusBar myStatusBar myPP myToggleStruts
-    ( withUrgencyHook NoUrgencyHook $
-      ewmh def {
-          terminal            = myTerminal ,
-          focusFollowsMouse   = False ,
-          clickJustFocuses    = False ,
+    (   withUrgencyHook NoUrgencyHook $
+        ewmh def
+            {   terminal            = myTerminal ,
+                focusFollowsMouse   = False ,
+                clickJustFocuses    = False ,
 
-          borderWidth         = 1 ,
-          normalBorderColor   = "#303030" ,
-          focusedBorderColor  = "#DFDFAF" ,
+                borderWidth         = 1 ,
+                normalBorderColor   = "#303030" ,
+                focusedBorderColor  = "#DFDFAF" ,
 
-          workspaces          = myWorkspaces ,
-          modMask             = myModMask ,
+                workspaces          = myWorkspaces ,
+                modMask             = myModMask ,
 
-          layoutHook          = myLayoutHook ,
-          manageHook          = myManageHook
-        }
+                layoutHook          = myLayoutHook ,
+                manageHook          = myManageHook
+            }
         `removeKeysP` myRemoveKeys
         `additionalKeysP` myKeys
     )
