@@ -1,168 +1,51 @@
 import XMonad
 
 import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
-import XMonad.Hooks.InsertPosition
 import XMonad.Hooks.UrgencyHook
-import XMonad.Hooks.ManageHelpers
 
 import XMonad.Layout.Grid
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing
+import XMonad.Layout.LayoutModifier
 
 import qualified XMonad.StackSet as W
 
-import XMonad.Actions.CycleWS
-
 import XMonad.Util.EZConfig
+
+import XMonad.Fulmene.Applications
+import XMonad.Fulmene.KeyBindings
+import XMonad.Fulmene.Management
+import XMonad.Fulmene.StatusBar
 
 import Data.List
 
-main = do
-    xmonad =<< statusBar myStatusBar myPP myToggleStruts (
-            withUrgencyHook NoUrgencyHook $
-            ewmh def {
-                    terminal            = myTerminal ,
-                    focusFollowsMouse   = myFocusFollowsMouse ,
-                    clickJustFocuses    = myClickJustFocuses ,
+main = xmonad =<< statusBar myStatusBar myPP myToggleStruts
+    ( withUrgencyHook NoUrgencyHook $
+      ewmh def {
+          terminal            = myTerminal ,
+          focusFollowsMouse   = False ,
+          clickJustFocuses    = False ,
 
-                    borderWidth         = myBorderWidth ,
-                    normalBorderColor   = myNormalBorderColor ,
-                    focusedBorderColor  = myFocusedBorderColor ,
+          borderWidth         = 1 ,
+          normalBorderColor   = "#303030" ,
+          focusedBorderColor  = "#DFDFAF" ,
 
-                    workspaces          = myWorkspaces ,
-                    modMask             = myModMask ,
+          workspaces          = myWorkspaces ,
+          modMask             = myModMask ,
 
-                    layoutHook          = myLayoutHook ,
-                    manageHook          = myManageHook
-                }
-            `removeKeysP` myRemoveKeys
-            `additionalKeysP` myKeys
-        )
+          layoutHook          = myLayoutHook ,
+          manageHook          = myManageHook
+        }
+        `removeKeysP` myRemoveKeys
+        `additionalKeysP` myKeys
+    )
 
-myStatusBar = "xmobar ~/.xmobar/xmonad"
-
-myPP = xmobarPP {
-        ppCurrent = myPPCurrent ,
-        ppHidden = myPPHidden ,
-        ppHiddenNoWindows = myPPHiddenNoWindows ,
-        ppUrgent = myPPUrgent ,
-        ppSep = " " ,
-        ppWsSep = " " ,
-        ppOrder = myPPOrder
-    } where
-        switchWorkspace wid = switchWorkspaceIndex (wid `elemIndex` myWorkspaces) where
-            switchWorkspaceIndex (Just x) = wrap ("<action=`wmctrl -s " ++ show x ++ "`>") "</action>"
-            switchWorkspaceIndex Nothing  = id
-        switchPreviousWorkspace button = wrap ("<action=`wmctrl -s " ++ previousWs ++ "` button=" ++ button ++ ">") "</action>"
-        switchNextWorkspace button = wrap ("<action=`wmctrl -s " ++ nextWs ++ "` button=" ++ button ++ ">") "</action>"
-        currentWs = "$(wmctrl -d | grep '*' | cut -d ' ' -f 1)"
-        previousWs = "$(( (" ++ currentWs ++ " + " ++ (show $ (length myWorkspaces) - 1) ++ ") % " ++ (show $ length myWorkspaces) ++ "))"
-        nextWs = "$(( (" ++ currentWs ++ " + 1" ++ ") % " ++ (show $ length myWorkspaces) ++ "))"
-
-        myPPCurrent wid         = xmobarColor "#F2CEA4" "" $ (wid ++ replicate padLength ' ') where padLength = (maximum $ map length myWorkspaces) - length wid
-        myPPHidden wid          = xmobarColor "#F4DFD3" "" $switchWorkspace wid $ [head wid]
-        myPPHiddenNoWindows wid = xmobarColor "#747474" "" $ switchWorkspace wid $ [head wid]
-        myPPUrgent wid          = xmobarColor "#BF4D4D" "" $ switchWorkspace wid $ [head wid]
-
-        myPPOrder (ws:layout:title:_) = [
-                xmobarColor "#D2A795" "" $ switchPreviousWorkspace "4" $ switchNextWorkspace "5" $ wrap (switchPreviousWorkspace "1" "[") ((switchNextWorkspace "1" "]")) . pad $ ws ,
-                map head $ words layout ,
-                title
-            ]
-
-myToggleStruts XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
-
-myTerminal = "termite"
-
-myFocusFollowsMouse = False
-myClickJustFocuses = False
-
-myBorderWidth = 1
-myNormalBorderColor = "#171717"
-myFocusedBorderColor = "#F4DFD3"
-
-myWorkspaces = [ "1 main", "2 web", "3 game", "4 media", "5 vm", "6 chat", "7 server", "8 office", "9 ide" ]
-
-myModMask = mod1Mask
-
-myRemoveKeys = []
-
-myKeys = windowKeys ++ applicationKeys ++ hardwareKeys where
-    windowKeys = [
-            ("M-h", prevWS) ,
-            ("M-l", nextWS) ,
-            ("M-S-h", shiftToPrev >> prevWS) ,
-            ("M-S-l", shiftToNext >> nextWS)
-        ]
-
-    applicationKeys = [
-            ("M-p", spawn desktopRunDialog) ,
-            ("M-S-p", spawn runDialog) ,
-            ("M-S-q", spawn logoutDialog) ,
-            ("C-M-S-l", spawn screenLock) ,
-
-            ("<Print>", spawn screenShooter) ,
-            ("M-<Print>", spawn selectionScreenShooter) ,
-
-            ("C-M-S-r", spawn "pkill -USR1 redshift") ,
-            ("C-M-S-c", spawn "pkill compton || compton")
-        ] where
-        desktopRunDialog = "rofi -location 1 -yoffset 19 -combi-modi window,drun -show combi -modi combi -display-combi drun"
-        runDialog = "rofi -location 1 -yoffset 19 -show run"
-        logoutDialog = "rofi-logout"
-        screenLock = "xset s activate"
-        screenShooter = "maim | xclip -selection clipboard -t image/png && xclip -o -selection clipboard -t image/png > " ++ screenShooterFileName ++ " && notify-send \"Screen captured\""
-        selectionScreenShooter = "maim -s | xclip -selection clipboard -t image/png && xclip -o -selection clipboard -t image/png > " ++ screenShooterFileName ++ " && notify-send \"Screen selection captured\""
-        screenShooterFileName = "~/Pictures/Screenshots/Screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"
-
-    hardwareKeys = [
-            ("C-M-S-d", spawn "dpms-toggle") ,
-            ("<XF86TouchpadToggle>", spawn $ "xinput-toggle " ++ touchpad) ,
-            ("<XF86AudioMute>", spawn $ setVolume toggle) ,
-            ("<XF86AudioLowerVolume>", spawn $ (setVolume unmute) `andThen` (setVolume lower)) ,
-            ("<XF86AudioRaiseVolume>", spawn $ (setVolume unmute) `andThen` (setVolume raise))
-        ] where
-        touchpad = "'FocalTechPS/2 FocalTech Touchpad'"
-        setVolume mode = "amixer -q sset Master " ++ mode
-        unmute = "unmute"
-        mute = "mute"
-        toggle = "toggle"
-        lower = "2dB-"
-        raise = "2dB+"
-        andThen cmd1 cmd2 = cmd1 ++ " && " ++ cmd2
-
-myLayoutHook =  onWorkspaces [ "2 web", "8 office", "9 ide" ] (spacingWithEdge 3 $ tallTwoThird ||| Mirror tallTwoThird ||| Full) $
-                onWorkspaces [ "3 game", "4 media", "5 vm" ] (smartBorders $ Full ||| tallHalf) $
-                (spacingWithEdge 3 $ tallHalf ||| Mirror tallHalf ||| Grid ||| Full) where
-                    tallHalf = Tall 1 (3/100) (1/2)
-                    tallTwoThird = Tall 1 (3/100) (2/3)
-
-myManageHook = composeAll [
-        workspaceManageHook ,
-        manageDocks ,
-        composeOne . concat $ [
-                [ isDialog -?> doCenterFloat ] ,
-                [ stringProperty "WM_WINDOW_ROLE" =? "pop-up" -?> doCenterFloat ] ,
-                [ className =? c -?> doCenterFloat | c <- floatClass ] ,
-                [ transience ] ,
-                [ pure True -?> insertPosition Below Newer ]
-            ] ,
-        manageHook def
-    ] where
-        floatClass = [ "feh" , "Java" , "application.Main" ]
-        workspaceManageHook = composeAll [ className =? c --> doShift ws | (ws, cs) <- wsClass, c <- cs ]
-        wsClass = zip myWorkspaces [
-                [] , -- 1 main
-                [ "Firefox" , "Chromium" ] , -- 2 web
-                [ "Steam" , "Wine" , "magic-MagicMain" ] , -- 3 game
-                [ "mpv" ] , -- 4 media
-                [ "VirtualBox Machine" , "Genymotion Player" ] , -- 5 vm
-                [ "discord", "Slack" ] , -- 6 chat
-                [] , -- 7 server
-                [ "libreoffice" , "libreoffice-writer" , "libreoffice-calc" , "libreoffice-impress" ] , -- 8 office
-                [ "Eclipse" ]   -- 9 ide
-            ]
+myLayoutHook =
+    onWorkspaces [ "2 web", "8 office", "9 ide" ] (spacingWithEdge 3 $ tallTwoThird ||| Mirror tallTwoThird ||| Full) $
+    onWorkspaces [ "3 game", "4 media", "5 vm" ] (smartBorders Full ||| spacingWithEdge 3 tallHalf) $
+    (spacingWithEdge 3 $ tallHalf ||| Mirror tallHalf ||| Grid ||| Full)
+tallHalf = Tall 1 (3/100) (1/2)
+tallTwoThird = Tall 1 (3/100) (2/3)
 
