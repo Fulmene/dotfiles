@@ -55,7 +55,6 @@ endif
 filetype plugin indent on
 syntax enable
 
-call dein#recache_runtimepath()
 call map(dein#check_clean(), "delete(v:val, 'rf')")
 if dein#check_install()
     call dein#install()
