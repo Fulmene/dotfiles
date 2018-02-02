@@ -22,7 +22,8 @@ Config {
                     "--off", "<fn=1>  </fn>    " ,
                     "--onc", "#DFAF87" ,
                     "--offc", "#AF845F"
-            ] 1 ,
+            ]
+            1 ,
 
             Run Battery
             [   "--template", "<fc=#FFFFDF><fn=1><acstatus></fn><left> (<timeleft>)</fc>" ,
@@ -38,7 +39,8 @@ Config {
                     "-i", "" ,
                     "-o", "" ,
                     "-f", "AC0/online"
-            ] 50 ,
+            ]
+            50 ,
 
             Run Kbd
             [   ("us(altgr-intl)", "EN") ,
