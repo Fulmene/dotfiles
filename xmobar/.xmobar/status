@@ -11,7 +11,7 @@ Config {
     overrideRedirect = False ,
     lowerOnStart = True ,
 
-    template = "}{<action=`ibus-setup`><fc=#87AFAF><fn=1></fn>%kbd%</fc></action> %default:Master% %battery% " ,
+    template = "}{%default:Master% <action=`ibus-setup`><fc=#DFAF87><fn=1></fn>%kbd%</fc></action> %battery% " ,
 
     commands =
         [   Run Volume "default" "Master"
@@ -20,8 +20,8 @@ Config {
                 "--" ,
                     "--on", "<fn=1></fn><volume>%" ,
                     "--off", "<fn=1>  </fn>    " ,
-                    "--onc", "#FFFFDF" ,
-                    "--offc", "#DFAF87"
+                    "--onc", "#DFAF87" ,
+                    "--offc", "#AF845F"
             ] 1 ,
 
             Run Battery
