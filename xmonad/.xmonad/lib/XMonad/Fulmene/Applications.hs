@@ -75,8 +75,8 @@ mySetVolume mode = "amixer -q sset Master" `input` mode
 unmute = "unmute"
 mute = "mute"
 toggle = "toggle"
-lower = "2%-"
-raise = "2%+"
+lower = "2dB-"
+raise = "2dB+"
 
 -- Status bar application
 mySwitchWorkspace wid = mySwitchWorkspaceMaybe (wid `elemIndex` myWorkspaces)

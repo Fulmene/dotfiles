@@ -16,6 +16,8 @@ myPP = xmobarPP
         ppUrgent = myPPUrgent ,
         ppSep = " " ,
         ppWsSep = " " ,
+        ppTitle = myPPTitle ,
+        ppTitleSanitize = myPPTitleSanitize ,
         ppOrder = myPPOrder
     }
 
@@ -26,23 +28,26 @@ mouseAction cmd button str =
         str
 
 myPPCurrent wid =
-    xmobarColor "#F2CEA4" "" $
+    xmobarColor "#DFAF87" "" $
     (wid ++ replicate padLength ' ') where padLength = (maximum $ map length myWorkspaces) - length wid
 myPPHidden wid =
-    xmobarColor "#F4DFD3" "" $
+    xmobarColor "#FFFFDF" "" $
     mouseAction (mySwitchWorkspace wid) "1" $
     [head wid]
 myPPHiddenNoWindows wid =
-    xmobarColor "#747474" "" $
+    xmobarColor "#767676" "" $
     mouseAction (mySwitchWorkspace wid) "1" $
     [head wid]
 myPPUrgent wid =
-    xmobarColor "#BF4D4D" "" $
+    xmobarColor "#D75F5F" "" $
     mouseAction (mySwitchWorkspace wid) "1" $
     [head wid]
 
+myPPTitle title = xmobarColor "#87AFAF" "" title
+myPPTitleSanitize title = shorten 40 title
+
 myWorkspacesPP ws =
-    xmobarColor "#D2A795" "" $
+    xmobarColor "#AF875F" "" $
     mouseAction (mySwitchWorkspaceIndex previousWorkspace) "4" $
     mouseAction (mySwitchWorkspaceIndex nextWorkspace) "5" $
     wrap 
