@@ -5,13 +5,13 @@ Config {
     bgColor = "#262626" ,
     fgColor = "#FFFFDF" ,
     alpha = 204 ,
-    position = TopW R 14 ,
+    position = TopW R 19 ,
 
     -- Behaviour
     overrideRedirect = False ,
     lowerOnStart = True ,
 
-    template = "}{%default:Master% <action=`ibus-setup`><fc=#DFAF87><fn=1></fn>%kbd%</fc></action> %battery% " ,
+    template = "<fc=#DFAF87>%essid%</fc>}{%default:Master% <action=`ibus-setup`><fc=#DFAF87><fn=1></fn>%kbd%</fc></action> %battery% " ,
 
     commands =
         [   Run Volume "default" "Master"
@@ -21,7 +21,7 @@ Config {
                     "--on", "<fn=1></fn><volume>%" ,
                     "--off", "<fn=1>  </fn>    " ,
                     "--onc", "#DFAF87" ,
-                    "--offc", "#AF845F"
+                    "--offc", "#AF875F"
             ]
             1 ,
 
@@ -50,6 +50,7 @@ Config {
                 ("gr", "GR")
             ] ,
 
-            Run UnsafeStdinReader
+            Run Com "getessid" [] "essid" 10
+
         ]
 }

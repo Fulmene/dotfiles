@@ -1,0 +1,16 @@
+#!/bin/sh
+
+device=`nmcli dev | grep ' connected ' | awk '{print $2}'`
+
+case $device in
+    "ethernet")
+        echo "Ethernet"
+        ;;
+    "wifi")
+        iwgetid -r
+        ;;
+    "")
+        echo "<fc=#AF875F>Disconnect</fc>"
+        ;;
+esac
+
