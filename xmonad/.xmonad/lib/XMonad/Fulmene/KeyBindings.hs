@@ -40,5 +40,5 @@ hardwareKeys =
         ("<XF86AudioLowerVolume>", spawn $ (mySetVolume unmute) `andThen` (mySetVolume lower)) ,
         ("<XF86AudioRaiseVolume>", spawn $ (mySetVolume unmute) `andThen` (mySetVolume raise))
     ]
-touchpad = "'FocalTechPS/2 FocalTech Touchpad'"
+touchpad = "FocalTechPS/2 FocalTech Touchpad"
 
