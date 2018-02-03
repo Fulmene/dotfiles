@@ -11,21 +11,10 @@ Config {
     overrideRedirect = False ,
     lowerOnStart = True ,
 
-    template = "<fc=#DFAF87>%essid%</fc>}{%default:Master% <action=`ibus-setup`><fc=#DFAF87><fn=1></fn>%kbd%</fc></action> %battery% " ,
+    template = "<fc=#DFAF87>%essid%</fc>}{%volume% <action=`ibus-setup`><fc=#DFAF87><fn=1></fn>%kbd%</fc></action> %battery% " ,
 
     commands =
-        [   Run Volume "default" "Master"
-            [   "--template", "<action=`amixer -q sset Master toggle` button=1><action=`amixer -q sset Master unmute` button=45><action=`amixer -q sset Master 2dB+` button=4><action=`amixer -q sset Master 2dB-` button=5><status></action></action></action></action>" ,
-                "--ppad", "3" ,
-                "--" ,
-                    "--on", "<fn=1></fn><volume>%" ,
-                    "--off", "<fn=1>  </fn>    " ,
-                    "--onc", "#DFAF87" ,
-                    "--offc", "#AF875F"
-            ]
-            1 ,
-
-            Run Battery
+        [   Run Battery
             [   "--template", "<fc=#FFFFDF><fn=1><acstatus></fn><left> (<timeleft>)</fc>" ,
                 "--High", "80" ,
                 "--Low", "40" ,
@@ -49,6 +38,8 @@ Config {
                 ("jp", "JP") ,
                 ("gr", "GR")
             ] ,
+
+            Run Com "getvolume" [] "volume" 1 ,
 
             Run Com "getessid" [] "essid" 10
 
