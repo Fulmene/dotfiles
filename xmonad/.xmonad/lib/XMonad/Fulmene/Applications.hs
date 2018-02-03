@@ -30,7 +30,7 @@ module XMonad.Fulmene.Applications(
     andThen,
     orElse,
     input,
-    output
+    stdoutRedir
 
 ) where
 
@@ -58,7 +58,7 @@ mySelectionScreenShooter =
     myNotifySend "Screen selection captured"
 
 myImageToClipboard image = image `pipe` "xclip -selection clipboard -t image/png"
-myImageSaveFromClipboard = "xclip -o -selection clipboard -t image/png" `output` myScreenShotFileName
+myImageSaveFromClipboard = "xclip -o -selection clipboard -t image/png" `stdoutRedir` myScreenShotFileName
 myScreenShotFileName = "~/Pictures/Screenshots/Screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"
 
 myToggleGammaCorrection = "pkill -USR1 redshift"
@@ -95,5 +95,5 @@ pipe cmd1 cmd2 = cmd1 ++ " | " ++ cmd2
 andThen cmd1 cmd2 = cmd1 ++ " && " ++ cmd2
 orElse cmd1 cmd2 = cmd1 ++ " || " ++ cmd2
 input cmd inp = cmd ++ " \"" ++ inp ++ "\""
-output cmd out = cmd ++ " > \"" ++ out ++ "\""
+stdoutRedir cmd out = cmd ++ " > " ++ out
 
