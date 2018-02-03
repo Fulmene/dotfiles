@@ -7,7 +7,7 @@ case $device in
         echo "Ethernet"
         ;;
     "wifi")
-        iwgetid -r
+        iwgetid -r || nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d ':' -f 2 || echo "WiFi"
         ;;
     "")
         echo "<fc=#AF875F>Disconnect</fc>"
