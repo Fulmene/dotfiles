@@ -37,6 +37,17 @@ Config {
             ]
             10 ,
 
+            Run CpuFreq
+            [   "--template", "<cpu0>MHz" ,
+                "--High", "3" ,
+                "--Low", "1" ,
+                "--high", "#D75F5F" ,
+                "--normal", "#DFAF87" ,
+                "--low", "#FFFFDF" ,
+                "--width", "5"
+            ]
+            10 ,
+
             Run CoreTemp
             [   "--template", "<core0>C" ,
                 "--High", "84" ,
@@ -44,17 +55,6 @@ Config {
                 "--high", "#D75F5F" ,
                 "--normal", "#DFAF87" ,
                 "--low", "#FFFFDF"
-            ]
-            10 ,
-
-            Run CpuFreq
-            [   "--template", "<cpu0>MHz" ,
-                "--High", "3",
-                "--Low", "2" ,
-                "--high", "#D75F5F" ,
-                "--normal", "#DFAF87" ,
-                "--low", "#FFFFDF" ,
-                "--width", "5"
             ]
             10 ,
 
