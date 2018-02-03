@@ -38,12 +38,13 @@ Config {
             10 ,
 
             Run CpuFreq
-            [   "--template", "<cpu0>MHz" ,
+            [   "--template", "<cpu0>GHz" ,
                 "--High", "3" ,
                 "--Low", "1" ,
                 "--high", "#D75F5F" ,
                 "--normal", "#DFAF87" ,
                 "--low", "#FFFFDF" ,
+                "--ddigits", "2" ,
                 "--width", "5"
             ]
             10 ,
