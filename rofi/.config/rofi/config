@@ -7,4 +7,5 @@ rofi.color-active: argb:00262626, #87AFAF, argb:00262626, #DFAF87, #303030
 rofi.color-urgent: argb:00262626, #D75F5F, argb:00262626, #D75F5F, #303030
 
 rofi.drun-match-fields: name,generic
+rofi.show-icons: true
 
