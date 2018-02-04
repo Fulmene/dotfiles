@@ -2,8 +2,9 @@ rofi.font: Noto Mono 12
 rofi.hide-scrollbar: true
 
 rofi.color-window: argb:CC262626, argb:CC262626, argb:CCAF875F
-rofi.color-normal: argb:00262626, #FFFFDF, argb:00262626, #303030, #FFFFDF
-rofi.color-active: argb:00262626, #DFAF87, argb:00262626, #303030, #DFAF87
-rofi.color-urgent: argb:00262626, #D75F5F, argb:00262626, #303030, #D75F5F
+rofi.color-normal: argb:00262626, #FFFFDF, argb:00262626, #DFAF87, #303030
+rofi.color-active: argb:00262626, #87AFAF, argb:00262626, #DFAF87, #303030
+rofi.color-urgent: argb:00262626, #D75F5F, argb:00262626, #D75F5F, #303030
 
 rofi.drun-match-fields: name,generic
+
