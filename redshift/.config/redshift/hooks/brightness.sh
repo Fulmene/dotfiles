@@ -1,8 +1,8 @@
 #!/bin/sh
 
-brightness_day=100
-brightness_transition=70
-brightness_night=40
+brightness_day=80
+brightness_transition=50
+brightness_night=20
 fade_time=60000
 fps=60
 
