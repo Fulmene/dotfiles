@@ -45,9 +45,9 @@ main = xmonad =<< statusBar myStatusBar myPP myToggleStruts
 
 myLayoutHook =
     fullscreenFull $
-    onWorkspaces [ "2 web", "8 office", "9 ide" ] (spacingWithEdge 3 (tallTwoThird ||| Mirror tallTwoThird ||| Full)) $
-    onWorkspaces [ "3 game", "4 media", "5 vm" ] (spacingWithEdge 3 tallHalf ||| smartBorders Full) $
-    (spacingWithEdge 3 (tallHalf ||| Mirror tallHalf ||| Grid ||| Full))
+    onWorkspaces [ "2 web", "8 office", "9 ide" ] (spacingWithEdge 3 (tallTwoThird ||| Full)) $
+    onWorkspaces [ "3 game", "4 media", "5 vm" ] (spacingWithEdge 3 tallTwoThird ||| smartBorders Full) $
+    (spacingWithEdge 3 (tallHalf ||| Full))
 tallHalf = Tall 2 (3/100) (1/2)
 tallTwoThird = Tall 1 (3/100) (2/3)
 
