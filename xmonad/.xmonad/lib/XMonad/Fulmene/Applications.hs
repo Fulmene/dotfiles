@@ -42,8 +42,8 @@ import Data.List
 
 myTerminal = "termite"
 
-myDesktopRunDialog = "rofi -location 1 -xoffset 6 -yoffset 25 -combi-modi window,drun -show combi -modi combi -display-combi drun"
-myRunDialog = "rofi -location 1 -xoffset 6 -yoffset 25 -show run"
+myDesktopRunDialog = "rofi -location 1 -xoffset 7 -yoffset 26 -combi-modi window,drun -show combi -modi combi -display-combi drun"
+myRunDialog = "rofi -location 1 -xoffset 7 -yoffset 26 -show run"
 myLogoutDialog = "rofi-logout"
 
 myScreenLock = "xset s activate"
