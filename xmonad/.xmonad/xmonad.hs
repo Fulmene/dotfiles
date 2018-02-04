@@ -8,7 +8,7 @@ import XMonad.Layout.Grid
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing
-import XMonad.Layout.LayoutModifier
+import XMonad.Layout.Fullscreen
 
 import qualified XMonad.StackSet as W
 
@@ -23,6 +23,7 @@ import Data.List
 
 main = xmonad =<< statusBar myStatusBar myPP myToggleStruts
     (   withUrgencyHook NoUrgencyHook $
+        fullscreenSupport $
         ewmh def
             {   terminal            = myTerminal ,
                 focusFollowsMouse   = False ,
@@ -43,6 +44,7 @@ main = xmonad =<< statusBar myStatusBar myPP myToggleStruts
     )
 
 myLayoutHook =
+    fullscreenFocus $
     onWorkspaces [ "2 web", "8 office", "9 ide" ] (spacingWithEdge 3 (tallTwoThird ||| Mirror tallTwoThird ||| Full)) $
     onWorkspaces [ "3 game", "4 media", "5 vm" ] (spacingWithEdge 3 tallHalf ||| smartBorders Full) $
     (spacingWithEdge 3 (tallHalf ||| Mirror tallHalf ||| Grid ||| Full))
