@@ -1,0 +1,14 @@
+#!/bin/sh
+
+options="suspend|hibernate|logout|reboot|poweroff"
+
+cmd=`echo "$options" | rofi -sep '|' -dmenu -width 30 -lines 10 -p quit`
+case $cmd in
+    logout)
+        pkill xmonad
+        ;;
+    *)
+        systemctl $cmd
+        ;;
+esac
+
