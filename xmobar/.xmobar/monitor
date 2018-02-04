@@ -40,7 +40,7 @@ Config {
             Run CpuFreq
             [   "--template", "<cpu0>GHz" ,
                 "--High", "3" ,
-                "--Low", "1" ,
+                "--Low", "2" ,
                 "--high", "#D75F5F" ,
                 "--normal", "#DFAF87" ,
                 "--low", "#FFFFDF" ,
