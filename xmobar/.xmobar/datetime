@@ -13,5 +13,5 @@ Config {
 
     template = "}%date%{" ,
 
-    commands = [ Run Date "<fc=#AF875F><fn=1></fn>%a %b %e</fc> <fc=#DFAF87><fn=1></fn>%H:%M</fc>" "date" 600 ]
+    commands = [ Run Date "<fc=#DFAF87><fn=1></fn>%a %b %e</fc> <fn=1></fn>%H:%M" "date" 600 ]
 }
