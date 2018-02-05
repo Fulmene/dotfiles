@@ -11,7 +11,7 @@ Config {
     overrideRedirect = False ,
     lowerOnStart = True ,
 
-    template = " %VTBD%}%cpufreq% %coretemp% %multicpu% %memory% +%swap%{%dynnetwork% %diskio% %uptime% " ,
+    template = " %uptime% %VTBD%}%cpufreq% %coretemp% %multicpu% %memory% +%swap%{%dynnetwork% %diskio% " ,
 
     commands =
         [   Run Uptime
@@ -22,7 +22,7 @@ Config {
             600 ,
 
             Run Weather "VTBD"
-            [   "--template", "<fc=#DFAF87><station>: <fn=1></fn><tempC>C <fn=1></fn><skyCondition></fc>"   ]
+            [   "--template", "<fc=#DFAF87><fn=1></fn><tempC>C <fn=1></fn><skyCondition></fc>"   ]
             9000 ,
 
             Run MultiCpu
@@ -87,9 +87,8 @@ Config {
             10 ,
 
             Run DynNetwork
-            [   "--template", "<fc=#AF875F><fn=1></fn><tx></fc> <fc=#DFAF87><fn=1></fn><rx></fc>" ,
-                "--suffix", "true" ,
-                "--width", "8"
+            [   "--template", "<fc=#AF875F><fn=1></fn><tx>KB</fc> <fc=#DFAF87><fn=1></fn><rx>KB</fc>" ,
+                "--width", "4"
             ]
             10
 
