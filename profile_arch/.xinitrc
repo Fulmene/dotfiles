@@ -57,7 +57,7 @@ xsetroot -cursor_name left_ptr &
 
 compton &
 ~/.fehbg
-trayer --edge top --align right --margin 259 --widthtype percent --width 22 --heighttype pixel --height 19 --SetDockType true --SetPartialStrut true --transparent true --alpha 51 --tint 0x262626 &
+trayer --edge top --align right --margin 341 --widthtype percent --width 16 --heighttype pixel --height 19 --SetDockType true --SetPartialStrut true --transparent true --alpha 51 --tint 0x262626 &
 
 for bar in ~/.xmobar/*; do
     [ `basename $bar` != "xmonad" ] && xmobar $bar &
