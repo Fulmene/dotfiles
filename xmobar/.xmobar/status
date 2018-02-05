@@ -5,13 +5,13 @@ Config {
     bgColor = "#262626" ,
     fgColor = "#FFFFDF" ,
     alpha = 204 ,
-    position = TopW R 19 ,
+    position = TopW R 25 ,
 
     -- Behaviour
     overrideRedirect = False ,
     lowerOnStart = True ,
 
-    template = "<fc=#DFAF87>%essid%</fc>}{%default:Master% <action=`ibus-setup`><fc=#DFAF87><fn=1></fn>%kbd%</fc></action> %battery% " ,
+    template = "<fc=#87AFAF>%essid%</fc>}{<fc=#FFFFDF>%mail%</fc> <action=`ibus-setup`><fc=#DFAF87><fn=1></fn>%kbd%</fc></action> <action=`xbacklight -inc 5` button=4><action=`xbacklight -dec 5` button=5>%backlight%</action></action> %default:Master% %battery% " ,
 
     commands =
         [   Run Volume "default" "Master"
@@ -19,7 +19,7 @@ Config {
                 "--ppad", "3" ,
                 "--" ,
                     "--on", "<fn=1></fn><volume>%" ,
-                    "--off", "<fn=1>  </fn>    " ,
+                    "--off", "<fn=1>  </fn>Mute" ,
                     "--onc", "#DFAF87" ,
                     "--offc", "#AF875F"
             ]
@@ -50,7 +50,14 @@ Config {
                 ("gr", "GR")
             ] ,
 
-            Run Com "getessid" [] "essid" 10
+            Run Mail
+            [   ("<fn=1></fn> ", "~/Mail/INBOX")
+            ]
+            "mail" ,
+
+            Run Com "getessid" [] "essid" 10 ,
+
+            Run Com "getbacklight" [] "backlight" 1
 
         ]
 }

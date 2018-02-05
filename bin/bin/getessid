@@ -10,7 +10,7 @@ case $device in
         iwgetid -r || nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d ':' -f 2 || echo "WiFi"
         ;;
     "")
-        echo "<fc=#AF875F>Disconnect</fc>"
+        echo "<fc=#5F8787>Disconnect</fc>"
         ;;
 esac
 
