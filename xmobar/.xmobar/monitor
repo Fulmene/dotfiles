@@ -11,18 +11,18 @@ Config {
     overrideRedirect = False ,
     lowerOnStart = True ,
 
-    template = " %uptime% %VTBD%}%cpufreq% %coretemp% %multicpu% %memory% +%swap%{%dynnetwork% %diskio% " ,
+    template = " %uptime% <fc=#87AFAF>%VTBD%</fc>}%cpufreq% %coretemp% %multicpu% %memory% +%swap%{%dynnetwork% %diskio% " ,
 
     commands =
         [   Run Uptime
-            [   "--template", "<fc=#AF875F><fn=1></fn><days>d</fc> <fc=#DFAF87><hours>:<minutes></fc>" ,
+            [   "--template", "<fc=#DFAF87><fn=1></fn><days>d</fc> <fc=#FFFFDF><hours>:<minutes></fc>" ,
                 "--padchars", "0" ,
                 "--width", "2"
             ]
             600 ,
 
             Run Weather "VTBD"
-            [   "--template", "<fc=#DFAF87><fn=1></fn><tempC>C <fn=1></fn><skyCondition></fc>"   ]
+            [   "--template", "<fn=1></fn><tempC>C <fn=1></fn><skyCondition>"   ]
             9000 ,
 
             Run MultiCpu
@@ -82,12 +82,12 @@ Config {
             10 ,
 
             Run DiskIO
-            [   ("sda", "<fc=#AF875F><fn=1></fn> <read>B</fc> <fc=#DFAF87><fn=1></fn> <write>B</fc>")   ]
+            [   ("sda", "<fc=#DFAF87><fn=1></fn> <read>B</fc> <fc=#FFFFDF><fn=1></fn> <write>B</fc>")   ]
             [   "--width", "4"   ]
             10 ,
 
             Run DynNetwork
-            [   "--template", "<fc=#AF875F><fn=1></fn><tx>KB</fc> <fc=#DFAF87><fn=1></fn><rx>KB</fc>" ,
+            [   "--template", "<fc=#DFAF87><fn=1></fn><tx>KB</fc> <fc=#FFFFDF><fn=1></fn><rx>KB</fc>" ,
                 "--width", "4"
             ]
             10
