@@ -12,8 +12,8 @@ export PATH=~/bin:~/.local/bin:$PATH
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
-# -- Offline IMAP Daemon -- #
-offlineimap &> /dev/null &
+# -- Offline IMAP -- #
+while sleep 300; do offlineimap &> /dev/null; done &
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc &> /dev/null
 
