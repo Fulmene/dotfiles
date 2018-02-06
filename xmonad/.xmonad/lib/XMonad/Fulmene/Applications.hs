@@ -13,12 +13,18 @@ module XMonad.Fulmene.Applications(
     myNotifySend,
 
     myToggleXInput,
+
     mySetVolume,
-    unmute,
-    mute,
-    toggle,
-    lower,
-    raise,
+    unmuteV,
+    muteV,
+    toggleV,
+    lowerV,
+    raiseV,
+
+    mySetBrightness,
+    setB,
+    increaseB,
+    decreaseB,
 
     mySwitchWorkspace,
     mySwitchWorkspaceIndex,
@@ -72,11 +78,16 @@ myToggleDPMS = "dpms-toggle"
 myToggleXInput = "xinput-toggle"
 
 mySetVolume mode = "amixer -q sset Master" `input` mode
-unmute = "unmute"
-mute = "mute"
-toggle = "toggle"
-lower = "2dB-"
-raise = "2dB+"
+unmuteV = "unmute"
+muteV = "mute"
+toggleV = "toggle"
+lowerV = "2dB-"
+raiseV = "2dB+"
+
+mySetBrightness mode percent = "xbacklight" `input` mode `input` (show percent)
+setB = "-set"
+increaseB = "-inc"
+decreaseB = "-dec"
 
 -- Status bar application
 mySwitchWorkspace wid = mySwitchWorkspaceMaybe (wid `elemIndex` myWorkspaces)

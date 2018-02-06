@@ -36,9 +36,11 @@ applicationKeys =
 
 hardwareKeys =
     [   ("<XF86TouchpadToggle>", spawn $ myToggleXInput `input` touchpad) ,
-        ("<XF86AudioMute>", spawn $ mySetVolume toggle) ,
-        ("<XF86AudioLowerVolume>", spawn $ (mySetVolume unmute) `andThen` (mySetVolume lower)) ,
-        ("<XF86AudioRaiseVolume>", spawn $ (mySetVolume unmute) `andThen` (mySetVolume raise))
+        ("<XF86AudioMute>", spawn $ mySetVolume toggleV) ,
+        ("<XF86AudioLowerVolume>", spawn $ (mySetVolume unmuteV) `andThen` (mySetVolume lowerV)) ,
+        ("<XF86AudioRaiseVolume>", spawn $ (mySetVolume unmuteV) `andThen` (mySetVolume raiseV)) ,
+        ("C-M-b", spawn $ mySetBrightness increaseB 5) ,
+        ("C-M-S-b", spawn $ mySetBrightness decreaseB 5)
     ]
 touchpad = "FocalTechPS/2 FocalTech Touchpad"
 
