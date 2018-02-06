@@ -13,7 +13,7 @@ eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
 # -- Offline IMAP -- #
-while sleep 300; do offlineimap &> /dev/null; done &
+offlineimap-daemon.py &> /dev/null &
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc &> /dev/null
 
