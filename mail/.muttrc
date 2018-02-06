@@ -1,0 +1,7 @@
+# OfflineIMAP
+set folder = "~/mail"
+source ~/.mutt/mailboxes
+set spoolfile = "+gmail/INBOX"
+set record = "+gmail/Sent\ Mail"
+set postponed = "+gmail/Drafts"
+
