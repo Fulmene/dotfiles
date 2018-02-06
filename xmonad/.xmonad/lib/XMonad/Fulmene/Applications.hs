@@ -42,7 +42,7 @@ import Data.List
 
 myTerminal = "termite"
 
-myDesktopRunDialog = "rofi -location 1 -xoffset 7 -yoffset 26 -combi-modi window,drun -show combi -modi combi -display-combi drun"
+myDesktopRunDialog = "rofi -location 1 -xoffset 7 -yoffset 26 -combi-modi window,drun -show combi -modi combi -display-combi drun -show-icons"
 myRunDialog = "rofi -location 1 -xoffset 7 -yoffset 26 -show run"
 myLogoutDialog = "rofi-logout"
 
