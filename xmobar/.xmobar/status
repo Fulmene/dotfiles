@@ -51,7 +51,7 @@ Config {
             ] ,
 
             Run Mail
-            [   ("<fn=1></fn> ", "~/Mail/INBOX")
+            [   ("<fn=1></fn> ", "~/mail/gmail/INBOX")
             ]
             "mail" ,
 
