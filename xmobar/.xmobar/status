@@ -11,7 +11,7 @@ Config {
     overrideRedirect = False ,
     lowerOnStart = True ,
 
-    template = "<fc=#87AFAF>%essid%</fc>}{<fc=#FFFFDF>%mail%</fc> <action=`ibus-setup`><fc=#DFAF87><fn=1></fn>%kbd%</fc></action> <action=`xbacklight -inc 5` button=4><action=`xbacklight -dec 5` button=5>%backlight%</action></action> %default:Master% %battery% " ,
+    template = "<fc=#87AFAF>%essid%</fc>}{<action=`termite -e neomutt`><fc=#FFFFDF>%mail%</fc></action> <action=`ibus-setup`><fc=#DFAF87><fn=1></fn>%kbd%</fc></action> <action=`xbacklight -inc 5` button=4><action=`xbacklight -dec 5` button=5>%backlight%</action></action> %default:Master% %battery% " ,
 
     commands =
         [   Run Volume "default" "Master"
