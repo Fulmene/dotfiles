@@ -43,8 +43,9 @@ myPPUrgent wid =
     mouseAction (mySwitchWorkspace wid) "1" $
     [head wid]
 
-myPPTitle title = xmobarColor "#87AFAF" "" title
-myPPTitleSanitize title = shorten 40 title
+myPPTitle = xmobarColor "#87AFAF" ""
+myPPTitleSanitize title = wrap (wrap "<raw=" ":" $ show (length shortTitle)) "/>" $ shortTitle
+    where shortTitle = shorten 40 title
 
 myWorkspacesPP ws =
     xmobarColor "#AF875F" "" $
