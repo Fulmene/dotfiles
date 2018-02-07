@@ -5,3 +5,10 @@ set spoolfile = "+gmail/INBOX"
 set record = "+gmail/Sent\ Mail"
 set postponed = "+gmail/Drafts"
 
+# send.py SMTP
+set realname = "Ada Joule"
+set from = "ada.fulmina@gmail.com"
+set use_from = yes
+set sendmail = "~/bin/send.py --readfrommsg"
+set edit_headers = yes
+
