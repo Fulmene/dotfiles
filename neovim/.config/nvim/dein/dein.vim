@@ -40,12 +40,15 @@ if dein#load_state(expand(pluginpath))
     " Autocomplete
     call dein#add('ervandew/supertab', {'on_event': 'InsertEnter'})
     call dein#add('Shougo/deoplete.nvim')
+
+    " Filetype
     call dein#add('Shougo/neco-syntax')
     call dein#add('zchee/deoplete-clang')
     call dein#add('eagletmt/neco-ghc')
     call dein#add('zchee/deoplete-jedi')
     call dein#add('sebastianmarkow/deoplete-rust')
     call dein#add('artur-shaik/vim-javacomplete2')
+    call dein#add('dbeniamine/vim-mail', {'on_ft': 'mail'})
 
     call dein#end()
     call dein#save_state()
