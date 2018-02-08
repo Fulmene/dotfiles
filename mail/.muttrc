@@ -12,3 +12,10 @@ set use_from = yes
 set sendmail = "~/bin/send.py --readfrommsg"
 set edit_headers = yes
 
+# Grouping
+set sort = threads
+set sort_aux = last-date-received
+
+# Colour
+source ~/.mutt/colors
+#source ~/.mutt/vim-keys.rc

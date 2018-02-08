@@ -1,0 +1,22 @@
+# -*-muttrc-*-
+
+color hdrdefault yellow default
+color quoted green default
+color signature yellow default
+color attachment blue default
+color prompt brightblue default
+color message brightyellow default
+color error brightred default
+color indicator cyan black
+color status brightwhite black
+color tree blue default
+color normal white default
+color markers yellow default
+color search black yellow
+color tilde brightyellow default
+color index cyan default "~F"
+color index yellow default "~N|~O"
+
+color body brightwhite default '\*+[^*]+\*+'
+color body brightwhite default '_+[^_]+_+'
+
