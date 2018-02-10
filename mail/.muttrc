@@ -18,4 +18,4 @@ set sort_aux = last-date-received
 
 # Colour
 source ~/.mutt/colors
-#source ~/.mutt/vim-keys.rc
+source ~/.mutt/sidebar
