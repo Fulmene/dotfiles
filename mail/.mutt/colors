@@ -20,3 +20,4 @@ color index yellow default "~N|~O"
 color body brightwhite default '\*+[^*]+\*+'
 color body brightwhite default '_+[^_]+_+'
 
+# vim: syntax=neomuttrc
