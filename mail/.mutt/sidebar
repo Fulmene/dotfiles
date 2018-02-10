@@ -10,7 +10,7 @@ bind index,pager <F6> sidebar-next-new
 bind index,pager B sidebar-toggle-visible
 
 # Color of the highlighted, but not open, mailbox.
-color sidebar_highlight black color8
+color sidebar_highlight black yellow
 # Color of the divider separating the Sidebar from NeoMutt panels
 color sidebar_divider brightblack default
 # Color to give mailboxes containing flagged mail
