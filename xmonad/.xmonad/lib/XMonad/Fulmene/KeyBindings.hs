@@ -23,6 +23,7 @@ windowKeys =
 applicationKeys =
     [   ("M-p", spawn myDesktopRunDialog) ,
         ("M-S-p", spawn myRunDialog) ,
+        ("C-M-S-<Return>", spawn myTerminalDialog) ,
         ("M-S-q", spawn myLogoutDialog) ,
         ("C-M-S-l", spawn myScreenLock) ,
 

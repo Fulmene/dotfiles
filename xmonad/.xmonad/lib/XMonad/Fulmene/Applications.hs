@@ -2,6 +2,7 @@ module XMonad.Fulmene.Applications(
     myTerminal,
     myDesktopRunDialog,
     myRunDialog,
+    myTerminalDialog,
     myLogoutDialog,
     myScreenLock,
     myScreenShooter,
@@ -50,6 +51,7 @@ myTerminal = "termite"
 
 myDesktopRunDialog = "rofi -location 1 -xoffset 7 -yoffset 26 -combi-modi window,drun -show combi -modi combi -display-combi drun -show-icons"
 myRunDialog = "rofi -location 1 -xoffset 7 -yoffset 26 -show run"
+myTerminalDialog = "rofi-termdir"
 myLogoutDialog = "rofi-logout"
 
 myScreenLock = "xset s activate"
