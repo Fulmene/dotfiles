@@ -22,7 +22,7 @@ if dein#load_state(expand(pluginpath))
     call dein#add('radenling/vim-dispatch-neovim')
 
     " Lint
-    call dein#add('w0rp/ale')
+    call dein#add('neomake/neomake')
 
     " Airline
     call dein#add('vim-airline/vim-airline')
@@ -38,7 +38,6 @@ if dein#load_state(expand(pluginpath))
     call dein#add('neovimhaskell/haskell-vim')
 
     " Autocomplete
-    call dein#add('ervandew/supertab', {'on_event': 'InsertEnter'})
     call dein#add('Shougo/deoplete.nvim')
 
     " Filetype
