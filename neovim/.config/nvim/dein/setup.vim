@@ -12,6 +12,10 @@ let g:airline_theme = 'minimalist'
 autocmd! BufWritePost,BufEnter * Neomake
 let g:neomake_open_list = 2
 
+if filereadable("build.gradle")
+    let g:neomake_java_enabled_makers = ['gradle'] 
+endif
+
 " File management
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>d :Denite file_rec<CR>
@@ -25,7 +29,7 @@ let g:deoplete#sources._ = []
 let g:deoplete#file#enable_buffer_path = 1
 
 " Deoplete use tab
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<c-x>\<c-o>"
 
 " vim-javacomplete2
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
