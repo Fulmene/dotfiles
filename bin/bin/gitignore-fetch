@@ -4,6 +4,6 @@ if [[ $# -ne 1 ]]; then
     echo "Usage: gitignore-fetch [file]" >&2
 fi
 
-echo "curl \"https://raw.githubusercontent.com/github/gitignore/master/$1.gitignore\" > .gitignore"
-curl "https://raw.githubusercontent.com/github/gitignore/master/$1.gitignore" > .gitignore
+echo "curl \"https://raw.githubusercontent.com/github/gitignore/master/$1.gitignore\" >> .gitignore"
+curl "https://raw.githubusercontent.com/github/gitignore/master/$1.gitignore" >> .gitignore
 
