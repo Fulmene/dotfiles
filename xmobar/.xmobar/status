@@ -1,6 +1,6 @@
 Config {
     -- Appearance
-    font = "xft:Noto Mono:size=9:bold:antialias=true" ,
+    font = "xft:Droid Sans Mono:size=9:bold:antialias=true" ,
     additionalFonts = [ "xft:FontAwesome:size=10" ] ,
     bgColor = "#262626" ,
     fgColor = "#FFFFDF" ,
