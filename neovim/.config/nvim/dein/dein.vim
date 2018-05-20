@@ -36,6 +36,7 @@ if dein#load_state(expand(pluginpath))
     " Syntax
     call dein#add('modille/groovy.vim')
     call dein#add('neovimhaskell/haskell-vim')
+    call dein#add('udalov/kotlin-vim')
 
     " Autocomplete
     call dein#add('Shougo/deoplete.nvim')
