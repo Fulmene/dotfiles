@@ -37,6 +37,7 @@ if dein#load_state(expand(pluginpath))
     call dein#add('modille/groovy.vim')
     call dein#add('neovimhaskell/haskell-vim')
     call dein#add('udalov/kotlin-vim')
+    call dein#add('calviken/vim-gdscript3')
 
     " Autocomplete
     call dein#add('Shougo/deoplete.nvim')
