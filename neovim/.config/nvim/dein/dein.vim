@@ -50,6 +50,7 @@ if dein#load_state(expand(pluginpath))
     call dein#add('sebastianmarkow/deoplete-rust')
     call dein#add('artur-shaik/vim-javacomplete2')
     call dein#add('dbeniamine/vim-mail', {'on_ft': 'mail'})
+    call dein#add('adimit/prolog.vim')
 
     call dein#end()
     call dein#save_state()
