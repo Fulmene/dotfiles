@@ -2,6 +2,7 @@ Config {
     -- Appearance
     font = "xft:Droid Sans Mono:size=9:bold:antialias=true" ,
     additionalFonts = [ "xft:FontAwesome:size=10" ] ,
+    textOffset = 15 ,
     bgColor = "#262626" ,
     fgColor = "#FFFFDF" ,
     alpha = 204 ,
