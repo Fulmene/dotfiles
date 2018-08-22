@@ -39,8 +39,7 @@ main = xmonad =<< statusBar myStatusBar myPP myToggleStruts
     )
 
 myLayoutHook =
-    onWorkspaces [ "2 web", "8 office", "9 ide" ] (mySpacing (tallTwoThird ||| Full)) $
-    onWorkspaces [ "3 game", "4 media", "5 vm" ] (mySpacing tallTwoThird ||| smartBorders Full) $
+    onWorkspaces [ "2 web", "3 game", "4 media", "5 vm", "8 office", "9 ide" ] (mySpacing tallTwoThird ||| smartBorders Full) $
     (mySpacing (tallHalf ||| Full))
 tallHalf = Tall 2 (3/100) (1/2)
 tallTwoThird = Tall 1 (3/100) (2/3)
