@@ -37,31 +37,8 @@ main = xmonad =<< statusBar myStatusBar myPP myToggleStruts
         `removeKeysP` myRemoveKeys
         `additionalKeysP` myKeys
     )
-{-
-main = xmonad =<< statusBar myStatusBar myPP myToggleStruts
-    (   withUrgencyHook NoUrgencyHook $
-        fullscreenSupport $
-        ewmh def
-            {   terminal            = myTerminal ,
-                focusFollowsMouse   = False ,
-                clickJustFocuses    = False ,
 
-                borderWidth         = 1 ,
-                normalBorderColor   = "#303030" ,
-                focusedBorderColor  = "#DFDFAF" ,
-
-                workspaces          = myWorkspaces ,
-                modMask             = myModMask ,
-
-                layoutHook          = myLayoutHook ,
-                manageHook          = myManageHook
-            }
-        `removeKeysP` myRemoveKeys
-        `additionalKeysP` myKeys
-    )
--}
 myLayoutHook =
-    --fullscreenFull $
     onWorkspaces [ "2 web", "8 office", "9 ide" ] (mySpacing (tallTwoThird ||| Full)) $
     onWorkspaces [ "3 game", "4 media", "5 vm" ] (mySpacing tallTwoThird ||| smartBorders Full) $
     (mySpacing (tallHalf ||| Full))
