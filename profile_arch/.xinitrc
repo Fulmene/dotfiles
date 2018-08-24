@@ -55,7 +55,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 xsetroot -cursor_name left_ptr &
 
-compton &
+compton -b
 ~/.fehbg
 trayer --edge top --align right --margin 341 --widthtype percent --width 16 --heighttype pixel --height 19 --SetDockType true --SetPartialStrut true --transparent true --alpha 51 --tint 0x262626 &
 
