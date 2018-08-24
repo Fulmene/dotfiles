@@ -2,6 +2,7 @@ module XMonad.Fulmene.KeyBindings(myModMask, myRemoveKeys, myKeys, myToggleStrut
 
 import XMonad
 import XMonad.Actions.CycleWS
+import XMonad.StackSet as W
 
 import XMonad.Fulmene.Applications
 
@@ -17,7 +18,9 @@ windowKeys =
     [   ("M-h", prevWS) ,
         ("M-l", nextWS) ,
         ("M-S-h", shiftToPrev >> prevWS) ,
-        ("M-S-l", shiftToNext >> nextWS)
+        ("M-S-l", shiftToNext >> nextWS) ,
+
+        ("M-S-s", withFocused $ windows . W.sink)
     ]
 
 applicationKeys =
