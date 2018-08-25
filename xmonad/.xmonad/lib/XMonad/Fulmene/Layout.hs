@@ -21,7 +21,7 @@ myLayoutHook =
     onWorkspaces [ "2 web", "8 office", "9 ide" ] myMirrorTall $
     onWorkspaces [ "3 game", "7 float" ] myFloat $
     onWorkspaces [ "4 media", "5 vm" ] (noBorders Full) $
-    mySpacing (myTallHalf ||| myFull)
+    myTallHalf ||| myFull
 
 mySpacing = spacingRaw False (Border 2 2 2 2) True (Border 2 2 2 2) True
 
