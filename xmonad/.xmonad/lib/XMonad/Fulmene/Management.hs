@@ -13,7 +13,7 @@ myWorkspaces =
       "4 media",
       "5 vm",
       "6 chat",
-      "7 server",
+      "7 float",
       "8 office",
       "9 ide"
     ]

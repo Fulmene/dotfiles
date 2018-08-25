@@ -4,6 +4,8 @@ import XMonad
 import XMonad.Actions.CycleWS
 import XMonad.StackSet as W
 
+import XMonad.Layout.ResizableTile
+
 import XMonad.Fulmene.Applications
 
 myToggleStruts XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
@@ -20,7 +22,10 @@ windowKeys =
         ("M-S-h", shiftToPrev >> prevWS) ,
         ("M-S-l", shiftToNext >> nextWS) ,
 
-        ("M-S-s", withFocused $ windows . W.sink)
+        ("M-S-s", withFocused $ windows . W.sink) ,
+
+        ("M-a", sendMessage MirrorExpand) ,
+        ("M-z", sendMessage MirrorShrink)
     ]
 
 applicationKeys =
