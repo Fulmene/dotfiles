@@ -39,7 +39,7 @@ myShrinker = shrinkText
 
 myTheme = def {
                 activeColor = "#404040" ,
-                inactiveColor = "#727272" ,
+                inactiveColor = "#606060" ,
                 urgentColor = "#404040" ,
                 activeBorderColor = "#DFAF87" ,
                 inactiveBorderColor = "#FFFFDF" ,
