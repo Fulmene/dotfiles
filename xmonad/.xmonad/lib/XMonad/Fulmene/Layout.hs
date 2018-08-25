@@ -38,9 +38,9 @@ myDecoration = noFrillsDeco myShrinker myTheme
 myShrinker = shrinkText
 
 myTheme = def {
-                activeColor = "#505050" ,
+                activeColor = "#404040" ,
                 inactiveColor = "#727272" ,
-                urgentColor = "#505050" ,
+                urgentColor = "#404040" ,
                 activeBorderColor = "#DFAF87" ,
                 inactiveBorderColor = "#FFFFDF" ,
                 urgentBorderColor = "#D75F5F" ,
