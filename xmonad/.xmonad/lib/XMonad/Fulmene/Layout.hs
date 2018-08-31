@@ -17,8 +17,8 @@ import XMonad.Layout.Decoration
 import XMonad.Layout.TabBarDecoration
 
 myLayoutHook =
-    onWorkspaces [ "2 web", "8 office", "9 ide" ] myMirrorTall $
-    onWorkspaces [ "3 game", "7 float" ] myFloat $
+    onWorkspaces [ "2 web", "8 office", "9 ide" ] (myMirrorTall ||| myFull) $
+    onWorkspaces [ "3 game", "7 float" ] (myFloat ||| myFull) $
     onWorkspaces [ "4 media", "5 vm" ] (noBorders Full) $
     myTallHalf ||| myFull
 
