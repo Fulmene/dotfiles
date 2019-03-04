@@ -7,7 +7,6 @@ module XMonad.Fulmene.Applications(
     myScreenLock,
     myScreenShooter,
     mySelectionScreenShooter,
-    myScreenShotFileName,
     myToggleGammaCorrection,
     myToggleCompositor,
     myToggleDPMS,
@@ -56,18 +55,8 @@ myLogoutDialog = "rofi-logout"
 
 myScreenLock = "xset s activate"
 
-myScreenShooter =
-    myImageToClipboard "maim" `andThen`
-    myImageSaveFromClipboard `andThen`
-    myNotifySend "Screen captured"
-mySelectionScreenShooter =
-    myImageToClipboard "maim -s" `andThen`
-    myImageSaveFromClipboard `andThen`
-    myNotifySend "Screen selection captured"
-
-myImageToClipboard image = image `pipe` "xclip -selection clipboard -t image/png"
-myImageSaveFromClipboard = "xclip -o -selection clipboard -t image/png" `stdoutRedir` myScreenShotFileName
-myScreenShotFileName = "~/Pictures/Screenshots/Screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"
+myScreenShooter = "screenshot"
+mySelectionScreenShooter = "screenshot-selection"
 
 myToggleGammaCorrection = "pkill -USR1 redshift"
 myToggleCompositor = "pkill compton" `orElse` "compton"
