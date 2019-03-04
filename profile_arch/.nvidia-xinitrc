@@ -1,5 +1,5 @@
 #
-# ~/.xinitrc
+# ~/.nvidia-xinitrc
 #
 
 # -- System xinitrc -- #
@@ -46,35 +46,9 @@ export VDPAU_DRIVER=va_gl
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
-ibus-daemon -drx
 
 # -- Java options -- #
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-xsetroot -cursor_name left_ptr &
-
-compton -b
-~/.fehbg
-trayer --edge top --align right --margin 341 --widthtype percent --width 16 --heighttype pixel --height 19 --SetDockType true --SetPartialStrut true --transparent true --alpha 51 --tint 0x262626 &
-
-for bar in ~/.xmobar/*; do
-    [ `basename $bar` != "xmonad" ] && [ `basename $bar` != "openbox" ] && xmobar $bar &
-done
-
-numlockx &
-redshift &
-nm-applet &
-(sleep 10; kalu) &
-(sleep 15; dropbox) &
-
-xset -dpms
-xset s off
-
-xinput disable 'FocalTechPS/2 FocalTech Touchpad'
-
-xss-lock -l -- screen-lock &
-
-exec xmonad
-
+openbox-session
