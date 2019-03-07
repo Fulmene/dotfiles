@@ -32,4 +32,3 @@ nnoremap <leader>h :nohl<CR>
 " Command
 " Repeat last command
 nnoremap <leader>k :<Up><CR>
-

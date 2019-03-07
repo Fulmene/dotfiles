@@ -4,6 +4,9 @@ augroup startup
 augroup end
 set nowrap
 
+set nocompatible
+filetype plugin indent on
+set signcolumn=yes
 set nobackup        " Don't use backup file
 
 set cursorline
@@ -50,3 +53,5 @@ augroup END
 
 autocmd FileType text setlocal wrap
 
+set hidden
+set noshowmode
