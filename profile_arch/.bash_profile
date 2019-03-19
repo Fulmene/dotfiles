@@ -7,6 +7,8 @@ export VISUAL=nvim
 export EDITOR=nvim
 export SUDO_EDITOR=nvim
 export PATH=~/bin:~/.local/bin:$PATH
+export AUR_PAGER=ranger
+export PAGER='nvim -R'
 
 # -- GNOME keyring -- #
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
