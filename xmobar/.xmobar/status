@@ -1,31 +1,20 @@
 Config {
     -- Appearance
-    font = "xft:Droid Sans Mono:size=9:bold:antialias=true" ,
-    additionalFonts = [ "xft:FontAwesome:size=10" ] ,
+    font = "xft:Droid Sans Mono:size=11:bold:antialias=true" ,
+    additionalFonts = [ "xft:FontAwesome:size=11" ] ,
     bgColor = "#262626" ,
     fgColor = "#FFFFDF" ,
     alpha = 204 ,
-    position = TopW R 25 ,
+    position = TopW R 18 ,
 
     -- Behaviour
     overrideRedirect = False ,
     lowerOnStart = True ,
 
-    template = "<fc=#87AFAF>%essid%</fc>}{<action=`termite -e neomutt`><fc=#FFFFDF>%mail%</fc></action> <action=`ibus-setup`><fc=#DFAF87><fn=1></fn>%kbd%</fc></action> <action=`xbacklight -inc 5` button=4><action=`xbacklight -dec 5` button=5>%backlight%</action></action> %default:Master% %battery% " ,
+    template = "<fc=#87AFAF>%essid%</fc>}{<action=`ibus-setup`><fc=#DFAF87><fn=1></fn>%kbd%</fc></action> <action=`xbacklight -inc 5` button=4><action=`xbacklight -dec 5` button=5>%backlight%</action></action> %battery% " ,
 
     commands =
-        [   Run Volume "default" "Master"
-            [   "--template", "<action=`amixer -q sset Master toggle` button=1><action=`amixer -q sset Master unmute` button=45><action=`amixer -q sset Master 2dB+` button=4><action=`amixer -q sset Master 2dB-` button=5><status></action></action></action></action>" ,
-                "--ppad", "3" ,
-                "--" ,
-                    "--on", "<fn=1></fn><volume>%" ,
-                    "--off", "<fn=1>  </fn>Mute" ,
-                    "--onc", "#DFAF87" ,
-                    "--offc", "#AF875F"
-            ]
-            1 ,
-
-            Run Battery
+        [   Run Battery
             [   "--template", "<fc=#FFFFDF><fn=1><acstatus></fn><left> (<timeleft>)</fc>" ,
                 "--High", "80" ,
                 "--Low", "40" ,
@@ -49,11 +38,6 @@ Config {
                 ("jp", "JP") ,
                 ("gr", "GR")
             ] ,
-
-            Run Mail
-            [   ("<fn=1></fn> ", "~/mail/gmail/INBOX")
-            ]
-            "mail" ,
 
             Run Com "getessid" [] "essid" 10 ,
 
