@@ -13,9 +13,6 @@ export AUR_PAGER=ranger
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
-# -- Offline IMAP -- #
-offlineimap-daemon.py &> /dev/null &
-
 [[ -f ~/.bashrc ]] && . ~/.bashrc &> /dev/null
 
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
