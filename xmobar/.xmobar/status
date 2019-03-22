@@ -16,8 +16,8 @@ Config {
     commands =
         [   Run Battery
             [   "--template", "<fc=#FFFFDF><fn=1><acstatus></fn><left> (<timeleft>)</fc>" ,
-                "--High", "80" ,
-                "--Low", "40" ,
+                "--High", "60" ,
+                "--Low", "20" ,
                 "--high", "#FFFFDF" ,
                 "--normal", "#DFAF87" ,
                 "--low", "#D75F5F" ,
