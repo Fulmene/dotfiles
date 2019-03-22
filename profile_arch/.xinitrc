@@ -64,17 +64,10 @@ for bar in ~/.xmobar/*; do
 done
 
 numlockx &
-redshift &
 nm-applet &
-(sleep 10; kalu) &
-(sleep 15; dropbox) &
-
-xset -dpms
-xset s off
 
 xinput disable 'FocalTechPS/2 FocalTech Touchpad'
 
 xss-lock -l -- screen-lock &
 
 exec xmonad
-
