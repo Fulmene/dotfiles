@@ -5,16 +5,27 @@ Config {
     bgColor = "#262626" ,
     fgColor = "#FFFFDF" ,
     alpha = 204 ,
-    position = TopW R 18 ,
+    position = TopW R 21 ,
 
     -- Behaviour
     overrideRedirect = False ,
     lowerOnStart = True ,
 
-    template = "<fc=#87AFAF>%essid%</fc>}{<action=`ibus-setup`><fc=#DFAF87><fn=1></fn>%kbd%</fc></action> <action=`xbacklight -inc 5` button=4><action=`xbacklight -dec 5` button=5>%backlight%</action></action> %battery% " ,
+    template = "<fc=#87AFAF>%essid%</fc>}{<action=`ibus-setup`><fc=#DFAF87><fn=1></fn>%kbd%</fc></action> <action=`xbacklight -inc 5` button=4><action=`xbacklight -dec 5` button=5>%backlight%</action></action> %default:Master% %battery% " ,
 
     commands =
-        [   Run Battery
+        [   Run Volume "default" "Master"
+            [   "--template", "<action=`amixer -q sset Master toggle` button=1><action=`amixer -q sset Master unmute` button=45><action=`amixer -q sset Master 2dB+` button=4><action=`amixer -q sset Master 2dB-` button=5><status></action></action></action></action>" ,
+                "--ppad", "3" ,
+                "--" ,
+                    "--on", "<fn=1></fn><volume>%" ,
+                    "--off", "<fn=1>  </fn>Mute" ,
+                    "--onc", "#DFAF87" ,
+                    "--offc", "#AF875F"
+            ]
+            1 ,
+
+            Run Battery
             [   "--template", "<fc=#FFFFDF><fn=1><acstatus></fn><left> (<timeleft>)</fc>" ,
                 "--High", "60" ,
                 "--Low", "20" ,

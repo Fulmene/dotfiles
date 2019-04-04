@@ -57,7 +57,7 @@ xsetroot -cursor_name left_ptr &
 
 compton -b
 ~/.fehbg
-trayer --edge top --align right --margin 345 --widthtype percent --width 23 --heighttype pixel --height 22 --SetDockType true --SetPartialStrut true --transparent true --alpha 51 --tint 0x262626 &
+trayer --edge top --align right --margin 403 --widthtype percent --width 20 --heighttype pixel --height 22 --SetDockType true --SetPartialStrut true --transparent true --alpha 51 --tint 0x262626 &
 
 for bar in ~/.xmobar/*; do
     [ `basename $bar` != "xmonad" ] && [ `basename $bar` != "openbox" ] && xmobar $bar &
@@ -66,7 +66,7 @@ done
 numlockx &
 nm-applet &
 
-xinput disable 'ETPS/2 Elantech Touchpad'
+xinput disable 'CUST0001:00 04F3:30AA Touchpad'
 
 xss-lock -l -- screen-lock &
 
