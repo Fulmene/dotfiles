@@ -1,4 +1,4 @@
-rofi.font: Droid Sans Mono 12
+rofi.font: Droid Sans Mono 15
 rofi.hide-scrollbar: true
 
 rofi.color-window: argb:CC262626, argb:CC262626, argb:CCAF875F
