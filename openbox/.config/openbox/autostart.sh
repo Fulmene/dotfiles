@@ -17,4 +17,4 @@ redshift &
 xset -dpms
 xset s off
 
-xinput disable 'ETPS/2 Elantech Touchpad'
+xinput disable 'CUST0001:00 04F3:30AA Touchpad'
