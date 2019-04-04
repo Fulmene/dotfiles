@@ -17,4 +17,4 @@ redshift &
 xset -dpms
 xset s off
 
-xinput disable 'FocalTechPS/2 FocalTech Touchpad'
+xinput disable 'ETPS/2 Elantech Touchpad'

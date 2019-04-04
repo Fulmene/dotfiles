@@ -13,6 +13,7 @@ module XMonad.Fulmene.Applications(
     myNotifySend,
 
     myToggleXInput,
+    touchpad,
 
     mySetVolume,
     unmuteV,
@@ -67,6 +68,7 @@ myNotifySend notif = "notify-send" `input` notif
 
 myToggleDPMS = "dpms-toggle"
 myToggleXInput = "xinput-toggle"
+touchpad = "ETPS/2 Elantech Touchpad"
 
 mySetVolume mode = "amixer -q sset Master" `input` mode
 unmuteV = "unmute"
@@ -98,4 +100,3 @@ andThen cmd1 cmd2 = cmd1 ++ " && " ++ cmd2
 orElse cmd1 cmd2 = cmd1 ++ " || " ++ cmd2
 input cmd inp = cmd ++ " \"" ++ inp ++ "\""
 stdoutRedir cmd out = cmd ++ " > " ++ out
-

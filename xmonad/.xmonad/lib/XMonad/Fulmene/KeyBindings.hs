@@ -51,5 +51,3 @@ hardwareKeys =
         ("C-M-b", spawn $ mySetBrightness increaseB 5) ,
         ("C-M-S-b", spawn $ mySetBrightness decreaseB 5)
     ]
-touchpad = "FocalTechPS/2 FocalTech Touchpad"
-

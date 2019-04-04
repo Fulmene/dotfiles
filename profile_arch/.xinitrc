@@ -66,7 +66,7 @@ done
 numlockx &
 nm-applet &
 
-xinput disable 'FocalTechPS/2 FocalTech Touchpad'
+xinput disable 'ETPS/2 Elantech Touchpad'
 
 xss-lock -l -- screen-lock &
 
