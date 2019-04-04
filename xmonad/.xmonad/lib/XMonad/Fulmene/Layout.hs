@@ -44,6 +44,6 @@ myTheme = def {
                 activeTextColor = "#DFAF87" ,
                 inactiveTextColor = "#FFFFDF" ,
                 urgentTextColor = "#D75F5F" ,
-                fontName = "xft:Droid Sans Mono:size=13:bold" ,
-                decoHeight = 20
+                fontName = "xft:Droid Sans Mono:size=11:bold" ,
+                decoHeight = 22
               }
