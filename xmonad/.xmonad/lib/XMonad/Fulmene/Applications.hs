@@ -70,12 +70,12 @@ myToggleDPMS = "dpms-toggle"
 myToggleXInput = "xinput-toggle"
 touchpad = "CUST0001:00 04F3:30AA Touchpad"
 
-mySetVolume mode = "amixer -q sset Master" `input` mode
-unmuteV = "unmute"
-muteV = "mute"
-toggleV = "toggle"
-lowerV = "2dB-"
-raiseV = "2dB+"
+mySetVolume mode = "pactl" `input` mode
+unmuteV = "set-sink-mute 0 0"
+muteV = "set-sink-mute 0 1"
+toggleV = "set-sink-mute 0 toggle"
+lowerV = "set-sink-volume 0 -2%"
+raiseV = "set-sink-volume 0 +2%"
 
 mySetBrightness mode percent = "xbacklight" `input` mode `input` (show percent)
 setB = "-set"
