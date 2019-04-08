@@ -1,0 +1,56 @@
+Config {
+    -- Appearance
+    font = "xft:Droid Sans Mono:size=11:bold:antialias=true" ,
+    additionalFonts = [ "xft:FontAwesome:size=11" ] ,
+    bgColor = "#262626" ,
+    fgColor = "#FFFFDF" ,
+    alpha = 255 ,
+    position = TopW L 91 ,
+
+    -- Behaviour
+    overrideRedirect = False ,
+    lowerOnStart = True ,
+
+    template = "%date%}{<action=`ibus-setup`><fc=#DFAF87><fn=1></fn>%kbd%</fc></action> %default:Master% %battery% " ,
+
+    commands =
+        [   Run Date "<fc=#DFAF87><fn=1></fn>%a %b %e</fc> <fn=1></fn>%H:%M" "date" 600,
+    
+            Run Volume "default" "Master"
+            [   "--template", "<action=`pactl set-sink-mute 0 toggle` button=1><action=`pactl set-sink-mute 0 0` button=45><action=`pactl set-sink-volume 0 +2%` button=4><action=`pactl set-sink-volume 0 -2%` button=5><status></action></action></action></action>" ,
+                "--ppad", "3" ,
+                "--" ,
+                    "--on", "<fn=1></fn><volume>%" ,
+                    "--off", "<fn=1>  </fn>Mute" ,
+                    "--onc", "#DFAF87" ,
+                    "--offc", "#AF875F"
+            ]
+            1 ,
+
+            Run Battery
+            [   "--template", "<fc=#FFFFDF><fn=1><acstatus></fn><left> (<timeleft>)</fc>" ,
+                "--High", "60" ,
+                "--Low", "20" ,
+                "--high", "#FFFFDF" ,
+                "--normal", "#DFAF87" ,
+                "--low", "#D75F5F" ,
+                "--ppad", "3" ,
+                "--suffix", "true" ,
+                "--" ,
+                    "-O", "" ,
+                    "-i", "" ,
+                    "-o", "" ,
+                    "-f", "AC0/online"
+            ]
+            50 ,
+
+            Run Kbd
+            [   ("us(altgr-intl)", "EN") ,
+                ("us", "TH") , -- ibus-libthai uses US layout
+                ("th", "TH") ,
+                ("jp", "JP") ,
+                ("gr", "GR")
+            ]
+
+        ]
+}
