@@ -66,6 +66,9 @@ done
 numlockx &
 nm-applet &
 
+xset -dpms
+xset s off
+
 xinput disable 'CUST0001:00 04F3:30AA Touchpad'
 
 xss-lock -l -- screen-lock &

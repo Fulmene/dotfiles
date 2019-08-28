@@ -9,4 +9,3 @@ else
     xset s on
     notify-send --urgency=low --app-name=xset "DPMS enabled"
 fi
-

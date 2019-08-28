@@ -8,10 +8,10 @@ Config {
     position = TopW L 91 ,
 
     -- Behaviour
-    overrideRedirect = False ,
+    overrideRedirect = True ,
     lowerOnStart = True ,
 
-    template = "%date%}{<action=`ibus-setup`><fc=#DFAF87><fn=1></fn>%kbd%</fc></action> %default:Master% %battery% " ,
+    template = "%date%}{<action=`ibus-setup`><fc=#DFAF87><fn=1></fn>%kbd%</fc></action> %default:Master% %battery%  " ,
 
     commands =
         [   Run Date "<fc=#DFAF87><fn=1></fn>%a %b %e</fc> <fn=1></fn>%H:%M" "date" 600,

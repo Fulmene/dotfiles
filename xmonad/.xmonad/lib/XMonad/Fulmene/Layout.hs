@@ -25,7 +25,7 @@ myLayoutHook =
 mySpacing = spacingRaw False (Border 2 2 2 2) True (Border 2 2 2 2) True
 
 myTallHalf = mySpacing $ myTabBar $ ResizableTall 2 (3/100) (1/2) []
-myMirrorTall = mySpacing $ myTabBar $ Mirror (ResizableTall 1 (3/100) (3/5) [])
+myMirrorTall = mySpacing $ myTabBar $ Mirror (ResizableTall 1 (3/100) (2/3) [])
 myFull = mySpacing $ myTabBar $ Full
 myFloat = mySpacing $ borderResize $ simpleFloat' myShrinker myTheme
 
