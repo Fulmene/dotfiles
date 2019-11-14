@@ -48,6 +48,6 @@ hardwareKeys =
         ("<XF86AudioMute>", spawn $ mySetVolume toggleV) ,
         ("<XF86AudioLowerVolume>", spawn $ (mySetVolume unmuteV) `andThen` (mySetVolume lowerV)) ,
         ("<XF86AudioRaiseVolume>", spawn $ (mySetVolume unmuteV) `andThen` (mySetVolume raiseV)) ,
-        ("C-M-b", spawn $ mySetBrightness increaseB 5) ,
-        ("C-M-S-b", spawn $ mySetBrightness decreaseB 5)
+        ("<XF86MonBrightnessUp>", spawn $ mySetBrightness increaseB 5) ,
+        ("<XF86MonBrightnessDown>", spawn $ mySetBrightness decreaseB 5)
     ]
