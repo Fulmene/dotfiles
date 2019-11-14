@@ -68,7 +68,7 @@ myNotifySend notif = "notify-send" `input` notif
 
 myToggleDPMS = "dpms-toggle"
 myToggleXInput = "xinput-toggle"
-touchpad = "ETPS/2 Elantech Touchpad"
+touchpad = "CUST0001:00 04F3:30AA Touchpad"
 
 mySetVolume mode = "pactl " ++ mode
 unmuteV = "set-sink-mute 0 0"
