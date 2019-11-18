@@ -60,7 +60,7 @@ myScreenShooter = "screenshot"
 mySelectionScreenShooter = "screenshot-selection"
 
 myToggleGammaCorrection = "pkill -USR1 redshift"
-myToggleCompositor = "pkill compton" `orElse` "compton"
+myToggleCompositor = "pkill picom" `orElse` "picom"
 
 myNotifySend notif = "notify-send" `input` notif
 
