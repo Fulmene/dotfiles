@@ -61,4 +61,3 @@ if [[ -d ~/.bashrc.d ]]; then
     done
     unset cfg
 fi
-
