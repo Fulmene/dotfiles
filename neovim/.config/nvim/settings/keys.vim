@@ -27,7 +27,7 @@ nnoremap <leader>q :tabclose<CR>
 
 " Search
 " Unhighlight search
-nnoremap <leader>h :nohl<CR>
+nnoremap <leader>nh :nohl<CR>
 
 " Command
 " Repeat last command
