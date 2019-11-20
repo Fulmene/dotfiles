@@ -17,3 +17,5 @@ xset -dpms
 xset s off
 
 xinput disable 'CUST0001:00 04F3:30AA Touchpad' || xinput disable 'ETPS/2 Elantech Touchpad'
+
+sxhkd -r /dev/null &

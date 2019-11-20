@@ -73,4 +73,6 @@ xinput disable 'CUST0001:00 04F3:30AA Touchpad' || xinput disable 'ETPS/2 Elante
 
 xss-lock -l -- screen-lock &
 
+sxhkd -r /dev/null &
+
 exec xmonad

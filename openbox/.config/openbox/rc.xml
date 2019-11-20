@@ -316,36 +316,6 @@
           </action>
       </keybind>
       <!-- Keybindings for running applications -->
-      <keybind key="W-e">
-          <action name="Execute">
-              <startupnotify>
-                  <enabled>true</enabled>
-                  <name>Konqueror</name>
-              </startupnotify>
-              <command>kfmclient openProfile filemanagement</command>
-          </action>
-      </keybind>
-      <keybind key="A-p">
-          <action name="Execute">
-              <command>rofi -location 1 -xoffset 7 -yoffset 26 -combi-modi window,drun -show combi -modi combi -display-combi drun -show-icons</command>
-          </action>
-      </keybind>
-      <keybind key="A-S-Return">
-          <action name="Execute">
-              <command>termite</command>
-          </action>
-      </keybind>
-      <keybind key="Print">
-          <action name="Execute">
-              <command>screenshot</command>
-          </action>
-      </keybind>
-      <keybind key="A-S-q">
-          <action name="Execute">
-              <prompt>Are you sure you want to exit Openbox?</prompt>
-              <command>openbox --exit</command>
-          </action>
-      </keybind>
   </keyboard>
   <mouse>
       <dragThreshold>1</dragThreshold>

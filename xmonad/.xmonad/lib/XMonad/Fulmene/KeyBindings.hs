@@ -6,17 +6,18 @@ import XMonad.StackSet as W
 
 import XMonad.Layout.ResizableTile
 
-import XMonad.Fulmene.Applications
-
 myToggleStruts XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 myModMask = mod1Mask
 
-myRemoveKeys = []
+myRemoveKeys =
+    [    "M-S-<Return>" ,
+         "M-p" ,
+         "M-S-p" ,
+         "M-S-q"
+    ]
 
-myKeys = windowKeys ++ applicationKeys ++ hardwareKeys
-
-windowKeys =
+myKeys =
     [   ("M-h", prevWS) ,
         ("M-l", nextWS) ,
         ("M-S-h", shiftToPrev >> prevWS) ,
@@ -26,27 +27,4 @@ windowKeys =
 
         ("M-a", sendMessage MirrorExpand) ,
         ("M-z", sendMessage MirrorShrink)
-    ]
-
-applicationKeys =
-    [   ("M-p", spawn myDesktopRunDialog) ,
-        ("M-S-p", spawn myRunDialog) ,
-        ("C-M-S-<Return>", spawn myTerminalDialog) ,
-        ("M-S-q", spawn myLogoutDialog) ,
-        ("C-M-S-l", spawn myScreenLock) ,
-
-        ("<Print>", spawn myScreenShooter) ,
-        ("M-<Print>", spawn mySelectionScreenShooter) ,
-
-        ("C-M-S-c", spawn myToggleCompositor) ,
-        ("C-M-S-d", spawn myToggleDPMS)
-    ]
-
-hardwareKeys =
-    [   ("<XF86TouchpadToggle>", spawn $ myToggleXInput `input` touchpad) ,
-        ("<XF86AudioMute>", spawn $ mySetVolume toggleV) ,
-        ("<XF86AudioLowerVolume>", spawn $ (mySetVolume unmuteV) `andThen` (mySetVolume lowerV)) ,
-        ("<XF86AudioRaiseVolume>", spawn $ (mySetVolume unmuteV) `andThen` (mySetVolume raiseV)) ,
-        ("<XF86MonBrightnessUp>", spawn $ mySetBrightness increaseB 5) ,
-        ("<XF86MonBrightnessDown>", spawn $ mySetBrightness decreaseB 5)
     ]

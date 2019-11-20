@@ -1,0 +1,47 @@
+# Logout dialog
+alt + shift + q
+    rofi-logout
+
+# Terminal
+alt + shift + Return
+    termite
+ctrl + alt + shift + Return
+    rofi-termdir
+
+# Run dialog
+alt + p
+    rofi -location 1 -xoffset 7 -yoffset 26 -combi-modi window,drun -show combi -modi combi -display-combi drun -show-icons
+alt + shift + p
+    rofi -location 1 -xoffset 7 -yoffset 26 -show run
+
+# Lock the screen
+ctrl + alt + shift + l
+    xset s activate
+
+# Screen shooter
+Print
+    screenshot
+alt + Print
+    screenshot-selection
+
+# Compositor
+ctrl + alt + shift + c
+    pkill picom || picom
+
+# DPMS
+ctrl + alt + shift + d
+    dpms-toggle
+
+# Touchpad
+XF86TouchpadToggle
+    xinput-toggle 'CUST0001:00 04F3:30AA Touchpad' || xinput-toggle 'ETPS/2 Elantech Touchpad'
+
+# Audio buttons
+XF86AudioMute
+    pactl set-sink-mute 0 toggle
+XF86Audio{Lower,Raise}Volume
+    pactl set-sink-mute 0 0 && pactl set-sink-volume 0 {-,+}2%
+
+# Brightness buttons
+XF86MonBrightness{Down,Up}
+    xbacklight -{dec,inc} 5
