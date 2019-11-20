@@ -15,7 +15,10 @@ export SSH_AUTH_SOCK
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc &> /dev/null
 
-if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-    exec startx
+if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ]; then
+    if [ "$XDG_VTNR" -eq 1 ]; then
+        exec startx
+    elif [ "$XDG_VTNR" -eq 2 ]; then
+        exec nvidia-xrun
+    fi
 fi
-
