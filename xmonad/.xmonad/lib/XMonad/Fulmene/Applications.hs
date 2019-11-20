@@ -7,7 +7,6 @@ module XMonad.Fulmene.Applications(
     myScreenLock,
     myScreenShooter,
     mySelectionScreenShooter,
-    myToggleGammaCorrection,
     myToggleCompositor,
     myToggleDPMS,
     myNotifySend,
@@ -59,7 +58,6 @@ myScreenLock = "xset s activate"
 myScreenShooter = "screenshot"
 mySelectionScreenShooter = "screenshot-selection"
 
-myToggleGammaCorrection = "pkill -USR1 redshift"
 myToggleCompositor = "pkill picom" `orElse` "picom"
 
 myNotifySend notif = "notify-send" `input` notif

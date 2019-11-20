@@ -12,7 +12,6 @@ xmobar ~/.xmobar/openbox &
 xmobar ~/.xmobar/monitor &
 
 numlockx &
-redshift &
 
 xset -dpms
 xset s off

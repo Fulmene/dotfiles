@@ -38,7 +38,6 @@ applicationKeys =
         ("<Print>", spawn myScreenShooter) ,
         ("M-<Print>", spawn mySelectionScreenShooter) ,
 
-        ("C-M-S-r", spawn myToggleGammaCorrection) ,
         ("C-M-S-c", spawn myToggleCompositor) ,
         ("C-M-S-d", spawn myToggleDPMS)
     ]
