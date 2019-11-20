@@ -21,15 +21,16 @@ import XMonad.Hooks.RefocusLast
 myLayoutHook =
     refocusLastLayoutHook $
     lessBorders OnlyScreenFloat $ 
-    onWorkspaces [ "2 web", "8 office", "9 ide" ] (myMirrorTall ||| myFull) $
+    onWorkspaces [ "2 web", "8 office", "9 ide" ] (myTall (2/3) ||| myMirrorTall (2/3) ||| myFull) $
     onWorkspaces [ "3 game", "7 float" ] (myFloat ||| myFull) $
     onWorkspaces [ "4 media", "5 vm" ] (noBorders Full) $
-    myTallHalf ||| myFull
+    myTall (1/2) ||| myMirrorTall (2/3) ||| myFull
 
 mySpacing = spacingRaw False (Border 2 2 2 2) True (Border 2 2 2 2) True
 
-myTallHalf = mySpacing $ myTabBar $ ResizableTall 2 (3/100) (1/2) []
-myMirrorTall = mySpacing $ myTabBar $ Mirror (ResizableTall 1 (3/100) (2/3) [])
+bareTall ratio = ResizableTall 1 (3/100) ratio []
+myTall ratio = mySpacing $ myTabBar $ bareTall ratio
+myMirrorTall ratio = mySpacing $ myTabBar $ Mirror (bareTall ratio)
 myFull = mySpacing $ myTabBar $ Full
 myFloat = mySpacing $ borderResize $ simpleFloat' myShrinker myTheme
 
