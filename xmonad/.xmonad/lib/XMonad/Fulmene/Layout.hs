@@ -16,10 +16,7 @@ import XMonad.Layout.BorderResize
 import XMonad.Layout.Decoration
 import XMonad.Layout.TabBarDecoration
 
-import XMonad.Hooks.RefocusLast
-
 myLayoutHook =
-    refocusLastLayoutHook $
     lessBorders OnlyScreenFloat $ 
     onWorkspaces [ "2 web", "8 office", "9 ide" ] (myTall (2/3) ||| myMirrorTall (2/3) ||| myFull) $
     onWorkspaces [ "3 game", "7 float" ] (myFloat ||| myFull) $
