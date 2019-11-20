@@ -5,10 +5,17 @@ options="suspend-then-hibernate|hibernate|suspend|logout|reboot|poweroff"
 cmd=`echo "$options" | rofi -sep '|' -dmenu -width 30 -lines 10 -p quit`
 case $cmd in
     logout)
-        pkill xmonad
+        wm=`wmctrl -m | awk 'FNR == 1 {print $2}'`
+        case $wm in
+            xmonad)
+                pkill xmonad
+                ;;
+            Openbox)
+                openbox --exit
+                ;;
+        esac
         ;;
     *)
         systemctl $cmd
         ;;
 esac
-
