@@ -2,6 +2,7 @@ import XMonad
 
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.RefocusLast
 import XMonad.Hooks.UrgencyHook
 
 import XMonad.Util.EZConfig
@@ -26,8 +27,8 @@ main = xmonad =<< statusBar myStatusBar myPP myToggleStruts
                 workspaces          = myWorkspaces ,
                 modMask             = myModMask ,
 
-                handleEventHook     = handleEventHook def <+> fullscreenEventHook ,
-                layoutHook          = myLayoutHook ,
+                handleEventHook     = refocusLastWhen refocusingIsActive <+> handleEventHook def <+> fullscreenEventHook ,
+                layoutHook          = refocusLastLayoutHook $ myLayoutHook ,
                 manageHook          = myManageHook
             }
         `removeKeysP` myRemoveKeys
