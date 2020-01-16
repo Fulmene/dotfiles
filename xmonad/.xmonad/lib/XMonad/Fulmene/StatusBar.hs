@@ -2,7 +2,6 @@ module XMonad.Fulmene.StatusBar(myStatusBar, myPP) where
 
 import XMonad.Hooks.DynamicLog
 
-import XMonad.Fulmene.Applications
 import XMonad.Fulmene.Management
 
 import Data.List
@@ -62,3 +61,12 @@ myPPOrder (ws:layout:title:_) =
         title
     ]
 
+mySwitchWorkspace wid = mySwitchWorkspaceMaybe (wid `elemIndex` myWorkspaces)
+mySwitchWorkspaceIndex x = "wmctrl -s " ++ show x
+
+mySwitchWorkspaceMaybe (Just x) = mySwitchWorkspaceIndex x
+mySwitchWorkspaceMaybe Nothing = "false"
+
+currentWorkspace = "$(wmctrl -d | grep '*' | cut -d ' ' -f 1)"
+previousWorkspace = "$(( (" ++ currentWorkspace ++ " + " ++ (show $ (length myWorkspaces) - 1) ++ ") % " ++ (show $ length myWorkspaces) ++ "))"
+nextWorkspace = "$(( (" ++ currentWorkspace ++ " + 1" ++ ") % " ++ (show $ length myWorkspaces) ++ "))"

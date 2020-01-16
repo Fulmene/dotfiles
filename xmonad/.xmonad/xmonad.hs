@@ -7,7 +7,6 @@ import XMonad.Hooks.UrgencyHook
 
 import XMonad.Util.EZConfig
 
-import XMonad.Fulmene.Applications
 import XMonad.Fulmene.KeyBindings
 import XMonad.Fulmene.Layout
 import XMonad.Fulmene.Management
@@ -16,7 +15,7 @@ import XMonad.Fulmene.StatusBar
 main = xmonad =<< statusBar myStatusBar myPP myToggleStruts
     (   withUrgencyHook NoUrgencyHook $
         ewmh def
-            {   terminal            = myTerminal ,
+            {   terminal            = "termite" ,
                 focusFollowsMouse   = False ,
                 clickJustFocuses    = False ,
 
