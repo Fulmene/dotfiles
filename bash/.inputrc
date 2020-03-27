@@ -32,3 +32,5 @@ $else
 "\e[B": history-search-forward
 
 $endif
+
+set mark-symlinked-directories on
