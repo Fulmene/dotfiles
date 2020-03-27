@@ -25,10 +25,6 @@ nnoremap <C-l> :tabnext<CR>
 " Close tab
 nnoremap <leader>q :tabclose<CR>
 
-" Search
-" Unhighlight search
-nnoremap <leader>nh :nohl<CR>
-
 " Command
 " Repeat last command
 nnoremap <leader>k :<Up><CR>
