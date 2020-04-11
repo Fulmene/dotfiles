@@ -9,7 +9,6 @@ xsetroot -cursor_name left_ptr &
 trayer --edge top --align right --widthtype percent --width 10 --heighttype pixel --height 22 --SetDockType true --SetPartialStrut true --transparent true --alpha 0 --tint 0x262626 &
 
 xmobar ~/.xmobar/openbox &
-xmobar ~/.xmobar/monitor &
 
 numlockx &
 
