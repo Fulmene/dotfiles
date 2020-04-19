@@ -19,6 +19,7 @@ exec "source " . settingspath . "/keys.vim"
 exec "source " . settingspath . "/terminal.vim"
 exec "source " . settingspath . "/plug.vim"
 exec "source " . settingspath . "/plugins.vim"
+exec "source " . settingspath . "/coc.vim"
 
 "exec "source " . pluginpath . "/setup.vim"
 

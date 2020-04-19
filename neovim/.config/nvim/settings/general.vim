@@ -8,6 +8,7 @@ set nocompatible
 filetype plugin indent on
 set signcolumn=yes
 set nobackup        " Don't use backup file
+set nowritebackup
 
 set cursorline
 augroup CursorLine
@@ -55,3 +56,9 @@ autocmd FileType text setlocal wrap
 
 set hidden
 set noshowmode
+
+set cmdheight=2
+
+set updatetime=300
+
+set shortmess+=c
