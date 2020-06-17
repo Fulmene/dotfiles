@@ -20,6 +20,7 @@ myWorkspaces =
 
 myManageHook = composeAll
     [ workspaceManageHook ,
+      isFullscreen --> doFullFloat ,
       manageDocks ,
       composeOne . concat $ [
           [ isDialog -?> doCenterFloat ] ,
