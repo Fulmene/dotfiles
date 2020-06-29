@@ -24,5 +24,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Syntax
 Plug 'modille/groovy.vim'
 Plug 'neovimhaskell/haskell-vim'
+Plug 'leafgarland/typescript-vim'
 
 call plug#end()
