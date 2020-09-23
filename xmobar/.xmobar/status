@@ -15,7 +15,7 @@ Config {
 
     commands =
         [   Run Volume "default" "Master"
-            [   "--template", "<action=`pactl set-sink-mute 0 toggle` button=1><action=`pactl set-sink-mute 0 0` button=45><action=`pactl set-sink-volume 0 +2%` button=4><action=`pactl set-sink-volume 0 -2%` button=5><status></action></action></action></action>" ,
+            [   "--template", "<action=`pactl set-sink-mute @DEFAULT_SINK@ toggle` button=1><action=`pactl set-sink-mute @DEFAULT_SINK@ 0` button=45><action=`pactl set-sink-volume @DEFAULT_SINK@ +2%` button=4><action=`pactl set-sink-volume @DEFAULT_SINK@ -2%` button=5><status></action></action></action></action>" ,
                 "--ppad", "3" ,
                 "--" ,
                     "--on", "<fn=1></fn><volume>%" ,

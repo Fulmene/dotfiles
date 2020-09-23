@@ -40,9 +40,9 @@ XF86TouchpadToggle
 
 # Audio buttons
 XF86AudioMute
-    pactl set-sink-mute 0 toggle
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
 XF86Audio{Lower,Raise}Volume
-    pactl set-sink-mute 0 0 && pactl set-sink-volume 0 {-,+}2%
+    pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-sink-volume @DEFAULT_SINK@ {-,+}2%
 
 # Brightness buttons
 XF86MonBrightness{Down,Up}
