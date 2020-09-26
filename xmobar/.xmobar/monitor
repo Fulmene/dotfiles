@@ -83,15 +83,17 @@ Config {
             ]
             10 ,
 
+            Run DynNetwork
+            [   "--template", "<fc=#DFAF87><fn=1></fn><tx>KB</fc> <fc=#FFFFDF><fn=1></fn><rx>KB</fc>" ,
+                "--width", "4" ,
+                "--" ,
+                "--devices", "wlo1,enp3s0,enp0s20f0u4"
+            ]
+            10 ,
+
             Run DiskIO
             [   ("sda", "<fc=#DFAF87><fn=1></fn> <read>B</fc> <fc=#FFFFDF><fn=1></fn> <write>B</fc>")   ]
             [   "--width", "4"   ]
-            10 ,
-
-            Run DynNetwork
-            [   "--template", "<fc=#DFAF87><fn=1></fn><tx>KB</fc> <fc=#FFFFDF><fn=1></fn><rx>KB</fc>" ,
-                "--width", "4"
-            ]
             10
 
         ]
