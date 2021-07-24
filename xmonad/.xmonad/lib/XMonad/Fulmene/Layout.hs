@@ -26,13 +26,10 @@ myLayoutHook =
 mySpacing = spacingRaw False (Border 2 2 2 2) True (Border 2 2 2 2) True
 
 bareTall ratio = ResizableTall 1 (3/100) ratio []
-myTall ratio = mySpacing $ myTabBar $ bareTall ratio
-myMirrorTall ratio = mySpacing $ myTabBar $ Mirror (bareTall ratio)
-myFull = mySpacing $ myTabBar $ Full
+myTall ratio = mySpacing $ bareTall ratio
+myMirrorTall ratio = mySpacing $ Mirror (bareTall ratio)
+myFull = mySpacing $ Full
 myFloat = mySpacing $ borderResize $ simpleFloat' myShrinker myTheme
-
-myTabBar :: l Window -> ModifiedLayout (Decoration TabBarDecoration DefaultShrinker) (ModifiedLayout ResizeScreen l) Window
-myTabBar = tabBar myShrinker myTheme Top . resizeVertical (fromIntegral $ decoHeight myTheme)
 
 myShrinker = shrinkText
 
