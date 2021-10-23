@@ -65,6 +65,7 @@ done
 
 numlockx &
 nm-applet &
+udiskie --tray &
 
 xset -dpms
 xset s off
