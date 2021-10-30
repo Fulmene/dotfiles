@@ -8,8 +8,7 @@ fi
 
 for config_dir in $target; do
     if [ -d $config_dir ]; then
-        echo "stow ${config_dir}"
-        stow ${config_dir}
+        echo "stow --no-folding ${config_dir}"
+        stow --no-folding ${config_dir}
     fi
 done
-
