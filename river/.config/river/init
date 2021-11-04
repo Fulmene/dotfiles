@@ -1,0 +1,8 @@
+#!/bin/sh
+
+. ~/.config/river/autostart
+. ~/.config/river/config
+. ~/.config/river/keymap
+
+riverctl default-layout rivertile
+exec rivertile -view-padding 3 -outer-padding 3

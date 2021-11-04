@@ -1,0 +1,104 @@
+{
+    "layer": "bottom",
+    "position": "top",
+
+    "modules-left": [
+        "river/tags",
+        "clock"
+    ],
+
+    "modules-center": [
+        "temperature",
+        "cpu",
+        "memory"
+    ],
+
+    "modules-right": [
+        "tray",
+        "network",
+        "backlight",
+        "pulseaudio",
+        "battery"
+    ],
+
+    "river/tags": {
+        "num-tags": 9,
+        "tag-labels": ["", "", "", "", "", "", "", "", ""]
+    },
+
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "today-format": "<span foreground='#88C0D0' weight='bold'>{}</span>"
+    },
+
+    "temperature": {
+        "critical-threshold": 70,
+        "tooltip": false
+    },
+
+    "cpu": {
+        "format": "{usage:3}% {avg_frequency:.1f}GHz",
+        "states": {
+            "high": 100,
+            "medium": 75,
+            "low": 50
+        }
+    },
+
+    "memory": {
+        "format": "{used:4.1f}GiB",
+        "states": {
+            "high": 100,
+            "medium": 75,
+            "low": 50
+        },
+        "tooltip": false
+    },
+
+    "tray": {
+        "icon-size": 22,
+        "spacing": 3
+    },
+
+    "network": {
+        "format-ethernet": " Ethernet",
+        "format-wifi": " {essid}",
+        "format-disconnected": "Disconnected",
+        "tooltip": false
+    },
+
+    "backlight": {
+        "format": " {percent:3}%",
+        "on-scroll-up": "light -A 1",
+        "on-scroll-down": "light -U 1"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume:3}%",
+        "format-muted": " Mute",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol"
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}{capacity:3}%",
+        "format-time": "{H}:{M:02}",
+        "format-charging": "{capacity:3}%",
+        "format-full": "{capacity:3}%",
+        "format-unknown": "{capacity:3}%",
+        "format-icons": ["", "", "", "", ""]
+    }
+}

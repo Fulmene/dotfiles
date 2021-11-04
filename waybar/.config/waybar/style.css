@@ -1,0 +1,98 @@
+@define-color nord0  #2E3440;  /* Polar Night */
+@define-color nord1  #3B4252;
+@define-color nord2  #434C5E;
+@define-color nord3  #4C566A;
+@define-color nord4  #D8DEE9;  /* Snow Storm */
+@define-color nord5  #E5E9F0;
+@define-color nord6  #ECEFF4;
+@define-color nord7  #8FBCBB;  /* Frost */
+@define-color nord8  #88C0D0;
+@define-color nord9  #81A1C1;
+@define-color nord10 #5E81AC;
+@define-color nord11 #BF616A;  /* Red */
+@define-color nord12 #D08770;  /* Orange */
+@define-color nord13 #EBCB8B;  /* Yellow */
+@define-color nord14 #A3BE8C;  /* Green */
+@define-color nord15 #B48EAD;  /* Magenta */
+
+* {
+    font-family: Fira Code Medium;
+    font-size: 18px;
+    color: @nord6;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+.modules-left, .modules-center, .modules-right {
+    margin-top: 4px;
+}
+
+.modules-left > * > *, .modules-center > * > *, .modules-right > * > * {
+    background-color: @nord0;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 10px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+tooltip {
+    background-color: @nord1;
+    border-radius: 10px;
+}
+
+#tags {
+    padding: 5px;
+}
+#tags button {
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 2px;
+    border-width: 4px;
+    border-style: solid;
+}
+#tags button label {
+    color: @nord3;
+}
+#tags button:hover {
+    background-color: inherit;
+}
+#tags button.focused {
+    border-color: @nord9;
+}
+#tags button:not(.focused) {
+    border-color: transparent;
+}
+#tags button.occupied label {
+    color: @nord6;
+}
+#tags button.urgent.occupied label, #tags button.urgent:not(.occupied) label {
+    color: @nord11;
+}
+
+.modules-center .high, #temperature.critical, #battery.critical:not(.charging) {
+    background-color: @nord11;
+    color: @nord0;
+}
+.modules-center .medium, #battery.warning:not(.charging) {
+    background-color: @nord13;
+    color: @nord0;
+}
+
+#network.disconnected {
+    color: @nord3;
+}
+
+#pulseaudio.muted {
+    color: @nord3;
+}
+
+#battery.charging {
+    background-color: @nord14;
+    color: @nord0;
+}
+

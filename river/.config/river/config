@@ -1,0 +1,9 @@
+#!/bin/sh
+
+riverctl attach-mode bottom
+
+riverctl border-color-focused 0x81A1C1
+riverctl border-color-unfocused 0x2E3440
+riverctl border-color-urgent 0xBF616A
+
+riverctl xcursor-theme Hacked-White

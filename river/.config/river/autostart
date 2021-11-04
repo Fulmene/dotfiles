@@ -1,0 +1,12 @@
+#!/bin/sh
+
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+/usr/lib/xdg-desktop-portal-wlr &
+import-gsettings
+swaybg --image ~/Pictures/yanfei-hayaroB-4x-landscape.jpg &
+waybar &
+udiskie --appindicator &
+nm-applet --indicator &
+parcellite &
+mako &
+kanshi &

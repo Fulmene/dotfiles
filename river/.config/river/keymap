@@ -1,0 +1,58 @@
+#!/bin/sh
+
+mod="Mod1"
+
+riverctl map normal $mod+Shift C close
+
+riverctl map normal $mod+Shift Q spawn rofi-logout
+
+riverctl map normal $mod J focus-view next
+riverctl map normal $mod K focus-view previous
+
+riverctl map normal $mod+Shift J swap next
+riverctl map normal $mod+Shift K swap previous
+
+riverctl map normal $mod W focus-output left
+riverctl map normal $mod E focus-output right
+
+riverctl map normal $mod+Shift W send-to-output left
+riverctl map normal $mod+Shift E send-to-output right
+
+riverctl map normal $mod+Shift H send-layout-cmd rivertile 'main-location left'
+riverctl map normal $mod+Shift U send-layout-cmd rivertile 'main-location top'
+
+riverctl map normal $mod+Shift S toggle-float
+
+riverctl map-pointer normal $mod BTN_LEFT move-view
+riverctl map-pointer normal $mod BTN_RIGHT resize-view
+
+for i in $(seq 1 9); do
+    tags=$((1 << ($i - 1)))
+    riverctl map normal $mod                $i set-focused-tags     $tags
+    riverctl map normal $mod+Shift          $i set-view-tags        $tags
+    riverctl map normal $mod+Control        $i toggle-focused-tags  $tags
+    riverctl map normal $mod+Control+Shift  $i toggle-view-tags     $tags
+done
+
+all_tags=$(((1 << 32) - 1))
+riverctl map normal $mod        0 set-focused-tags  $all_tags
+riverctl map normal $mod+Shift  0 set-view-tags     $all_tags
+
+riverctl map normal $mod Return toggle-fullscreen
+
+riverctl map normal $mod+Shift          Return  spawn "$TERMINAL"
+riverctl map normal $mod+Control+Shift  Return  spawn rofi-termdir
+
+riverctl map normal $mod                P       spawn rofi-drun
+riverctl map normal $mod+Shift          P       spawn rofi-run
+
+screenshot_save='wl-paste > ~/Pictures/Screenshots/Screenshot_$(date +%Y-%m-%d_%H-%M-%S).png'
+riverctl map normal None                Print   spawn "grimshot --notify copy screen && $screenshot_save"
+riverctl map normal Control             Print   spawn "grimshot --notify copy area && $screenshot_save"
+
+riverctl map normal $mod+Shift          Up      spawn 'light -A 5'
+riverctl map normal $mod+Shift          Down    spawn 'light -U 5'
+
+riverctl map normal $mod+Shift          Left    spawn 'pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-sink-volume @DEFAULT_SINK@ -5%'
+riverctl map normal $mod+Shift          Right   spawn 'pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-sink-volume @DEFAULT_SINK@ +5%'
+riverctl map normal $mod+Shift          End     spawn 'pactl set-sink-mute @DEFAULT_SINK@ toggle'

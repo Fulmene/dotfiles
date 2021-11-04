@@ -1,0 +1,8 @@
+profile "single" {
+    output eDP-1 enable scale 1.25
+}
+
+profile "hdmi" {
+    output eDP-1 enable scale 1.25
+    output HDMI-1 enable scale 1.0
+}
