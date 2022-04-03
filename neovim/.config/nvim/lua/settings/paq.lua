@@ -27,6 +27,8 @@ require 'paq' {
     'L3MON4D3/LuaSnip';
     'saadparwaiz1/cmp_luasnip';
 
+    'stevearc/dressing.nvim';
+
     'rafamadriz/friendly-snippets';
 
     'nvim-telescope/telescope.nvim';
