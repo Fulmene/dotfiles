@@ -1,3 +1,0 @@
-[submodule "paq-nvim"]
-	path = neovim-lua/.local/share/nvim/site/pack/paqs/start/paq-nvim
-	url = https://github.com/savq/paq-nvim.git
