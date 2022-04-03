@@ -16,8 +16,8 @@
 @define-color nord15 #B48EAD;  /* Magenta */
 
 * {
-    font-family: Fira Code Medium;
-    font-size: 18px;
+    font-family: 'Fira Code Medium', 'Font Awesome 6 Free';
+    font-size: 14pt;
     color: @nord6;
 }
 
@@ -74,11 +74,11 @@ tooltip {
     color: @nord11;
 }
 
-.modules-center .high, #temperature.critical, #battery.critical:not(.charging) {
+.critical:not(.charging) {
     background-color: @nord11;
     color: @nord0;
 }
-.modules-center .medium, #battery.warning:not(.charging) {
+.warning:not(.charging) {
     background-color: @nord13;
     color: @nord0;
 }
@@ -95,4 +95,3 @@ tooltip {
     background-color: @nord14;
     color: @nord0;
 }
-

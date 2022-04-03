@@ -56,3 +56,10 @@ riverctl map normal $mod+Shift          Down    spawn 'light -U 5'
 riverctl map normal $mod+Shift          Left    spawn 'pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-sink-volume @DEFAULT_SINK@ -5%'
 riverctl map normal $mod+Shift          Right   spawn 'pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-sink-volume @DEFAULT_SINK@ +5%'
 riverctl map normal $mod+Shift          End     spawn 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
+
+riverctl map normal Control             Space   spawn 'makoctl dismiss'
+riverctl map normal $mod+Control        Space   spawn 'makoctl menu rofi -dmenu -p "Action: " || makoctl dismiss'
+riverctl map normal Control+Shift       Space   spawn 'makoctl dismiss --all'
+
+riverctl map normal None                F9      spawn 'obs-cli stream toggle'
+riverctl map normal None                F10     spawn 'obs-cli recording toggle'

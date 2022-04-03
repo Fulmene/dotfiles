@@ -27,32 +27,35 @@
     },
 
     "clock": {
+        "format": " {:%H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "today-format": "<span foreground='#88C0D0' weight='bold'>{}</span>"
     },
 
     "temperature": {
+        "format": " {temperatureC}°C",
+        "format-critical": " {temperatureC}°C",
+        "interval": 1,
         "critical-threshold": 70,
         "tooltip": false
     },
 
     "cpu": {
+        "interval": 1,
         "format": "{usage:3}% {avg_frequency:.1f}GHz",
         "states": {
-            "high": 100,
-            "medium": 75,
-            "low": 50
+            "critical": 75,
+            "warning": 50
         }
     },
 
     "memory": {
         "format": "{used:4.1f}GiB",
         "states": {
-            "high": 100,
-            "medium": 75,
-            "low": 50
+            "critical": 75,
+            "warning": 50
         },
-        "tooltip": false
+        "tooltip-format": "{used:.1f} GiB / {total:.1f} GiB ({percentage}%)"
     },
 
     "tray": {
@@ -61,14 +64,17 @@
     },
 
     "network": {
-        "format-ethernet": " Ethernet",
-        "format-wifi": " {essid}",
+        "interval": 1,
+        "format-ethernet": " {bandwidthDownBits:>}",
+        "format-wifi": " {bandwidthDownBits:>}",
         "format-disconnected": "Disconnected",
-        "tooltip": false
+        "tooltip-format-ethernet": "{ifname}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)"
     },
 
     "backlight": {
-        "format": " {percent:3}%",
+        "format": "{icon} {percent:3}%",
+        "format-icons": ["", "", ""],
         "on-scroll-up": "light -A 1",
         "on-scroll-down": "light -U 1"
     },
@@ -94,11 +100,10 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon}{capacity:3}%",
+        "format": "{icon} {capacity:3}%",
         "format-time": "{H}:{M:02}",
-        "format-charging": "{capacity:3}%",
-        "format-full": "{capacity:3}%",
-        "format-unknown": "{capacity:3}%",
+        "format-charging": " {capacity:3}%",
+        "format-full": " {capacity:3}%",
         "format-icons": ["", "", "", "", ""]
     }
 }
