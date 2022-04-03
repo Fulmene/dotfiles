@@ -37,7 +37,7 @@ require 'paq' {
 
     {'nvim-treesitter/nvim-treesitter', run = ":TSUpdate"};
 
-    -- 'wfxr/minimap.vim';
+    'wfxr/minimap.vim';
 
     'ggandor/lightspeed.nvim';
 
