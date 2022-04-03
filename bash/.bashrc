@@ -31,8 +31,8 @@ fi
 source /usr/share/bash-completion/bash_completion
 
 # -- Prompt -- #
-colour_host=$colour_green
-colour_dir=$colour_blue
+colour_host=$colour_blue
+colour_dir=$colour_cyan
 colour_branch=$colour_yellow
 
 parse_git_branch() {
@@ -61,3 +61,8 @@ if [[ -d ~/.bashrc.d ]]; then
     done
     unset cfg
 fi
+
+
+# BEGIN_KITTY_SHELL_INTEGRATION
+if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
+# END_KITTY_SHELL_INTEGRATION
