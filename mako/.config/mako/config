@@ -1,0 +1,19 @@
+font=Fira Code Medium 14
+background-color=#3B4252
+text-color=#ECEFF4
+width=384
+height=1000
+margin=6
+padding=10,0,10
+border-color=#ECEFF4
+border-radius=10
+progress-color=over #5E81AC
+icon-path=/usr/share/icons/Papirus-Dark
+default-timeout=30000
+group-by=app-name,summary,body
+
+[urgency=critical]
+background-color=#BF616A
+text-color=#2E3440
+border-color=#2E3440
+default-timeout=0
