@@ -1,0 +1,5 @@
+require 'settings.general'
+require 'settings.keymap'
+require 'settings.paq'
+require 'settings.colorscheme'
+require 'settings.plugins'
