@@ -4,7 +4,7 @@ mod="Mod1"
 
 riverctl map normal $mod+Shift C close
 
-riverctl map normal $mod+Shift Q spawn rofi-logout
+riverctl map normal $mod+Shift Q spawn 'rofi -show power -modi "power:rofi-power"'
 
 riverctl map normal $mod J focus-view next
 riverctl map normal $mod K focus-view previous

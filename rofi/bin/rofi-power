@@ -1,0 +1,22 @@
+#!/bin/sh
+
+if [ ! -z "$@" ]; then
+    # cmd=`echo "$options" | rofi -sep '|' -dmenu -width 30 -lines 10 -p quit`
+    case "$@" in
+        logout)
+            riverctl exit
+            ;;
+        '')
+            ;;
+        *)
+            systemctl "$@"
+            ;;
+    esac
+fi
+
+echo "hibernate"
+echo "suspend-then-hibernate"
+echo "suspend"
+echo "logout"
+echo "reboot"
+echo "poweroff"
