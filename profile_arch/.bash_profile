@@ -17,11 +17,7 @@ export SSH_AUTH_SOCK
 [[ -f ~/.bashrc ]] && . ~/.bashrc &> /dev/null
 
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ]; then
-    if [ "$XDG_VTNR" -eq 3 ]; then
-        exec startx
-    elif [ "$XDG_VTNR" -eq 2 ]; then
-        exec nvidia-xrun
-    elif [ "$XDG_VTNR" -eq 1 ]; then
+    if [ "$XDG_VTNR" -eq 1 ]; then
         # -- VDPAU for intel card -- #
         export VDPAU_DRIVER=va_gl
 
