@@ -1,8 +1,0 @@
-#!/bin/sh
-
-options=`find ~ -type d -not -path '*/\.*' -printf '~/%P\n' | sed '/^\s*$/d' | sort`
-dir=`echo "$options" | rofi -dmenu -i -location 1 -xoffset 7 -yoffset 26 -width 80 -p term | sed "s/^~/\/home\/$USER/"`
-if [ -d "$dir" ]; then
-    termite -d "$dir"
-fi
-
