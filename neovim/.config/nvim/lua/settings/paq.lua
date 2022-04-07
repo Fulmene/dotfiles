@@ -37,8 +37,6 @@ require 'paq' {
 
     {'nvim-treesitter/nvim-treesitter', run = ":TSUpdate"};
 
-    'wfxr/minimap.vim';
-
     'ggandor/lightspeed.nvim';
 
     'lewis6991/gitsigns.nvim';
@@ -47,4 +45,5 @@ require 'paq' {
 
     'fladson/vim-kitty';
     'dylon/vim-antlr';
+    'Fymyte/rasi.vim';
 }
