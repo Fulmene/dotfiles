@@ -1,7 +1,8 @@
 #!/bin/sh
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-/usr/lib/xdg-desktop-portal-wlr &
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
+systemctl --user import-environment
 import-gsettings
 swaybg --image ~/Pictures/yanfei-hayaroB-2x.png &
 waybar &
@@ -9,5 +10,4 @@ udiskie --appindicator &
 nm-applet --indicator &
 blueman-applet &
 copyq &
-mako &
 kanshi &

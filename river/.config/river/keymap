@@ -41,7 +41,7 @@ riverctl map normal $mod+Shift  0 set-view-tags     $all_tags
 riverctl map normal $mod Return toggle-fullscreen
 
 riverctl map normal $mod+Shift          Return  spawn "$TERMINAL"
-riverctl map normal $mod+Control+Shift  Return  spawn rofi-termdir
+riverctl map normal $mod+Control+Shift  Return  spawn 'rofi -show doc -modi "doc:rofi-doc"'
 
 riverctl map normal $mod                P       spawn rofi-drun
 riverctl map normal $mod+Shift          P       spawn rofi-run
