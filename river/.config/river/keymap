@@ -4,7 +4,7 @@ mod="Mod1"
 
 riverctl map normal $mod+Shift C close
 
-riverctl map normal $mod+Shift Q spawn 'rofi -show power -modi "power:rofi-power"'
+riverctl map normal $mod+Shift Q spawn 'rofi -show power -modi "power:rofi-power" -theme-str "window { location: center; }"'
 
 riverctl map normal $mod J focus-view next
 riverctl map normal $mod K focus-view previous
@@ -43,8 +43,8 @@ riverctl map normal $mod Return toggle-fullscreen
 riverctl map normal $mod+Shift          Return  spawn "$TERMINAL"
 riverctl map normal $mod+Control+Shift  Return  spawn 'rofi -show doc -modi "doc:rofi-doc"'
 
-riverctl map normal $mod                P       spawn rofi-drun
-riverctl map normal $mod+Shift          P       spawn rofi-run
+riverctl map normal $mod                P       spawn 'rofi -show drun -show-icons'
+riverctl map normal $mod+Shift          P       spawn 'rofi -show run'
 
 screenshot_save='wl-paste > ~/Pictures/Screenshots/Screenshot_$(date +%Y-%m-%d_%H-%M-%S).png'
 riverctl map normal None                Print   spawn "grimshot --notify copy screen && $screenshot_save"
