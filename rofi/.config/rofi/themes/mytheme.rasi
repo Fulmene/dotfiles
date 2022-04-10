@@ -31,7 +31,7 @@ inputbar {
     children: [ prompt, textbox-prompt-colon, entry ];
     padding: 2px;
     border: 2px;
-    border-color: var(nord4);
+    border-color: var(nord9);
     margin: 2px 0px;
 }
 prompt, textbox-prompt-colon {
