@@ -1,8 +1,9 @@
 configuration {
     modi: [ drun, run ];
-    font: "Fira Code Medium 14";
 }
+
 @import "mytheme"
 window {
     location: northwest;
+    margin: 6px;
 }

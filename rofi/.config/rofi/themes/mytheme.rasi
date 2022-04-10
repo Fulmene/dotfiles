@@ -1,13 +1,20 @@
 @import "nord-colors"
 
+* {
+    font: "Fira Code Medium 14";
+}
+
 window {
     border: 2px;
     border-color: var(nord9);
-    margin: 6px;
 }
 
-scrollbar {
-    handle-width: 0;
+listview {
+    scrollbar: false;
+    padding: 3px;
+    border: 2px;
+    border-color: var(nord3);
+    margin: 2px 5px 5px 5px;
 }
 
 element {
@@ -19,13 +26,21 @@ element selected {
 }
 
 inputbar {
+    font: "Fira Code Medium 15";
     background-color: var(nord3);
     children: [ prompt, textbox-prompt-colon, entry ];
+    padding: 2px;
+    border: 2px;
+    border-color: var(nord4);
     margin: 2px 0px;
 }
-prompt, textbox-prompt-colon, entry {
+prompt, textbox-prompt-colon {
+    font: inherit;
     background-color: inherit;
+    text-color: var(nord8);
 }
 entry {
+    font: inherit;
+    background-color: inherit;
     placeholder: "";
 }
