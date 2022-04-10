@@ -1,0 +1,31 @@
+@import "nord-colors"
+
+window {
+    border: 2px;
+    border-color: var(nord9);
+    margin: 6px;
+}
+
+scrollbar {
+    handle-width: 0;
+}
+
+element {
+    padding: 2px;
+}
+element selected {
+    border: 2px;
+    border-color: var(nord9);
+}
+
+inputbar {
+    background-color: var(nord3);
+    children: [ prompt, textbox-prompt-colon, entry ];
+    margin: 2px 0px;
+}
+prompt, textbox-prompt-colon, entry {
+    background-color: inherit;
+}
+entry {
+    placeholder: "";
+}
