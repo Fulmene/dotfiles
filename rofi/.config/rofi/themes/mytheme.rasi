@@ -34,13 +34,10 @@ inputbar {
     border-color: var(nord9);
     margin: 2px 0px;
 }
-prompt, textbox-prompt-colon {
+prompt, textbox-prompt-colon, entry {
     font: inherit;
     background-color: inherit;
-    text-color: var(nord14);
 }
 entry {
-    font: inherit;
-    background-color: inherit;
     placeholder: "";
 }
