@@ -37,7 +37,7 @@ inputbar {
 prompt, textbox-prompt-colon {
     font: inherit;
     background-color: inherit;
-    text-color: var(nord8);
+    text-color: var(nord14);
 }
 entry {
     font: inherit;
