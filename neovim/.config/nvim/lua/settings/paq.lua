@@ -43,6 +43,8 @@ require 'paq' {
 
     'kyazdani42/nvim-tree.lua';
 
+    'lervag/vimtex';
+
     'fladson/vim-kitty';
     'dylon/vim-antlr';
     'Fymyte/rasi.vim';
