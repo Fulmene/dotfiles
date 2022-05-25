@@ -64,7 +64,6 @@
     },
 
     "network": {
-        "interface": "wlp0s20f0u4u4",
         "interval": 1,
         "format-ethernet": " {bandwidthDownBits:>}",
         "format-wifi": " {bandwidthDownBits:>}",
