@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 
-#options=`find ~/Documents -type d -not -path '*/\.*' -printf '~/Documents/%P\n' | sed '/^\s*$/d' | sort`
-#dir=`echo "$options" | rofi -dmenu -i -location 1 -xoffset 7 -yoffset 26 -width 80 -p term | sed "s/^~/\/home\/$USER/"`
-#if [ -d "$dir" ]; then
-    #exec $TERMINAL -d "$dir"
-#fi
-
 if [ ! -z "$@" ]; then
     dir=${@/#doc\:/$HOME\/Documents}
     coproc ( $TERMINAL --directory "$dir" > /dev/null 2>&1 )
@@ -15,5 +9,4 @@ fi
 
 while read -r line; do
     echo "$line"
-# done <<< `tree -dfi --noreport ~/Documents`
-done <<< `find ~/Documents -maxdepth 5 -type d -printf 'doc:/%P\n'`
+done <<< `find ~/Documents -maxdepth 5 -type d -printf '%d doc:/%P\n' | sort -n | awk '{ print $2 }'`

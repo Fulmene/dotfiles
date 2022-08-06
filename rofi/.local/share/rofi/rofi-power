@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 if [ ! -z "$@" ]; then
-    # cmd=`echo "$options" | rofi -sep '|' -dmenu -width 30 -lines 10 -p quit`
     case "$@" in
         logout)
             coproc ( riverctl exit >/dev/null 2>&1 )
