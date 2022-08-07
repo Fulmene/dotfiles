@@ -5,4 +5,4 @@
 . ~/.config/river/keymap
 
 riverctl default-layout rivertile
-exec rivertile -view-padding 3 -outer-padding 3
+exec rivertile -main-ratio 0.7 -view-padding 3 -outer-padding 3
