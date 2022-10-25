@@ -37,6 +37,9 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ]; then
         export XKB_DEFAULT_LAYOUT='us(altgr-intl),th'
         export XKB_DEFAULT_OPTIONS='grp:win_space_toggle'
 
+        # -- Set XDG_CURRENT_DESKTOP to the name of the compositor -- #
+        export XDG_CURRENT_DESKTOP='river'
+
         exec river
     fi
 fi

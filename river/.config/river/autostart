@@ -2,7 +2,7 @@
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
-systemctl --user import-environment
+systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 import-gsettings
 swaybg --image ~/Pictures/yanfei-hayaroB-2x.png &
 waybar &
