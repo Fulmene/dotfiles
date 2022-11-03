@@ -24,6 +24,8 @@ require 'paq' {
     'hrsh7th/nvim-cmp';
     'hrsh7th/cmp-nvim-lua';
 
+    'SmiteshP/nvim-navic';
+
     'L3MON4D3/LuaSnip';
     'saadparwaiz1/cmp_luasnip';
 
@@ -42,6 +44,8 @@ require 'paq' {
     'lewis6991/gitsigns.nvim';
 
     'kyazdani42/nvim-tree.lua';
+
+    'lukas-reineke/indent-blankline.nvim';
 
     'lervag/vimtex';
 
