@@ -12,7 +12,6 @@ require 'paq' {
 
     'shaunsingh/nord.nvim';
     'EdenEast/nightfox.nvim';
-    'rmehri01/onenord.nvim';
 
     'nvim-lualine/lualine.nvim';
 
