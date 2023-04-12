@@ -15,6 +15,7 @@ require 'paq' {
 
     'nvim-lualine/lualine.nvim';
 
+    'folke/neodev.nvim';
     'neovim/nvim-lspconfig';
     'hrsh7th/cmp-nvim-lsp';
     'hrsh7th/cmp-buffer';

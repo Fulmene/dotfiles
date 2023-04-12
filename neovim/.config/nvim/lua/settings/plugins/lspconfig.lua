@@ -1,5 +1,8 @@
+local neodev = require('neodev')
 local nvim_lsp = require('lspconfig')
 local navic = require('nvim-navic')
+
+neodev.setup()
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -51,6 +54,7 @@ local servers = {
     'jsonls',
     'html',
     'clangd',
+    'lua_ls',
 }
 
 for _, lsp in ipairs(servers) do
@@ -62,8 +66,8 @@ end
 
 -- Server specific setup calls
 -- sumneko_lua
-nvim_lsp.sumneko_lua.setup {
-    cmd = { 'lua-language-server', '-E', '/usr/lib/lua-language-server/main.lua' },
-    on_attach = on_attach,
-    capabilities = capabilities,
-}
+-- nvim_lsp.sumneko_lua.setup {
+    -- cmd = { 'lua-language-server', '-E', '/usr/lib/lua-language-server/main.lua' },
+    -- on_attach = on_attach,
+    -- capabilities = capabilities,
+-- }
