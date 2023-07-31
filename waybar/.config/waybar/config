@@ -28,8 +28,14 @@
 
     "clock": {
         "format": " {:%H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "today-format": "<span foreground='#88C0D0' weight='bold'>{}</span>"
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "format": {
+                "days": "<b>{}</b>",
+                "weekdays": "<b>{}</b>",
+                "today": "<span foreground='#88C0D0' weight='bold'>{}</span>",
+            },
+        },
     },
 
     "temperature": {
