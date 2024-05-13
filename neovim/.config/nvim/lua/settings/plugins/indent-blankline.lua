@@ -1,5 +1,3 @@
-local indent_blankline = require('indent_blankline')
+local ibl = require('ibl')
 
-indent_blankline.setup({
-    show_current_context = true,
-})
+ibl.setup()
