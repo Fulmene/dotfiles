@@ -28,7 +28,7 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ]; then
         systemctl --user import-environment DISPLAY WAYLAND_DISPLAY
         hash dbus-update-activation-environment 2>/dev/null && \
             dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY
-        export QT_QPA_PLATFORM=wayland
+        export QT_QPA_PLATFORM="wayland;xcb"
 
         # -- Themes -- #
         export QT_QPA_PLATFORMTHEME=qt5ct
