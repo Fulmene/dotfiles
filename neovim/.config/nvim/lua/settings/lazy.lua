@@ -40,6 +40,8 @@ require("lazy").setup({
     'folke/neodev.nvim';
     { 'lewis6991/gitsigns.nvim', config = require('settings.plugins.gitsigns').setup };
 
+    'jamestthompson3/nvim-remote-containers';
+
     { 'stevearc/dressing.nvim', config = true };
     { "lukas-reineke/indent-blankline.nvim", main = "ibl", config = true };
 
