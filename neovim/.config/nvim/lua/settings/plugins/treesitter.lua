@@ -1,17 +1,22 @@
-local configs = require 'nvim-treesitter.configs'
+if TreeSitter then return end
+TreeSitter = {}
 
-configs.setup {
-    ensure_installed = 'all',
-    sync_install = false,
-    auto_install = true,
-    highlight = {
-        enable = true;
-        additional_vim_regex_highlighting = false;
-    },
-    indent = {
-        enable = true;
-    },
-}
+function TreeSitter.setup()
+    require('nvim-treesitter.configs').setup {
+        ensure_installed = 'all',
+        sync_install = false,
+        auto_install = true,
+        highlight = {
+            enable = true;
+            additional_vim_regex_highlighting = false;
+        },
+        indent = {
+            enable = true;
+        },
+    }
 
-vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+    vim.opt.foldmethod = 'expr'
+    vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+end
+
+return TreeSitter

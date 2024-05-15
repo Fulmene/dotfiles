@@ -1,25 +1,33 @@
-local telescope = require 'telescope'
-local actions = require 'telescope.actions'
+if Telescope then return end
+Telescope = {}
 
-telescope.setup {
-    defaults = {
-        mappings = {
-            i = {
-                ["\\"] = actions.select_vertical;
-                ["|"] = actions.select_horizontal;
-            },
-            n = {
-                ["\\"] = actions.select_vertical;
-                ["|"] = actions.select_horizontal;
+function Telescope.setup()
+    local telescope = require('telescope')
+    local actions = require('telescope.actions')
+
+    telescope.setup {
+        defaults = {
+            mappings = {
+                i = {
+                    ["\\"] = actions.select_vertical;
+                    ["|"] = actions.select_horizontal;
+                },
+                n = {
+                    ["\\"] = actions.select_vertical;
+                    ["|"] = actions.select_horizontal;
+                },
             },
         },
-    },
-}
+    }
 
-vim.api.nvim_set_keymap('n', '<leader>ff', "<Cmd>Telescope find_files<CR>", {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>fg', "<Cmd>Telescope live_grep<CR>", {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>fb', "<Cmd>Telescope buffers<CR>", {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>fh', "<Cmd>Telescope help_tags<CR>", {noremap = true})
+    local builtin = require('telescope.builtin')
+    vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+    vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+    vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+    vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
-vim.api.nvim_set_keymap('n', '<leader>gc', "<Cmd>Telescope git_commits<CR>", {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>gs', "<Cmd>Telescope git_status<CR>", {noremap = true})
+    vim.keymap.set('n', '<leader>gc', builtin.git_commits, {})
+    vim.keymap.set('n', '<leader>gs', builtin.git_status, {})
+end
+
+return Telescope

@@ -1,29 +1,31 @@
-local lualine = require('lualine')
-local navic = require('nvim-navic')
+if LuaLine then return end
+LuaLine = {}
 
-local winbar = {
-    lualine_a = { 'filename' },
-    lualine_b = {
-        { navic.get_location, cond = navic.is_available },
-    },
-}
+function LuaLine.setup()
+    local winbar = {
+        lualine_a = { 'filename' },
+        lualine_b = { 'navic' },
+    }
 
-local status = {
-    lualine_c = {},
-    lualine_y = { 'searchcount', 'progress' },
-}
+    local status = {
+        lualine_c = {},
+        lualine_y = { 'searchcount', 'progress' },
+    }
 
-local bufferline = {
-    lualine_a = { 'buffers' },
-}
+    local bufferline = {
+        lualine_a = { 'buffers' },
+    }
 
-lualine.setup {
-    winbar = winbar,
-    inactive_winbar = winbar,
-    sections = status,
-    tabline = bufferline,
-    options = {
-        theme = 'nordfox',
-        globalstatus = true,
-    },
-}
+    require('lualine').setup {
+        winbar = winbar,
+        inactive_winbar = winbar,
+        sections = status,
+        tabline = bufferline,
+        options = {
+            theme = 'nordfox',
+            globalstatus = true,
+        },
+    }
+end
+
+return LuaLine
