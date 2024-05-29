@@ -37,17 +37,26 @@ require("lazy").setup({
 
     { 'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, config = require('settings.plugins.telescope').setup };
 
-    'folke/neodev.nvim';
+    { 'folke/neodev.nvim', config = true };
     { 'lewis6991/gitsigns.nvim', config = require('settings.plugins.gitsigns').setup };
 
-    'jamestthompson3/nvim-remote-containers';
+    { 'https://codeberg.org/esensar/nvim-dev-container', config = true,
+        dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    };
 
     { 'stevearc/dressing.nvim', config = true };
+
     { "lukas-reineke/indent-blankline.nvim", main = "ibl", config = true };
 
     { 'SmiteshP/nvim-navic', dependencies = { 'neovim/nvim-lspconfig' }, config = true };
     { 'nvim-lualine/lualine.nvim', dependencies = { 'nvim-tree/nvim-web-devicons', 'SmiteshP/nvim-navic' },
         config = require('settings.plugins.lualine').setup
+    };
+
+    { 'ggandor/leap.nvim', dependencies = { 'tpope/vim-repeat' },
+        config = function()
+            require('leap').create_default_mappings()
+        end
     };
 
     { 'echasnovski/mini.files', version = false, config = true,
@@ -61,4 +70,5 @@ require("lazy").setup({
             MiniMap.open()
         end
     };
+    { 'echasnovski/mini.notify', version = false, config = true },
 })
