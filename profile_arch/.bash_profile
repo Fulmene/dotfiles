@@ -10,9 +10,8 @@ export SUDO_EDITOR=nvim
 export PATH=~/bin:~/.local/bin:$PATH
 export AUR_PAGER=ranger
 
-# -- GNOME keyring -- #
-eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
-export SSH_AUTH_SOCK
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets)
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc &> /dev/null
 
@@ -24,10 +23,6 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ]; then
         # -- Java options -- #
         export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
 
-        # -- Wayland environment variables -- #
-        systemctl --user import-environment DISPLAY WAYLAND_DISPLAY
-        hash dbus-update-activation-environment 2>/dev/null && \
-            dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY
         export QT_QPA_PLATFORM="wayland;xcb"
 
         # -- Themes -- #
