@@ -11,3 +11,4 @@ nm-applet --indicator &
 blueman-applet &
 copyq &
 kanshi &
+hypridle &
