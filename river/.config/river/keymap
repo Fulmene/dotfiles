@@ -42,6 +42,8 @@ riverctl map normal $mod                Comma   focus-previous-tags
 
 riverctl map normal $mod                Return  toggle-fullscreen
 
+riverctl map normal $mod+Control+Shift  L       spawn 'loginctl lock-session'
+
 riverctl map normal $mod+Shift          Return  spawn "$TERMINAL"
 riverctl map normal $mod+Control+Shift  Return  spawn 'rofi -show doc -modi "doc:~/.local/share/rofi/rofi-doc"'
 
