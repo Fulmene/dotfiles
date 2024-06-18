@@ -84,11 +84,22 @@ tooltip {
 }
 
 #mpris {
-    padding-left: 13px;
+    padding-left: 8px;
+    padding-right: 7px;
 }
 
 #mpris.paused {
-    padding-left: 15px;
+    padding-left: 9px;
+    padding-right: 8px;
+    color: @nord3;
+}
+
+#idle_inhibitor.activated {
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+#idle_inhibitor.deactivated {
     color: @nord3;
 }
 

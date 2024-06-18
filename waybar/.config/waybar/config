@@ -9,12 +9,16 @@
         "mpris",
     ],
 
-    "modules-right": [
+    "modules-center": [
         "temperature",
         "cpu",
         "memory",
+    ],
+
+    "modules-right": [
         "tray",
         "network",
+        "idle_inhibitor",
         "backlight",
         "pulseaudio",
         "battery",
@@ -38,9 +42,8 @@
     },
 
     "mpris": {
-        "format": "{player_icon} {dynamic}",
-        "format-paused": "{status_icon} {dynamic}",
-        "dynamic-len": 30,
+        "format": "{player_icon}",
+        "format-paused": "{status_icon}",
         "player-icons": {
             "default": "",
         },
@@ -78,6 +81,14 @@
     "tray": {
         "icon-size": 22,
         "spacing": 3
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
     },
 
     "network": {
