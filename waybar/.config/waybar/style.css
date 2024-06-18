@@ -83,6 +83,15 @@ tooltip {
     color: @nord0;
 }
 
+#mpris {
+    padding-left: 13px;
+}
+
+#mpris.paused {
+    padding-left: 15px;
+    color: @nord3;
+}
+
 #network.disconnected {
     color: @nord3;
 }

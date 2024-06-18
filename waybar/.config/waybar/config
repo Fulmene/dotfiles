@@ -1,4 +1,130 @@
-{
+[{
+    "output": "HDMI-A-2",
+    "layer": "bottom",
+    "position": "top",
+
+    "modules-left": [
+        "river/tags",
+        "clock",
+        "mpris",
+    ],
+
+    "modules-right": [
+        "temperature",
+        "cpu",
+        "memory",
+        "tray",
+        "network",
+        "backlight",
+        "pulseaudio",
+        "battery",
+    ],
+
+    "river/tags": {
+        "num-tags": 9,
+        "tag-labels": ["", "", "", "", "", "", "", "", ""]
+    },
+
+    "clock": {
+        "format": " {:%H:%M}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "format": {
+                "days": "<b>{}</b>",
+                "weekdays": "<b>{}</b>",
+                "today": "<span foreground='#88C0D0' weight='bold'>{}</span>",
+            },
+        },
+    },
+
+    "mpris": {
+        "format": "{player_icon} {dynamic}",
+        "format-paused": "{status_icon} {dynamic}",
+        "dynamic-len": 30,
+        "player-icons": {
+            "default": "",
+        },
+        "status-icons": {
+            "paused": "⏸",
+        },
+    },
+
+    "temperature": {
+        "format": " {temperatureC}°C",
+        "format-critical": " {temperatureC}°C",
+        "interval": 1,
+        "critical-threshold": 70,
+        "tooltip": false
+    },
+
+    "cpu": {
+        "interval": 1,
+        "format": "{usage:3}% {avg_frequency:.1f}GHz",
+        "states": {
+            "critical": 75,
+            "warning": 50
+        }
+    },
+
+    "memory": {
+        "format": "{used:4.1f}GiB",
+        "states": {
+            "critical": 75,
+            "warning": 50
+        },
+        "tooltip-format": "{used:.1f} GiB / {total:.1f} GiB ({percentage}%)"
+    },
+
+    "tray": {
+        "icon-size": 22,
+        "spacing": 3
+    },
+
+    "network": {
+        "interval": 1,
+        "format-ethernet": " {bandwidthDownBits:>}",
+        "format-wifi": " {bandwidthDownBits:>}",
+        "format-disconnected": "Disconnected",
+        "tooltip-format-ethernet": "{ifname}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)"
+    },
+
+    "backlight": {
+        "format": "{icon} {percent:3}%",
+        "format-icons": ["", "", ""],
+        "on-scroll-up": "light -A 1",
+        "on-scroll-down": "light -U 1"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume:3}%",
+        "format-muted": " Mute",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol"
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity:3}%",
+        "format-time": "{H}:{M:02}",
+        "format-charging": " {capacity:3}%",
+        "format-full": " {capacity:3}%",
+        "format-icons": ["", "", "", "", ""]
+    }
+}, {
+    "output": "eDP-1",
     "layer": "bottom",
     "position": "top",
 
@@ -112,4 +238,4 @@
         "format-full": " {capacity:3}%",
         "format-icons": ["", "", "", "", ""]
     }
-}
+}]

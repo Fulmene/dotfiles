@@ -40,6 +40,8 @@ riverctl map normal $mod+Shift          0       set-view-tags     $all_tags
 
 riverctl map normal $mod                Comma   focus-previous-tags
 
+riverctl map normal $mod                Period  spawn 'playerctl play-pause'
+
 riverctl map normal $mod                Return  toggle-fullscreen
 
 riverctl map normal $mod+Control+Shift  L       spawn 'loginctl lock-session'
