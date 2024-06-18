@@ -28,9 +28,11 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ]; then
         # -- Themes -- #
         export QT_QPA_PLATFORMTHEME=qt5ct
 
-        # -- XKB keyboard layouts -- #
-        export XKB_DEFAULT_LAYOUT='us(altgr-intl),th'
-        export XKB_DEFAULT_OPTIONS='grp:win_space_toggle'
+        # -- Input Method -- #
+        export XMODIFIERS=@im=fcitx
+        export QT_IM_MODULE=fcitx
+        export SDL_IM_MODULE=fcitx
+        export GLFW_IM_MODULE=ibus # The value of this environment variable can only be ibus
 
         # -- Set XDG_CURRENT_DESKTOP to the name of the compositor -- #
         export XDG_CURRENT_DESKTOP='river'
