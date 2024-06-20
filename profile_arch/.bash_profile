@@ -30,6 +30,7 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ]; then
 
         # -- Input Method -- #
         export XMODIFIERS=@im=fcitx
+        export GTK_IM_MODULE=fcitx
         export QT_IM_MODULE=fcitx
         export SDL_IM_MODULE=fcitx
         export GLFW_IM_MODULE=ibus # The value of this environment variable can only be ibus
