@@ -1,3 +1,4 @@
+// vi: ft=jsonc
 [{
     "output": "HDMI-A-2",
     "layer": "bottom",
@@ -5,23 +6,22 @@
 
     "modules-left": [
         "river/tags",
-        "clock",
-        "mpris",
+        "mpris"
     ],
 
     "modules-center": [
-        "temperature",
-        "cpu",
-        "memory",
+        "river/window"
     ],
 
     "modules-right": [
-        "tray",
+        "group/monitor",
         "network",
+        "tray",
         "idle_inhibitor",
         "backlight",
         "pulseaudio",
         "battery",
+        "clock"
     ],
 
     "river/tags": {
@@ -29,34 +29,52 @@
         "tag-labels": ["", "", "", "", "", "", "", "", ""]
     },
 
+    "river/window": {
+        "max-length": 50
+    },
+
+    "group/monitor": {
+        "modules": [
+            "temperature",
+            "cpu",
+            "memory"
+        ],
+        "orientation": "inherit",
+        "drawer": {
+            "children-class": "monitor"
+        }
+    },
+
     "clock": {
-        "format": " {:%H:%M}",
+        "format": "{:%H:%M}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
             "format": {
                 "days": "<b>{}</b>",
                 "weekdays": "<b>{}</b>",
-                "today": "<span foreground='#88C0D0' weight='bold'>{}</span>",
-            },
-        },
+                "today": "<span foreground='#88C0D0' weight='bold'>{}</span>"
+            }
+        }
     },
 
     "mpris": {
-        "format": "{player_icon}",
-        "format-paused": "{status_icon}",
+        "format": "{status_icon} {dynamic}",
+        "dynamic-len": 30,
         "player-icons": {
-            "default": "",
+            "default": ""
         },
         "status-icons": {
+            "playing": "",
             "paused": "⏸",
-        },
+            "stopped": "󰓛"
+        }
     },
 
     "temperature": {
         "format": " {temperatureC}°C",
         "format-critical": " {temperatureC}°C",
         "interval": 1,
-        "critical-threshold": 70,
+        "critical-threshold": 85,
         "tooltip": false
     },
 
