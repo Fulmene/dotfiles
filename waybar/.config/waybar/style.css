@@ -17,25 +17,30 @@
 
 * {
     font-family: 'Fira Code Medium', 'Font Awesome 6 Free';
-    font-size: 14pt;
+    font-size: 12pt;
     color: @nord6;
 }
 
 window#waybar {
-    background-color: transparent;
-}
-
-.modules-left, .modules-center, .modules-right {
-    margin-top: 4px;
+    background-color: @nord0;
 }
 
 .modules-left > * > *, .modules-center > * > *, .modules-right > * > * {
     background-color: @nord0;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+.monitor > * {
+    background-color: @nord0;
     padding-left: 6px;
-    padding-right: 6px;
-    border-radius: 10px;
-    margin-left: 3px;
-    margin-right: 3px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-left: 1px;
 }
 
 tooltip {
@@ -44,13 +49,15 @@ tooltip {
 }
 
 #tags {
-    padding: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 5px;
 }
 #tags button {
-    padding-left: 6px;
-    padding-right: 6px;
-    margin-left: 2px;
-    margin-right: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
     border-radius: 2px;
     border-width: 4px;
     border-style: solid;
@@ -75,28 +82,31 @@ tooltip {
 }
 
 .critical:not(.charging) {
-    background-color: @nord11;
-    color: @nord0;
+    color: @nord11;
 }
 .warning:not(.charging) {
-    background-color: @nord13;
-    color: @nord0;
+    color: @nord13;
+}
+
+#tray {
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 #mpris {
-    padding-left: 8px;
-    padding-right: 7px;
+    padding-left: 7px;
+    padding-right: 6px;
 }
 
 #mpris.paused {
     padding-left: 9px;
-    padding-right: 8px;
+    padding-right: 6px;
     color: @nord3;
 }
 
 #idle_inhibitor.activated {
-    padding-left: 7px;
-    padding-right: 7px;
+    padding-left: 6px;
+    padding-right: 6px;
 }
 
 #idle_inhibitor.deactivated {
@@ -109,9 +119,9 @@ tooltip {
 
 #pulseaudio.muted {
     color: @nord3;
+    padding-right: 7px;
 }
 
 #battery.charging {
-    background-color: @nord14;
-    color: @nord0;
+    color: @nord14;
 }
