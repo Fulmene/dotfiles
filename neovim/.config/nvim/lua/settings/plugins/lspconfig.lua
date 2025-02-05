@@ -54,7 +54,7 @@ function LspConfig.setup()
     local servers = {
         'lua_ls',
         'basedpyright',
-        'tsserver',
+        'ts_ls',
         'cssls',
         'jsonls',
         'html',
@@ -71,6 +71,18 @@ function LspConfig.setup()
             capabilities = capabilities,
         }
     end
+
+    nvim_lsp.basedpyright.setup {
+        before_init = function(params)
+            params.processId = vim.NIL
+        end,
+        cmd = { "docker", "compose", "exec", "model", "basedpyright-langserver", "--stdio" },
+        root_dir = function()
+            return "/home/user/app"
+        end,
+        on_attach = on_attach,
+        capabilities = capabilities,
+    }
 end
 
 return LspConfig

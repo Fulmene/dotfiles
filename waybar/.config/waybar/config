@@ -6,7 +6,7 @@
 
     "modules-left": [
         "river/tags",
-        "mpris"
+        "clock"
     ],
 
     "modules-center": [
@@ -20,8 +20,7 @@
         "idle_inhibitor",
         "backlight",
         "pulseaudio",
-        "battery",
-        "clock"
+        "battery"
     ],
 
     "river/tags": {
@@ -59,7 +58,7 @@
 
     "mpris": {
         "format": "{status_icon} {dynamic}",
-        "dynamic-len": 30,
+        "dynamic-len": 50,
         "player-icons": {
             "default": ""
         },
