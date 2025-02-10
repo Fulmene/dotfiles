@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ -n "$@" ]; then
+if [ -n "$1" ]; then
     target=$@
 else
     target=*
