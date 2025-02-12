@@ -66,6 +66,11 @@ parse_git_branch() {
     test -n "$git_branch" && printf '%s(%s)%s' "$colour_branch$(tput bold)" "$git_branch" "$term_reset"
 }
 
+parse_dir() {
+    dir=$(pwd)
+    echo "${dir/#$HOME/'~'}"
+}
+
 # -- __vte_prompt_command to set directory -- #
 if [[ $TERM == *-termite ]]; then
     vte_sh="/etc/profile.d/vte.sh"
@@ -75,9 +80,7 @@ fi
 
 prompt() {
     [[ "$TERM" == *-termite ]] && __vte_prompt_command
-    dir=$(pwd)
-    dir="${dir/#$HOME/'~'}"
-    PS1="${colour_host}$(tput bold)\u@\h${term_reset} [${colour_dir}$(tput bold)${dir}${term_reset}] $(parse_git_branch)\n"
+    PS1="${colour_host}$(tput bold)\u@\h${term_reset} [${colour_dir}$(tput bold)$(parse_dir)${term_reset}] $(parse_git_branch)\n"
 }
 
 PROMPT_COMMAND="prompt"
