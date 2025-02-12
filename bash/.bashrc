@@ -57,13 +57,13 @@ if which tput &> /dev/null; then
 fi
 
 # -- Prompt -- #
-colour_host=$colour_blue
-colour_dir=$colour_cyan
+colour_host=$colour_cyan
+colour_dir=$colour_green
 colour_branch=$colour_yellow
 
 parse_git_branch() {
     git_branch="$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //')"
-    test -n "$git_branch" && printf '(%s%s%s)' "$colour_branch$(tput bold)" "$git_branch" "$term_reset"
+    test -n "$git_branch" && printf '%s(%s)%s' "$colour_branch$(tput bold)" "$git_branch" "$term_reset"
 }
 
 # -- __vte_prompt_command to set directory -- #
@@ -75,11 +75,12 @@ fi
 
 prompt() {
     [[ "$TERM" == *-termite ]] && __vte_prompt_command
-    printf '%s%s@%s%s [%s%s%s] %s\n' "${colour_host}$(tput bold)" "$USER" "$HOSTNAME" "$term_reset" "${colour_dir}$(tput bold)" "${PWD/#$HOME/'~'}" "$term_reset" "$(parse_git_branch)"
+    dir=$(pwd)
+    dir="${dir/#$HOME/'~'}"
+    PS1="${colour_host}$(tput bold)\u@\h${term_reset} [${colour_dir}$(tput bold)${dir}${term_reset}] $(parse_git_branch)\n"
 }
 
 PROMPT_COMMAND="prompt"
-PS1="\[$(tput bold)\]\$\[$term_reset\] "
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
