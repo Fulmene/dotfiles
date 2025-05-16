@@ -108,6 +108,9 @@ fi
 if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
 # END_KITTY_SHELL_INTEGRATION
 
+# Add stuffs to PATH
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 if [[ -d ~/.bashrc.d ]]; then
     for cfg in ~/.bashrc.d/?*.sh; do
         [ -x "$cfg" ] && source "$cfg"

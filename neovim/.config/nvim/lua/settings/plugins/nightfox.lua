@@ -6,7 +6,7 @@ function NightFox.setup()
 
     require('nightfox').setup({
         options = {
-            transparent = true,
+            transparent = false,
             terminal_colors = true,
             styles = {
                 comments = 'italic',
