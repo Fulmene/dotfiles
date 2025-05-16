@@ -42,3 +42,8 @@ vim.cmd "autocmd CmdlineEnter * set cmdheight=1"
 vim.cmd "autocmd CmdlineLeave * set cmdheight=0"
 
 vim.cmd "autocmd FileType text,markdown setlocal wrap"
+
+vim.diagnostic.config({
+    virtual_text = true,
+    update_in_insert = true,
+})
