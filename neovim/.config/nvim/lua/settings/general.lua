@@ -43,7 +43,13 @@ vim.cmd "autocmd CmdlineLeave * set cmdheight=0"
 
 vim.cmd "autocmd FileType text,markdown setlocal wrap"
 
-vim.diagnostic.config({
-    virtual_text = true,
-    update_in_insert = true,
+-- Show errors and warnings in a floating window
+vim.api.nvim_create_autocmd("CursorHold", {
+    callback = function()
+        vim.diagnostic.open_float(nil, { focusable = false, source = "if_many" })
+    end,
 })
+-- vim.diagnostic.config({
+--      virtual_text = true,
+--      update_in_insert = true,
+-- })
