@@ -82,7 +82,12 @@ end)
 add('rafamadriz/friendly-snippets')
 
 later(function()
-  require('mini.files').setup()
+  require('mini.files').setup({
+    windows = {
+      preview = true,
+      width_preview = 75,
+    },
+  })
   vim.api.nvim_set_keymap('n', '-', '<cmd>lua MiniFiles.open()<cr>', keyopts)
 
   require('mini.notify').setup()
@@ -90,6 +95,11 @@ later(function()
   require('mini.completion').setup()
 
   require('mini.pick').setup()
+  vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>:Pick explorer<cr>', keyopts)
+  vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>:Pick grep_live<cr>', keyopts)
+  vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>:Pick git_hunks<cr>', keyopts)
+  vim.api.nvim_set_keymap('n', '<leader>fl', '<cmd>:Pick buf_lines<cr>', keyopts)
+  vim.api.nvim_set_keymap('n', '<leader>fd', '<cmd>:Pick diagnostic<cr>', keyopts)
 
   local map = require('mini.map')
   map.setup({
@@ -179,6 +189,6 @@ add({ source = 'NickvanDyke/opencode.nvim',
   },
 })
 later(function()
-  require('opencode').setup()
+  require('opencode').setup({})
   vim.api.nvim_set_keymap('n', '<leader>oA', '<cmd>lua require("opencode").ask()<cr>', keyopts)
 end)
