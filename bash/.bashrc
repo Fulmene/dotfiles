@@ -71,6 +71,19 @@ parse_dir() {
     echo "${dir/#$HOME/'~'}"
 }
 
+# https://stackoverflow.com/questions/10406926/how-do-i-change-the-default-virtualenv-prompt
+virtualenv_info() {
+    # Get Virtual Env
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+        # Strip out the path and just leave the env name
+        venv="${VIRTUAL_ENV##*/}"
+    else
+        # In case you don't have one activated
+        venv=''
+    fi
+    [[ -n "$venv" ]] && echo "($venv) "
+}
+
 # -- __vte_prompt_command to set directory -- #
 if [[ $TERM == *-termite ]]; then
     vte_sh="/etc/profile.d/vte.sh"
@@ -80,7 +93,7 @@ fi
 
 prompt() {
     [[ "$TERM" == *-termite ]] && __vte_prompt_command
-    PS1="${colour_host}$(tput bold)\u@\h${term_reset} [${colour_dir}$(tput bold)$(parse_dir)${term_reset}] $(parse_git_branch)\n"
+    PS1="${colour_bblack}$(virtualenv_info)${term_reset}${colour_host}$(tput bold)\u@\h${term_reset} [${colour_dir}$(tput bold)$(parse_dir)${term_reset}] $(parse_git_branch)\n"
 }
 
 PROMPT_COMMAND="prompt"
@@ -117,3 +130,7 @@ if [[ -d ~/.bashrc.d ]]; then
     done
     unset cfg
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
