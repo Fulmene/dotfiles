@@ -166,4 +166,15 @@ later(function()
     input = { enabled = true },
   })
 end)
--- add('folke/twilight.nvim')
+
+add('folke/twilight.nvim')
+later(function()
+  require('twilight').setup({
+    dimming = {
+      alpha = 0.7,
+      color = { "Comment", "#ffffff" },
+    },
+    context = 20,
+  })
+  vim.cmd "TwilightEnable"
+end)
