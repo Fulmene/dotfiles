@@ -84,17 +84,14 @@ add({
 
 })
 add('neovim/nvim-lspconfig')
+add('mrjones2014/smart-splits.nvim')
+add('rafamadriz/friendly-snippets')
+
 now(function()
   require('conf.plugins.treesitter').setup()
   require('conf.plugins.lspconfig').setup()
-end)
-
-add('mrjones2014/smart-splits.nvim')
-later(function()
   require('conf.plugins.smart-splits').setup()
 end)
-
-add('rafamadriz/friendly-snippets')
 
 later(function()
   require('mini.files').setup({
@@ -189,7 +186,6 @@ later(function()
     },
     context = 20,
   })
-  vim.cmd "TwilightEnable"
 end)
 
 add({ source = 'NickvanDyke/opencode.nvim',
