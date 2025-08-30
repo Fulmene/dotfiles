@@ -35,15 +35,6 @@ now(function()
       hex_color = hipatterns.gen_highlighter.hex_color(),
     },
   })
-
-  local indentscope = require('mini.indentscope')
-  indentscope.setup({
-    draw = {
-      delay = 10,
-      animation = indentscope.gen_animation.none()
-    },
-    symbol = '│',
-  })
 end)
 
 now(function()
@@ -64,7 +55,6 @@ later(function()
     require('lazydev').setup()
   end
 end)
-
 
 add({
   source = 'nvim-treesitter/nvim-treesitter',
@@ -161,9 +151,13 @@ later(function()
 end)
 
 add('folke/snacks.nvim')
-later(function()
+now(function()
   require('snacks').setup({
     input = { enabled = true },
+    indent = {
+      enabled = true,
+      animate = { enabled = false },
+    },
   })
 end)
 
@@ -177,4 +171,14 @@ later(function()
     context = 20,
   })
   vim.cmd "TwilightEnable"
+end)
+
+add({ source = 'NickvanDyke/opencode.nvim',
+  depends = {
+    'folke/snacks.nvim',
+  },
+})
+later(function()
+  require('opencode').setup()
+  vim.api.nvim_set_keymap('n', '<leader>oA', '<cmd>lua require("opencode").ask()<cr>', keyopts)
 end)
