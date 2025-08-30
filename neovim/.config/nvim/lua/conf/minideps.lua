@@ -19,6 +19,8 @@ require('mini.deps').setup({ path = { package = path_package } })
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 local keyopts = { noremap = true, silent = true }
 
+add('lukas-reineke/indent-blankline.nvim')
+
 now(function()
   require('mini.icons').setup()
 
@@ -35,6 +37,22 @@ now(function()
       hex_color = hipatterns.gen_highlighter.hex_color(),
     },
   })
+
+  local indentscope = require('mini.indentscope')
+  indentscope.setup({
+    draw = {
+      delay = 10,
+      animation = indentscope.gen_animation.none(),
+    },
+    options = {
+      try_as_border = true,
+    },
+    symbol = '│',
+  })
+
+  require('ibl').setup({
+    indent = { char = '│' },
+  })
 end)
 
 now(function()
@@ -46,7 +64,7 @@ end)
 
 add('EdenEast/nightfox.nvim')
 now(function()
-  require('settings.plugins.nightfox').setup()
+  require('conf.plugins.nightfox').setup()
 end)
 
 add('folke/lazydev.nvim')
@@ -65,18 +83,15 @@ add({
   hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
 
 })
-now(function()
-  require('settings.plugins.treesitter').setup()
-end)
-
 add('neovim/nvim-lspconfig')
 now(function()
-  require('settings.plugins.lspconfig').setup()
+  require('conf.plugins.treesitter').setup()
+  require('conf.plugins.lspconfig').setup()
 end)
 
 add('mrjones2014/smart-splits.nvim')
 later(function()
-  require('settings.plugins.smart-splits').setup()
+  require('conf.plugins.smart-splits').setup()
 end)
 
 add('rafamadriz/friendly-snippets')
@@ -151,12 +166,10 @@ later(function()
   map_multistep('i', '<BS>',    { 'minipairs_bs' })
 end)
 
-add('OXY2DEV/markview.nvim')
+add('MeanderingProgrammer/render-markdown.nvim')
 later(function()
-  require('markview').setup({
-    preview = {
-      icon_provider = 'mini',
-    },
+  require('render-markdown').setup({
+    completions = { lsp = { enabled = true } },
   })
 end)
 
@@ -164,10 +177,6 @@ add('folke/snacks.nvim')
 now(function()
   require('snacks').setup({
     input = { enabled = true },
-    indent = {
-      enabled = true,
-      animate = { enabled = false },
-    },
   })
 end)
 
