@@ -55,16 +55,28 @@ now(function()
   })
 end)
 
-now(function()
-  local tabline = require('mini.tabline')
-  local statusline = require('mini.statusline')
-  tabline.setup()
-  statusline.setup()
-end)
-
 add('EdenEast/nightfox.nvim')
 now(function()
   require('conf.plugins.nightfox').setup()
+end)
+
+-- now(function()
+--   local tabline = require('mini.tabline')
+--   local statusline = require('mini.statusline')
+--   tabline.setup()
+--   statusline.setup()
+-- end)
+add('nvim-lualine/lualine.nvim')
+now(function()
+  require('lualine').setup({
+    options = {
+      component_separators = { left = '|', right = '|' },
+      section_separators = { left = '', right = '' },
+    },
+    tabline = {
+      lualine_a = {'buffers'},
+    },
+  })
 end)
 
 add('folke/lazydev.nvim')
@@ -81,7 +93,6 @@ add({
   monitor = 'main',
   -- Perform action after every checkout
   hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
-
 })
 add('neovim/nvim-lspconfig')
 add('mrjones2014/smart-splits.nvim')
