@@ -13,8 +13,8 @@ set show-all-if-ambiguous on
 $if mode=vi
 
 set show-mode-in-prompt on
-set vi-cmd-mode-string "< "
-set vi-ins-mode-string "> "
+set vi-cmd-mode-string "* "
+set vi-ins-mode-string "⟩ "
 
 set keymap vi-command
 "\e[A": history-search-backward
