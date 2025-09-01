@@ -197,3 +197,8 @@ later(function()
   require('opencode').setup({})
   vim.api.nvim_set_keymap('n', '<leader>oA', '<cmd>lua require("opencode").ask()<cr>', keyopts)
 end)
+
+add('jake-stewart/auto-cmdheight.nvim')
+later(function()
+  require('auto-cmdheight').setup()
+end)

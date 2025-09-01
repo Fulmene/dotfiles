@@ -36,7 +36,7 @@ vim.opt.secure = true
 
 vim.opt.showmode = false
 vim.opt.updatetime = 300
-vim.opt.cmdheight = 1
+vim.opt.cmdheight = 0
 
 -- vim.cmd "autocmd CmdlineEnter * set cmdheight=1"
 -- vim.cmd "autocmd CmdlineLeave * set cmdheight=0"
