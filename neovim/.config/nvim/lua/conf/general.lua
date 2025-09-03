@@ -38,10 +38,13 @@ vim.opt.showmode = false
 vim.opt.updatetime = 300
 vim.opt.cmdheight = 0
 
--- vim.cmd "autocmd CmdlineEnter * set cmdheight=1"
--- vim.cmd "autocmd CmdlineLeave * set cmdheight=0"
-
-vim.cmd "autocmd FileType text,markdown setlocal wrap"
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "text,markdown",
+    callback = function(args)
+        vim.opt_local.wrap = true
+    end,
+})
+-- vim.cmd "autocmd FileType text,markdown setlocal wrap"
 
 -- Show errors and warnings in a floating window
 vim.api.nvim_create_autocmd("CursorHold", {
@@ -49,7 +52,8 @@ vim.api.nvim_create_autocmd("CursorHold", {
         vim.diagnostic.open_float(nil, { focusable = false, source = "if_many" })
     end,
 })
--- vim.diagnostic.config({
---      virtual_text = true,
---      update_in_insert = true,
--- })
+
+vim.diagnostic.config({
+     virtual_text = true,
+     update_in_insert = true,
+})

@@ -2,27 +2,13 @@ if LuaLine then return end
 LuaLine = {}
 
 function LuaLine.setup()
-    local winbar = {
-        lualine_a = { 'filename' },
-        lualine_b = { 'navic' },
-    }
-
-    local status = {
-        lualine_c = {},
-        lualine_y = { 'searchcount', 'progress' },
-    }
-
-    local bufferline = {
-        lualine_a = { 'buffers' },
-    }
-
     require('lualine').setup {
-        winbar = winbar,
-        inactive_winbar = winbar,
-        sections = status,
-        tabline = bufferline,
+        tabline = {
+            lualine_a = { 'buffers' },
+        },
         options = {
-            theme = 'nordfox',
+            component_separators = { left = '|', right = '|' },
+            section_separators = { left = '', right = '' },
             globalstatus = true,
         },
     }

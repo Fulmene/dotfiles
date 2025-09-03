@@ -60,23 +60,9 @@ now(function()
   require('conf.plugins.nightfox').setup()
 end)
 
--- now(function()
---   local tabline = require('mini.tabline')
---   local statusline = require('mini.statusline')
---   tabline.setup()
---   statusline.setup()
--- end)
 add('nvim-lualine/lualine.nvim')
 now(function()
-  require('lualine').setup({
-    options = {
-      component_separators = { left = '|', right = '|' },
-      section_separators = { left = '', right = '' },
-    },
-    tabline = {
-      lualine_a = {'buffers'},
-    },
-  })
+  require('conf.plugins.lualine').setup()
 end)
 
 add('folke/lazydev.nvim')
@@ -118,7 +104,8 @@ later(function()
   require('mini.completion').setup()
 
   require('mini.pick').setup()
-  vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>:Pick explorer<cr>', keyopts)
+  vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>:Pick files<cr>', keyopts)
+  vim.api.nvim_set_keymap('n', '<leader>fe', '<cmd>:Pick explorer<cr>', keyopts)
   vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>:Pick grep_live<cr>', keyopts)
   vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>:Pick git_hunks<cr>', keyopts)
   vim.api.nvim_set_keymap('n', '<leader>fl', '<cmd>:Pick buf_lines<cr>', keyopts)
