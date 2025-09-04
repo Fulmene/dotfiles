@@ -1,23 +1,24 @@
-local keyopts = { noremap = true, silent = true }
-
 -- Navigation
-vim.api.nvim_set_keymap('n', 'j', 'gj', keyopts)
-vim.api.nvim_set_keymap('n', 'k', 'gk', keyopts)
+vim.keymap.set('n', 'j', 'gj')
+vim.keymap.set('n', 'k', 'gk')
 
 
 -- Buffers
-vim.api.nvim_set_keymap('n', '<', ':bprev<CR>', keyopts)
-vim.api.nvim_set_keymap('n', '>', ':bnext<CR>', keyopts)
-vim.api.nvim_set_keymap('n', '<C-q>', ':bwipeout<CR>', keyopts)
+vim.keymap.set('n', '<', ':bprev<CR>')
+vim.keymap.set('n', '>', ':bnext<CR>')
+vim.keymap.set('n', '<C-q>', ':bwipeout<CR>')
 
 
 -- Windows
 -- Move
-vim.api.nvim_set_keymap('n', 'H', '<C-w>h', keyopts)
-vim.api.nvim_set_keymap('n', 'J', '<C-w>j', keyopts)
-vim.api.nvim_set_keymap('n', 'K', '<C-w>k', keyopts)
-vim.api.nvim_set_keymap('n', 'L', '<C-w>l', keyopts)
+vim.keymap.set('n', 'H', '<C-w>h')
+vim.keymap.set('n', 'J', '<C-w>j')
+vim.keymap.set('n', 'K', '<C-w>k')
+vim.keymap.set('n', 'L', '<C-w>l')
+
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
 
 
 -- Repeat last command
-vim.api.nvim_set_keymap('n', '<C-k>', ':<Up><CR>', keyopts)
+vim.keymap.set('n', '<C-k>', ':<Up><CR>')

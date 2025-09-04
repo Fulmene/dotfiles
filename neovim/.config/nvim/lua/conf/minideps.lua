@@ -17,7 +17,6 @@ end
 require('mini.deps').setup({ path = { package = path_package } })
 
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
-local keyopts = { noremap = true, silent = true }
 
 add('lukas-reineke/indent-blankline.nvim')
 
@@ -97,19 +96,22 @@ later(function()
       width_preview = 75,
     },
   })
-  vim.api.nvim_set_keymap('n', '-', '<cmd>lua MiniFiles.open()<cr>', keyopts)
+  vim.keymap.set('n', '-', MiniFiles.open)
 
   require('mini.notify').setup()
 
   require('mini.completion').setup()
 
-  require('mini.pick').setup()
-  vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>:Pick files<cr>', keyopts)
-  vim.api.nvim_set_keymap('n', '<leader>fe', '<cmd>:Pick explorer<cr>', keyopts)
-  vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>:Pick grep_live<cr>', keyopts)
-  vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>:Pick git_hunks<cr>', keyopts)
-  vim.api.nvim_set_keymap('n', '<leader>fl', '<cmd>:Pick buf_lines<cr>', keyopts)
-  vim.api.nvim_set_keymap('n', '<leader>fd', '<cmd>:Pick diagnostic<cr>', keyopts)
+  local pick = require('mini.pick')
+  local extra = require('mini.extra')
+  pick.setup()
+  extra.setup()
+  vim.keymap.set('n', '<leader>ff', pick.builtin.files)
+  vim.keymap.set('n', '<leader>fg', pick.builtin.grep_live)
+  vim.keymap.set('n', '<leader>fe', extra.pickers.explorer)
+  vim.keymap.set('n', '<leader>fh', extra.pickers.git_hunks)
+  vim.keymap.set('n', '<leader>fl', extra.pickers.buf_lines)
+  vim.keymap.set('n', '<leader>fd', extra.pickers.diagnostic)
 
   local map = require('mini.map')
   map.setup({
@@ -149,7 +151,6 @@ later(function()
   require('mini.surround').setup()
 
   require('mini.bufremove').setup()
-  require('mini.extra').setup()
 end)
 
 later(function()
@@ -192,8 +193,9 @@ add({ source = 'NickvanDyke/opencode.nvim',
   },
 })
 later(function()
-  require('opencode').setup({})
-  vim.api.nvim_set_keymap('n', '<leader>oA', '<cmd>lua require("opencode").ask()<cr>', keyopts)
+  local opencode = require('opencode')
+  opencode.setup({})
+  vim.keymap.set('n', '<leader>oA', opencode.ask)
 end)
 
 add('jake-stewart/auto-cmdheight.nvim')
