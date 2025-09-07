@@ -193,9 +193,7 @@ add({ source = 'NickvanDyke/opencode.nvim',
   },
 })
 later(function()
-  local opencode = require('opencode')
-  opencode.setup({})
-  vim.keymap.set('n', '<leader>oA', opencode.ask)
+  require('conf.plugins.opencode').setup()
 end)
 
 add('jake-stewart/auto-cmdheight.nvim')
