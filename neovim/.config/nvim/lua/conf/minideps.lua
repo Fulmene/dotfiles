@@ -1,4 +1,3 @@
--- vi: tabstop=2
 -- Clone 'mini.nvim' manually in a way that it gets managed by 'mini.deps'
 local path_package = vim.fn.stdpath('data') .. '/site/'
 local mini_path = path_package .. 'pack/deps/start/mini.nvim'
@@ -65,10 +64,15 @@ now(function()
 end)
 
 add('folke/lazydev.nvim')
-later(function()
-  if vim.bo.filetype == 'lua' then
-    require('lazydev').setup()
-  end
+now(function()
+  vim.api.nvim_create_autocmd("Filetype", {
+    pattern = "lua",
+    callback = function()
+      vim.opt_local.tabstop = 2
+      vim.opt_local.shiftwidth = 2
+      require('lazydev').setup()
+    end
+  })
 end)
 
 add({
@@ -128,7 +132,9 @@ later(function()
   MiniMap.open()
 
   require('mini.cursorword').setup()
-  require('mini.trailspace').setup()
+  local trailspace = require('mini.trailspace')
+  trailspace.setup()
+  vim.keymap.set('n', '<leader>ds', trailspace.trim)
 
   require('mini.git').setup()
   require('mini.diff').setup()
